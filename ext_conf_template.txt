@@ -1,0 +1,5 @@
+# cat=basic/enable/100; type=integer; label=colPos of IRRE Content: Select the colPos where the tt_content will be saved in IRRE-view
+colPosOfIrreContent = 109
+
+# cat=basic/enable/200; type=boolean; label=Enable alpha features: Please note that alpha features may change, not for productive usage!
+enableAlphaFeatures = 0

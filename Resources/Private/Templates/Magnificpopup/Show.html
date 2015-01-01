@@ -1,0 +1,127 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+
+<f:flashMessages />
+
+<script type="text/javascript">
+	<f:if condition="{0: type} == {0: 'ajax'}">
+		if (typeof mfpInlineFunctions == 'undefined'){
+			window.mfpInlineFunctions = new Array();
+		}
+		mfpInlineFunctions.push(function($) {
+			$('.mfp-ajax-{uid}').magnificPopup({
+				type: 'ajax',
+				tClose: '<f:translate key="ajax.tClose"/>',
+				tLoading: '<f:translate key="ajax.tLoading"/>',
+				ajax: <![CDATA[{]]>
+					cursor: '{settings.type.ajax.ajax.cursor}',
+					tError: '<f:translate key="ajax.ajax.tError"/>'
+				<![CDATA[}]]>,
+				disableOn: {settings.type.ajax.disableOn},
+				mainClass: '{settings.type.ajax.mainClass}',
+				preloader: {settings.type.ajax.preloader},
+				focus: '{settings.type.ajax.focus}',
+				closeOnContentClick: {settings.type.ajax.closeOnContentClick},
+				closeOnBgClick: {settings.type.ajax.closeOnBgClick},
+				closeBtnInside: {settings.type.ajax.closeBtnInside},
+				showCloseBtn: {settings.type.ajax.showCloseBtn},
+				enableEscapeKey: {settings.type.ajax.enableEscapeKey},
+				modal: {settings.type.ajax.modal},
+				alignTop: {settings.type.ajax.alignTop},
+				fixedContentPos: '{settings.type.ajax.fixedContentPos}',
+				fixedBgPos: '{settings.type.ajax.fixedBgPos}',
+				overflowY: '{settings.type.ajax.overflowY}',
+				removalDelay: {settings.type.ajax.removalDelay},
+				closeMarkup: '{f:format.raw(value:settings.type.ajax.closeMarkup)}',
+				callbacks: {
+					ajaxContentAdded: function() {
+						//if (typeof responsiveimages == 'function') {
+							$("img.lazyload").responsiveimages({}, function() {
+								$(this).load(function() {
+									this.style.opacity = 1;
+								});
+							});
+						//}
+					}
+				}
+			});
+		});
+	</f:if>
+	<f:if condition="{0: type} == {0: 'inline'}">
+		if (typeof mfpInlineFunctions == 'undefined'){
+		   window.mfpInlineFunctions = new Array();
+		}
+		mfpInlineFunctions.push(function($) {
+			$('.mfp-inline-{uid}').magnificPopup({
+				type: 'inline',
+				tClose: '<f:translate key="inline.tClose"/>',
+				tLoading: '<f:translate key="inline.tLoading"/>',
+				disableOn: {settings.type.inline.disableOn},
+				mainClass: '{settings.type.inline.mainClass}',
+				preloader: {settings.type.inline.preloader},
+				focus: '{settings.type.inline.focus}',
+				closeOnContentClick: {settings.type.inline.closeOnContentClick},
+				closeOnBgClick: {settings.type.inline.closeOnBgClick},
+				closeBtnInside: {settings.type.inline.closeBtnInside},
+				showCloseBtn: {settings.type.inline.showCloseBtn},
+				enableEscapeKey: {settings.type.inline.enableEscapeKey},
+				modal: {settings.type.inline.modal},
+				alignTop: {settings.type.inline.alignTop},
+				fixedContentPos: '{settings.type.inline.fixedContentPos}',
+				fixedBgPos: '{settings.type.inline.fixedBgPos}',
+				overflowY: '{settings.type.inline.overflowY}',
+				removalDelay: {settings.type.inline.removalDelay},
+				closeMarkup: '{f:format.raw(value:settings.type.inline.closeMarkup)}',
+				callbacks: {
+					open: function() {
+						//if (typeof responsiveimages == 'function') {
+							$("img.lazyload").responsiveimages({}, function() {
+								$(this).load(function() {
+									this.style.opacity = 1;
+								});
+							});
+						//}
+					}
+				}
+			});
+		});
+	</f:if>
+	<f:if condition="{0: type} == {0: 'iframe'}">
+		if (typeof mfpInlineFunctions == 'undefined'){
+		   window.mfpInlineFunctions = new Array();
+		}
+		mfpInlineFunctions.push(function($) {
+			$('.mfp-iframe-{uid}').magnificPopup({
+				type: 'iframe',
+				tClose: '<f:translate key="iframe.tClose"/>',
+				tLoading: '<f:translate key="iframe.tLoading"/>',
+				disableOn: {settings.type.iframe.disableOn},
+				mainClass: '{settings.type.iframe.mainClass}',
+				preloader: {settings.type.iframe.preloader},
+				closeOnContentClick: {settings.type.iframe.closeOnContentClick},
+				closeOnBgClick: {settings.type.iframe.closeOnBgClick},
+				closeBtnInside: {settings.type.iframe.closeBtnInside},
+				showCloseBtn: {settings.type.iframe.showCloseBtn},
+				enableEscapeKey: {settings.type.iframe.enableEscapeKey},
+				modal: {settings.type.iframe.modal},
+				alignTop: {settings.type.iframe.alignTop},
+				fixedContentPos: '{settings.type.iframe.fixedContentPos}',
+				fixedBgPos: '{settings.type.iframe.fixedBgPos}',
+				overflowY: '{settings.type.iframe.overflowY}',
+				removalDelay: {settings.type.iframe.removalDelay},
+				closeMarkup: '{f:format.raw(value:settings.type.iframe.closeMarkup)}',
+			});
+		});
+	</f:if>
+</script>
+
+
+<a class="{link-class}" href='{link}'>{link-text}</a>
+<f:if condition="{inlinecontent}">
+	<div id="{inlinecontent_id}" class="white-popup-block mfp-hide">
+		{inlinecontent -> f:format.raw()}
+	</div>
+</f:if>
+
+</f:section>

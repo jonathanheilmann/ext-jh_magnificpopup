@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2014-05-27T15:22:46Z" product-name="jh_magnificpopup">
+		<header/>
+		<body>
+			<!-- Constant Editor -->
+			<trans-unit id="constants.subcat.magnificpopup.general">
+				<source>General</source>
+				<target>Allgemein</target>
+			</trans-unit>
+			<trans-unit id="constants.subcat.magnificpopup.imagesupport">
+				<source>Enable Support for images of extensions</source>
+				<target>Support aktivieren für Bilder von Extensions</target>
+			</trans-unit>
+			<trans-unit id="constants.subcat.magnificpopup.imagesetup">
+				<source>Magnific Popup - image</source>
+				<target>Magnific Popup - image</target>
+			</trans-unit>
+			<trans-unit id="constants.subcat.magnificpopup.type.iframe">
+				<source>Magnific Popup - iframe</source>
+				<target>Magnific Popup - iframe</target>
+			</trans-unit>
+			<trans-unit id="constants.subcat.magnificpopup.type.inline">
+				<source>Magnific Popup - inline</source>
+				<target>Magnific Popup - inline</target>
+			</trans-unit>
+			<trans-unit id="constants.subcat.magnificpopup.type.ajax">
+				<source>Magnific Popup - ajax</source>
+				<target>Magnific Popup - ajax</target>
+			</trans-unit>
+
+			<!-- languagle-labels of Magnific Popup - image -->
+			<trans-unit id="tClose">
+				<source>Close (Esc)</source>
+				<target>Schließen (Esc)</target>
+			</trans-unit>
+			<trans-unit id="tLoading">
+				<source>Loading image #%curr%...</source>
+				<target>Lade Bild #%curr%...</target>
+			</trans-unit>
+			<trans-unit id="tPrev">
+				<source>Previous (Left arrow key)</source>
+				<target>Vorheriges (Linke Pfeiltaste)</target>
+			</trans-unit>
+			<trans-unit id="tNext">
+				<source>Next (Right arrow key)</source>
+				<target>Nächstes (Rechte Pfeiltaste)</target>
+			</trans-unit>
+			<trans-unit id="tCounter">
+				<source>%curr% of %total%</source>
+				<target>%curr% von %total%</target>
+			</trans-unit>
+			<trans-unit id="tError">
+				<source><![CDATA[<a href="%url%">The image</a> could not be loaded.]]></source>
+				<target><![CDATA[<a href="%url%">Das Bild</a> konnte nicht geladen werden.]]></target>
+			</trans-unit>
+
+			<!-- languagle-labels of Magnific Popup - iframe -->
+			<trans-unit id="iframe.tClose">
+				<source>Close (Esc)</source>
+				<target>Schließen (Esc)</target>
+			</trans-unit>
+			<trans-unit id="iframe.tLoading">
+				<source>Loading...</source>
+				<target>Laden...</target>
+			</trans-unit>
+			<!-- languagle-labels of Magnific Popup - inline -->
+			<trans-unit id="inline.tClose">
+				<source>Close (Esc)</source>
+				<target>Schließen (Esc)</target>
+			</trans-unit>
+			<trans-unit id="inline.tLoading">
+				<source>Loading...</source>
+				<target>Laden...</target>
+			</trans-unit>
+			<!-- languagle-labels of Magnific Popup - ajax -->
+			<trans-unit id="ajax.tClose">
+				<source>Close (Esc)</source>
+				<target>Schließen (Esc)</target>
+			</trans-unit>
+			<trans-unit id="ajax.tLoading">
+				<source>Loading...</source>
+				<target>Laden...</target>
+			</trans-unit>
+			<trans-unit id="ajax.ajax.tError">
+				<source><![CDATA[<a href="%url%">The content</a> could not be loaded.]]></source>
+				<target><![CDATA[<a href="%url%">Der Inhalt</a> konnte nicht geladen werden.]]></target>
+			</trans-unit>
+
+			<!-- frontend plugin -->
+			<trans-unit id="pi1_title">
+				<source>Magnific Popup</source>
+				<target>Magnific Popup</target>
+			</trans-unit>
+			<trans-unit id="pi1_plus_wiz_description">
+				<source>Open a link or content with Magnific Popup</source>
+				<target>Öffnen eines Links oder Inhalts mit Magnific Popup</target>
+			</trans-unit>
+
+			<trans-unit id="pi_flexform.sheetOptions">
+				<source>General settings</source>
+				<target>Allgemeine Einstellungen</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.contenttype">
+				<source>Display type</source>
+				<target>Anzeige-Typ</target>
+			</trans-unit>
+
+			<trans-unit id="pi_flexform.sheetOptions.contenttype.iframe">
+				<source>Link</source>
+				<target>Link</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.contenttype.content.inline">
+				<source>Inline-Content</source>
+				<target>Inline-Content</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.contenttype.content.reference">
+				<source>Content-Reference</source>
+				<target>Content-Reference</target>
+			</trans-unit>
+
+			<trans-unit id="pi_flexform.sheetOptions.content.procedure">
+				<source>Method</source>
+				<target>Methode</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.content.procedure.ajax">
+				<source>Ajax</source>
+				<target>Ajax</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.content.procedure.inline">
+				<source>Inline</source>
+				<target>Inline</target>
+			</trans-unit>
+
+			<trans-unit id="pi_flexform.sheetOptions.content.inlinecontent">
+				<source>Inline Content</source>
+				<target>Inline Content</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.content.contentreference">
+				<source>Content reference</source>
+				<target>Content reference</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.content.page">
+				<source>Inline Content</source>
+				<target>Inline Content</target>
+			</trans-unit>
+
+			<trans-unit id="pi_flexform.sheetOptions.mfpOption.text">
+				<source>Link text</source>
+				<target>Link text</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.mfpOption.link">
+				<source>Link target</source>
+				<target>Link-Ziel</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.mfpOption.mainClass">
+				<source>mainClass</source>
+				<target>mainClass</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.mfpOption.mainClass_local">
+				<source>mainClass value</source>
+				<target>mainClass value</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.mfpOption.focus">
+				<source>focus</source>
+				<target>focus</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.mfpOption.closeBtnInside">
+				<source>closeBtnInside</source>
+				<target>closeBtnInside</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.mfpOption.modal">
+				<source>modal</source>
+				<target>modal</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.mfpOption.alignTop">
+				<source>alignTop</source>
+				<target>alignTop</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.mfpOption.overflowY">
+				<source>overflowY</source>
+				<target>overflowY</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.mfpOption.removalDelay">
+				<source>removalDelay</source>
+				<target>removalDelay</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.mfpOption.removalDelay_value">
+				<source>removalDelay value</source>
+				<target>removalDelay value</target>
+			</trans-unit>
+
+			<trans-unit id="pi_flexform.sheetOptions.select">
+				<source>Select...</source>
+				<target>Auswählen...</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.typoscript">
+				<source>Defined by TypoScript</source>
+				<target>Definiert durch TypoScript</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.local">
+				<source>Define local</source>
+				<target>Local definieren</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.false">
+				<source>False</source>
+				<target>Falsch</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.true">
+				<source>True</source>
+				<target>Wahr</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.cssValue.visible">
+				<source>Visible</source>
+				<target>Visible</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.cssValue.hidden">
+				<source>Hidden</source>
+				<target>Hidden</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.cssValue.scroll">
+				<source>Scroll</source>
+				<target>Scroll</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.cssValue.auto">
+				<source>Auto</source>
+				<target>Auto</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.cssValue.inherit">
+				<source>Inherit</source>
+				<target>Inherit</target>
+			</trans-unit>
+
+			<!-- Page TSconfig -->
+			<trans-unit id="pageTSconfig.externalLinkInMagnificpopup">
+				<source>Open link in Magnific Popup</source>
+				<target>Link in Magnific Popup öffnen</target>
+			</trans-unit>
+			<trans-unit id="pageTSconfig.internalLinkInMagnificpopup">
+				<source>Open page in Magnific Popup</source>
+				<target>Seite in Magnific Popup öffnen</target>
+			</trans-unit>
+			<trans-unit id="pageTSconfig.downloadInMagnificpopup">
+				<source>Open file in Magnific Popup</source>
+				<target>Datei in Magnific Popup öffnen</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

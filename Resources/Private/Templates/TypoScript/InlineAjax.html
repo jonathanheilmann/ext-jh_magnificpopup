@@ -1,0 +1,39 @@
+
+;(function($) {
+	$('.mfp-ajax-link').magnificPopup({
+		type: 'ajax',
+		tClose: '<f:translate key="ajax.tClose" extensionName="JhMagnificpopup"></f:translate>',
+		tLoading: '<f:translate key="ajax.tLoading" extensionName="JhMagnificpopup"></f:translate>',
+		ajax: {
+			cursor: '<f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariablesAjax.ajax.cursor" />',
+			tError: '<f:translate key="ajax.ajax.tError" extensionName="JhMagnificpopup"></f:translate>'
+		},
+		disableOn: <f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariablesAjax.disableOn" />,
+		mainClass: '<f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariablesAjax.mainClass" />',
+		preloader: <f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariablesAjax.preloader" />,
+		focus: '<f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariablesAjax.focus" />',
+		closeOnContentClick: <f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariablesAjax.closeOnContentClick" />,
+		closeOnBgClick: <f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariablesAjax.closeOnBgClick" />,
+		closeBtnInside: <f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariablesAjax.closeBtnInside" />,
+		showCloseBtn: <f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariablesAjax.showCloseBtn" />,
+		enableEscapeKey: <f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariablesAjax.enableEscapeKey" />,
+		modal: <f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariablesAjax.modal" />,
+		alignTop: <f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariablesAjax.alignTop" />,
+		fixedContentPos: '<f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariablesAjax.fixedContentPos" />',
+		fixedBgPos: '<f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariablesAjax.fixedBgPos" />',
+		overflowY: '<f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariablesAjax.overflowY" />',
+		removalDelay: <f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariablesAjax.removalDelay" />,
+		closeMarkup: '<f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariablesAjax.closeMarkup" />',
+		callbacks: {
+			ajaxContentAdded: function() {
+				//if (typeof responsiveimages == 'function') {
+					$("img.lazyload").responsiveimages({}, function() {
+						$(this).load(function() {
+							this.style.opacity = 1;
+						});
+					});
+				//}
+			}
+		}
+	});
+})(window.jQuery || window.Zepto);

@@ -1,0 +1,75 @@
+plugin.tx_jhmagnificpopup.view {
+	# cat=plugin.tx_jhmagnificpopup/file; type=string; label=Path to template root
+	templateRootPath = EXT:jh_magnificpopup/Resources/Private/Templates/
+	# cat=plugin.tx_jhmagnificpopup/file; type=string; label=Path to template partials
+	partialRootPath = EXT:jh_magnificpopup/Resources/Private/Partials/
+	# cat=plugin.tx_jhmagnificpopup/file; type=string; label=Path to template layouts
+	layoutRootPath = EXT:jh_magnificpopup/Resources/Private/Layouts/
+}
+
+#customsubcategory=magnificpopup_general=LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:constants.subcat.magnificpopup.general
+
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_general/010; type=boolean; label=Include jQuery
+plugin.tx_jhmagnificpopup.includejquerycore = 0
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_general/020; type=string; label=Magnific Popup javascript:Path to Magnific Popup javascript (empty to include no javascript)
+plugin.tx_jhmagnificpopup.includeMagnificpopupJs = EXT:jh_magnificpopup/Resources/Public/js/jquery.magnific-popup.min.js
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_general/025; type=string; label=Custom jQuery selector:Path to custom image jQuery filter (empty to include no javascript)
+plugin.tx_jhmagnificpopup.includeFilterIsImageFileJs = EXT:jh_magnificpopup/Resources/Public/js/jquery.filter-isImageFile.min.js
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_general/030; type=string; label= Magnific Popup css:Path to Magnific Popup css (empty to include no css)
+plugin.tx_jhmagnificpopup.includeMagnificpopupCss = EXT:jh_magnificpopup/Resources/Public/css/magnific-popup.css
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_general/070; type=boolean; label=Enable alpha features of extension
+plugin.tx_jhmagnificpopup.enableAlphaFeatures = 0
+
+
+
+#customsubcategory=magnificpopup_imagesupport=LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:constants.subcat.magnificpopup.imagesupport
+
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_imagesupport/010; type=boolean; label=EXT news:Enable support for EXT:news
+plugin.tx_jhmagnificpopup.magnificpopup.support.tx_news = 0
+
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_imagesupport/020; type=boolean; label=EXT tt_news single-view:Enable support for single-view
+plugin.tx_jhmagnificpopup.magnificpopup.support.tx_ttnews.single = 0
+
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_imagesupport/030; type=boolean; label=EXT tt_news list-view:Enable support for list-view
+plugin.tx_jhmagnificpopup.magnificpopup.support.tx_ttnews.list = 0
+
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_imagesupport/040; type=boolean; label=EXT tt_news latest-view:Enable support for latest-view
+plugin.tx_jhmagnificpopup.magnificpopup.support.tx_ttnews.latest = 0
+
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_imagesupport/050; type=boolean; label=EXT bootstrap_package:Enable support for bootstrap_package
+plugin.tx_jhmagnificpopup.magnificpopup.support.tx_bootstrappackage = 1
+
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_imagesupport/090; type=string; label=User-defined:jQuery selector for user-defined classes
+plugin.tx_jhmagnificpopup.magnificpopup.support.user =
+
+
+
+#customsubcategory=magnificpopup_imagesetup=LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:constants.subcat.magnificpopup.imagesetup
+
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_imagesetup/100; type=string; label=mainClass: mainClass used for animation effects
+plugin.tx_jhmagnificpopup.magnificpopup.mainClass =
+
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_imagesetup/105; type=int+; label=removalDelay: removalDelay used for animation effects
+plugin.tx_jhmagnificpopup.magnificpopup.removalDelay = 0
+
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_imagesetup/110; type=boolean; label=Enable gallery: Enable gallery-view of Magnific Popup
+plugin.tx_jhmagnificpopup.magnificpopup.gallery.enabled = 1
+
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_imagesetup/120; type=int+; label=Preload befor:Preload x images before actual
+plugin.tx_jhmagnificpopup.magnificpopup.gallery.preload.before = 1
+
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_imagesetup/130; type=int+; label=Preload after:Preload x images after actual
+plugin.tx_jhmagnificpopup.magnificpopup.gallery.preload.after = 2
+
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_imagesetup/140; type=boolean; label=navigateByImgClick:Enable 'navigate by image click'
+plugin.tx_jhmagnificpopup.magnificpopup.gallery.navigateByImgClick = 1
+
+
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_imagesetup/210; type=string; label=Cursor:Set to 'null' to disable zoom out cursor.
+plugin.tx_jhmagnificpopup.magnificpopup.image.cursor = mfp-zoom-out-cur
+
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_imagesetup/220; type=int+; label=Vertical gap:Vertical gap
+plugin.tx_jhmagnificpopup.magnificpopup.image.verticalGap = 88
+
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_imagesetup/230; type=boolean; label=Vertical fit:Fit image in area vertically
+plugin.tx_jhmagnificpopup.magnificpopup.image.verticalFit = 1

@@ -1,0 +1,112 @@
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_general/060; type=boolean; label=Use eID for Method "Ajax"
+plugin.tx_jhmagnificpopup.useEidForAjaxMethod = 0
+
+#customsubcategory=mfp_type_iframe=LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:constants.subcat.magnificpopup.type.iframe
+# cat=plugin.tx_jhmagnificpopup/mfp_type_iframe/010; type=boolean; label=Enable global: Enable iframe popup globally
+plugin.tx_jhmagnificpopup.type.iframe.enableglobal = 0
+
+# cat=plugin.tx_jhmagnificpopup/mfp_type_iframe/210; type=int+; label=disableOn
+plugin.tx_jhmagnificpopup.type.iframe.disableOn = 0
+# cat=plugin.tx_jhmagnificpopup/mfp_type_iframe/220; type=string; label=mainClass
+plugin.tx_jhmagnificpopup.type.iframe.mainClass =
+# cat=plugin.tx_jhmagnificpopup/mfp_type_iframe/230; type=boolean; label=preloader
+plugin.tx_jhmagnificpopup.type.iframe.preloader = 1
+# cat=plugin.tx_jhmagnificpopup/mfp_type_iframe/240; type=boolean; label=closeOnContentClick
+plugin.tx_jhmagnificpopup.type.iframe.closeOnContentClick = 0
+# cat=plugin.tx_jhmagnificpopup/mfp_type_iframe/250; type=boolean; label=closeOnBgClick
+plugin.tx_jhmagnificpopup.type.iframe.closeOnBgClick = 1
+# cat=plugin.tx_jhmagnificpopup/mfp_type_iframe/260; type=boolean; label=closeBtnInside
+plugin.tx_jhmagnificpopup.type.iframe.closeBtnInside = 0
+# cat=plugin.tx_jhmagnificpopup/mfp_type_iframe/270; type=boolean; label=showCloseBtn
+plugin.tx_jhmagnificpopup.type.iframe.showCloseBtn = 1
+# cat=plugin.tx_jhmagnificpopup/mfp_type_iframe/280; type=boolean; label=enableEscapeKey
+plugin.tx_jhmagnificpopup.type.iframe.enableEscapeKey = 1
+# cat=plugin.tx_jhmagnificpopup/mfp_type_iframe/290; type=boolean; label=modal
+plugin.tx_jhmagnificpopup.type.iframe.modal = 0
+# cat=plugin.tx_jhmagnificpopup/mfp_type_iframe/300; type=boolean; label=alignTop
+plugin.tx_jhmagnificpopup.type.iframe.alignTop = 0
+# cat=plugin.tx_jhmagnificpopup/mfp_type_iframe/310; type=string; label=fixedContentPos
+plugin.tx_jhmagnificpopup.type.iframe.fixedContentPos = auto
+# cat=plugin.tx_jhmagnificpopup/mfp_type_iframe/320; type=string; label=fixedBgPos
+plugin.tx_jhmagnificpopup.type.iframe.fixedBgPos = auto
+# cat=plugin.tx_jhmagnificpopup/mfp_type_iframe/330; type=string; label=overflowY
+plugin.tx_jhmagnificpopup.type.iframe.overflowY = auto
+# cat=plugin.tx_jhmagnificpopup/mfp_type_iframe/340; type=int+; label=removalDelay
+plugin.tx_jhmagnificpopup.type.iframe.removalDelay = 0
+# cat=plugin.tx_jhmagnificpopup/mfp_type_iframe/350; type=string; label=closeMarkup
+plugin.tx_jhmagnificpopup.type.iframe.closeMarkup = <button title="%title%" class="mfp-close"><i class="mfp-close-icn">&times;</i></button>
+
+
+#customsubcategory=mfp_type_inline=LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:constants.subcat.magnificpopup.type.inline
+# cat=plugin.tx_jhmagnificpopup/mfp_type_inline/210; type=int+; label=disableOn
+plugin.tx_jhmagnificpopup.type.inline.disableOn = 0
+# cat=plugin.tx_jhmagnificpopup/mfp_type_inline/220; type=sting; label=mainClass
+plugin.tx_jhmagnificpopup.type.inline.mainClass =
+# cat=plugin.tx_jhmagnificpopup/mfp_type_inline/230; type=boolean; label=preloader
+plugin.tx_jhmagnificpopup.type.inline.preloader = 1
+# cat=plugin.tx_jhmagnificpopup/mfp_type_inline/240; type=string; label=focus
+plugin.tx_jhmagnificpopup.type.inline.focus =
+# cat=plugin.tx_jhmagnificpopup/mfp_type_inline/250; type=boolean; label=closeOnContentClick
+plugin.tx_jhmagnificpopup.type.inline.closeOnContentClick = 0
+# cat=plugin.tx_jhmagnificpopup/mfp_type_inline/260; type=boolean; label=closeOnBgClick
+plugin.tx_jhmagnificpopup.type.inline.closeOnBgClick = 1
+# cat=plugin.tx_jhmagnificpopup/mfp_type_inline/270; type=boolean; label=closeBtnInside
+plugin.tx_jhmagnificpopup.type.inline.closeBtnInside = 0
+# cat=plugin.tx_jhmagnificpopup/mfp_type_inline/280; type=boolean; label=showCloseBtn
+plugin.tx_jhmagnificpopup.type.inline.showCloseBtn = 1
+# cat=plugin.tx_jhmagnificpopup/mfp_type_inline/290; type=boolean; label=enableEscapeKey
+plugin.tx_jhmagnificpopup.type.inline.enableEscapeKey = 1
+# cat=plugin.tx_jhmagnificpopup/mfp_type_inline/300; type=boolean; label=modal
+plugin.tx_jhmagnificpopup.type.inline.modal = 0
+# cat=plugin.tx_jhmagnificpopup/mfp_type_inline/310; type=boolean; label=alignTop
+plugin.tx_jhmagnificpopup.type.inline.alignTop = 0
+# cat=plugin.tx_jhmagnificpopup/mfp_type_inline/320; type=string; label=fixedContentPos
+plugin.tx_jhmagnificpopup.type.inline.fixedContentPos = auto
+# cat=plugin.tx_jhmagnificpopup/mfp_type_inline/330; type=string; label=fixedBgPos
+plugin.tx_jhmagnificpopup.type.inline.fixedBgPos = auto
+# cat=plugin.tx_jhmagnificpopup/mfp_type_inline/340; type=string; label=overflowY
+plugin.tx_jhmagnificpopup.type.inline.overflowY = auto
+# cat=plugin.tx_jhmagnificpopup/mfp_type_inline/350; type=int+; label=removalDelay
+plugin.tx_jhmagnificpopup.type.inline.removalDelay = 0
+# cat=plugin.tx_jhmagnificpopup/mfp_type_inline/360; type=string; label=closeMarkup
+plugin.tx_jhmagnificpopup.type.inline.closeMarkup = <button title="%title%" class="mfp-close"><i class="mfp-close-icn">&times;</i></button>
+
+
+#customsubcategory=mfp_type_ajax=LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:constants.subcat.magnificpopup.type.ajax
+# cat=plugin.tx_jhmagnificpopup/mfp_type_ajax/010; type=boolean; label=Enable global: Enable ajax popup globally
+plugin.tx_jhmagnificpopup.type.ajax.enableglobal = 0
+
+# cat=plugin.tx_jhmagnificpopup/mfp_type_ajax/200; type=int+; label=ajax cursor
+plugin.tx_jhmagnificpopup.type.ajax.ajax.cursor = mfp-ajax-cur
+# cat=plugin.tx_jhmagnificpopup/mfp_type_ajax/210; type=int+; label=disableOn
+plugin.tx_jhmagnificpopup.type.ajax.disableOn = 0
+# cat=plugin.tx_jhmagnificpopup/mfp_type_ajax/220; type=string; label=mainClass
+plugin.tx_jhmagnificpopup.type.ajax.mainClass =
+# cat=plugin.tx_jhmagnificpopup/mfp_type_ajax/230; type=boolean; label=preloader
+plugin.tx_jhmagnificpopup.type.ajax.preloader = 1
+# cat=plugin.tx_jhmagnificpopup/mfp_type_ajax/235; type=string; label=focus
+plugin.tx_jhmagnificpopup.type.ajax.focus =
+# cat=plugin.tx_jhmagnificpopup/mfp_type_ajax/240; type=boolean; label=closeOnContentClick
+plugin.tx_jhmagnificpopup.type.ajax.closeOnContentClick = 0
+# cat=plugin.tx_jhmagnificpopup/mfp_type_ajax/250; type=boolean; label=closeOnBgClick
+plugin.tx_jhmagnificpopup.type.ajax.closeOnBgClick = 1
+# cat=plugin.tx_jhmagnificpopup/mfp_type_ajax/260; type=boolean; label=closeBtnInside
+plugin.tx_jhmagnificpopup.type.ajax.closeBtnInside = 0
+# cat=plugin.tx_jhmagnificpopup/mfp_type_ajax/270; type=boolean; label=showCloseBtn
+plugin.tx_jhmagnificpopup.type.ajax.showCloseBtn = 1
+# cat=plugin.tx_jhmagnificpopup/mfp_type_ajax/280; type=boolean; label=enableEscapeKey
+plugin.tx_jhmagnificpopup.type.ajax.enableEscapeKey = 1
+# cat=plugin.tx_jhmagnificpopup/mfp_type_ajax/385; type=boolean; label=modal
+plugin.tx_jhmagnificpopup.type.ajax.modal = 0
+# cat=plugin.tx_jhmagnificpopup/mfp_type_ajax/290; type=boolean; label=alignTop
+plugin.tx_jhmagnificpopup.type.ajax.alignTop = 0
+# cat=plugin.tx_jhmagnificpopup/mfp_type_ajax/300; type=string; label=fixedContentPos
+plugin.tx_jhmagnificpopup.type.ajax.fixedContentPos = auto
+# cat=plugin.tx_jhmagnificpopup/mfp_type_ajax/310; type=string; label=fixedBgPos
+plugin.tx_jhmagnificpopup.type.ajax.fixedBgPos = auto
+# cat=plugin.tx_jhmagnificpopup/mfp_type_ajax/320; type=string; label=overflowY
+plugin.tx_jhmagnificpopup.type.ajax.overflowY = auto
+# cat=plugin.tx_jhmagnificpopup/mfp_type_ajax/330; type=int+; label=removalDelay
+plugin.tx_jhmagnificpopup.type.ajax.removalDelay = 0
+# cat=plugin.tx_jhmagnificpopup/mfp_type_ajax/340; type=string; label=closeMarkup
+plugin.tx_jhmagnificpopup.type.ajax.closeMarkup = <button title="%title%" class="mfp-close"><i class="mfp-close-icn">&times;</i></button>

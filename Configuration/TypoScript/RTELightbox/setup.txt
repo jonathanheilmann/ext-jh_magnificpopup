@@ -1,0 +1,37 @@
+// images in RTE
+lib.parseFunc_RTE.tags.img.postUserFunc.imageLinkWrap {
+  JSwindow = 0
+  directImageLink = 1
+  linkParams.ATagParams.dataWrap = class="magnificpopup mfp-for-rte"
+}
+
+plugin.tx_jhmagnificpopup {
+	settings {
+		magnificpopup {
+			# Add some selectors if support is activated
+			rteSelector = COA
+			rteSelector {
+				# user-defined selectors
+				999 = TEXT
+				999.value = {$plugin.tx_jhmagnificpopup.magnificpopup.support.rteLightbox}
+				999.insertData = 1
+				999.if.isTrue = {$plugin.tx_jhmagnificpopup.magnificpopup.support.rteLightbox}
+			}
+		}
+	}
+	# Copy actual page.jsFooterInline to setup to prevent from data-loss
+	setup < page.jsFooterInline
+	setup {
+		# add fluidtemplate
+		112 = FLUIDTEMPLATE
+		112 {
+			file = {$plugin.tx_jhmagnificpopup.view.templateRootPath}TypoScript/RTELightbox.html
+			variables {
+				selector < plugin.tx_jhmagnificpopup.settings.magnificpopup.rteSelector
+			}
+		}
+	}
+}
+
+//add javascript to footer
+page.jsFooterInline < plugin.tx_jhmagnificpopup.setup

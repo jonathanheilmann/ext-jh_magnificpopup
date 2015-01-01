@@ -1,0 +1,2 @@
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_imagesupport/095; type=string; label=jQuery selector for RTE click-enlarge
+plugin.tx_jhmagnificpopup.magnificpopup.support.rteLightbox = p

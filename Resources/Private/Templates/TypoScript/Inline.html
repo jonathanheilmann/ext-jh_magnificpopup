@@ -1,0 +1,23 @@
+
+;(function($) {
+	$('.mfp-link').magnificPopup({
+		type: 'iframe',
+		tClose: '<f:translate key="tClose" extensionName="JhMagnificpopup"></f:translate>',
+		tLoading: '<f:translate key="tLoading" extensionName="JhMagnificpopup"></f:translate>',
+		disableOn: <f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariables.disableOn" />,
+		mainClass: '<f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariables.mainClass" />',
+		preloader: <f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariables.preloader" />,
+		closeOnContentClick: <f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariables.closeOnContentClick" />,
+		closeOnBgClick: <f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariables.closeOnBgClick" />,
+		closeBtnInside: <f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariables.closeBtnInside" />,
+		showCloseBtn: <f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariables.showCloseBtn" />,
+		enableEscapeKey: <f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariables.enableEscapeKey" />,
+		modal: <f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariables.modal" />,
+		alignTop: <f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariables.alignTop" />,
+		fixedContentPos: '<f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariables.fixedContentPos" />',
+		fixedBgPos: '<f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariables.fixedBgPos" />',
+		overflowY: '<f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariables.overflowY" />',
+		removalDelay: <f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariables.removalDelay" />,
+		closeMarkup: '<f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariables.closeMarkup" />'
+	});
+})(window.jQuery || window.Zepto);

@@ -1,0 +1,29 @@
+
+;(function($) {
+	$('{selector}').each(function() {
+		$(this).magnificPopup({
+			delegate: 'a.mfp-for-rte',
+			tClose: '<f:translate key="tClose" extensionName="JhMagnificpopup"></f:translate>',
+			type: 'image',
+			tLoading: '<f:translate key="tLoading" extensionName="JhMagnificpopup"></f:translate>',
+			mainClass: '<f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.magnificpopup.templateVariables.mainClass" />',
+			gallery: {
+				enabled: <f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.magnificpopup.templateVariables.galleryEnabled" />,
+				preload: <f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.magnificpopup.templateVariables.galleryPreload" />,
+				navigateByImgClick: <f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.magnificpopup.templateVariables.galleryNavigateByImgClick" />,
+				arrowMarkup: '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>',
+				tPrev: '<f:translate key="tPrev" extensionName="JhMagnificpopup"></f:translate>',
+				tNext: '<f:translate key="tNext" extensionName="JhMagnificpopup"></f:translate>',
+				tCounter: '<f:translate key="tCounter" extensionName="JhMagnificpopup"></f:translate>'
+			},
+			image: {
+				cursor: '<f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.magnificpopup.templateVariables.imageCursor" />',
+				titleSrc: 'title',
+				verticalGap: <f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.magnificpopup.templateVariables.imageVerticalGap" />,
+				verticalFit: <f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.magnificpopup.templateVariables.imageVerticalFit" />,
+				tError: '<f:translate key="tError" extensionName="JhMagnificpopup"></f:translate>'
+			},
+			removalDelay: <f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.magnificpopup.templateVariables.removalDelay" />
+		});
+	});
+})(window.jQuery || window.Zepto);
