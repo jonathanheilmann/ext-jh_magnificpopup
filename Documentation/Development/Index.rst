@@ -20,7 +20,7 @@ Development
 Hooks
 ^^^^^
 
-Hooks will be used for any non-exbase code.
+Hooks will be used for any non-extbase code.
 
 An Extension to demonstrate the usage of the hooks is available in TER (Extension-key jh_magnificpopup_hookexamples)
 

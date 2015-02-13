@@ -31,7 +31,7 @@ ChangeLog
          0.4.0
 
    :Changes:
-         \* Added option to easy use animation effects for Magnific Popup (please see chapter Developer->Animation Effects Hook)
+         \* Added option to easy use animation effects for Magnific Popup (please see chapter Development->Animation Effects Hook)
 
          \* Added Signal for showAction
 

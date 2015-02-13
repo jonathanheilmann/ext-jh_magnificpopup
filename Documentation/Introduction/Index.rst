@@ -28,5 +28,4 @@ Introduction
    Credits/Index
    Contribute/Index
    Screenshot/Index
-   SupportForTypo3Cms60/Index
 
