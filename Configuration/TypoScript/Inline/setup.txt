@@ -1,148 +1,247 @@
 //
-// Setup for image-lightbox
+// Setup for content-element
 //
 
-plugin.tx_jhmagnificpopup {
-	view {
-		templateRootPath = {$plugin.tx_jhmagnificpopup.view.templateRootPath}
-		partialRootPath = {$plugin.tx_jhmagnificpopup.view.partialRootPath}
-		layoutRootPath = {$plugin.tx_jhmagnificpopup.view.layoutRootPath}
-	}
-	persistence {
-		storagePid = {$plugin.tx_jhmagnificpopup.persistence.storagePid}
-	}
-	features {
-		# uncomment the following line to enable the new Property Mapper.
-		# rewrittenPropertyMapper = 1
-	}
-}
-
-# Add css files to page
-page.includeCSS {
-  tx_jhmagnificpopup10 = {$plugin.tx_jhmagnificpopup.includeMagnificpopupCss}
-  tx_jhmagnificpopup10.if.isTrue = {$plugin.tx_jhmagnificpopup.includeMagnificpopupCss}
-}
-
-# Add JavaScript files to page
 page.includeJSFooterlibs {
-  tx_jhmagnificpopup10 = EXT:jh_magnificpopup/Resources/Public/js/jquery-1.11.2.min.js
-  tx_jhmagnificpopup10.forceOnTop = 1
-  tx_jhmagnificpopup10.if.isTrue = {$plugin.tx_jhmagnificpopup.includejquerycore}
-
-  tx_jhmagnificpopup20 = {$plugin.tx_jhmagnificpopup.includeMagnificpopupJs}
-  tx_jhmagnificpopup20.if.isTrue = {$plugin.tx_jhmagnificpopup.includeMagnificpopupJs}
-
-  tx_jhmagnificpopup25 = {$plugin.tx_jhmagnificpopup.includeFilterIsImageFileJs}
-  tx_jhmagnificpopup25.if.isTrue = {$plugin.tx_jhmagnificpopup.includeFilterIsImageFileJs}
+	tx_jhmagnificpopup30 = EXT:jh_magnificpopup/Resources/Public/js/jquery.mfpInlineFunctions.min.js
 }
 
-# Config tx_news if support is set
-[globalVar = LIT:1 = {$plugin.tx_jhmagnificpopup.magnificpopup.support.tx_news}]
-	plugin.tx_news.settings.detail.media.image {
-		lightbox = magnificpopup
-	}
-[global]
+plugin.tx_jhmagnificpopup.settings {
+	useEidForAjaxMethod = {$plugin.tx_jhmagnificpopup.useEidForAjaxMethod}
+	type {
+		// Set default settings for Magnific Popup type iframe
+		iframe {
+			enableglobal = {$plugin.tx_jhmagnificpopup.type.iframe.enableglobal}
 
-plugin.tx_jhmagnificpopup {
-	settings {
-		magnificpopup {
-			# Add some selectors if support is activated
-			selector = COA
-			selector {
-				# default selector
-				1 = TEXT
-				1.value = .csc-textpic-imagewrap
-				# tx_news
-				10 = TEXT
-				10.value = ,.news-img-wrap
-				10.if.isTrue = {$plugin.tx_jhmagnificpopup.magnificpopup.support.tx_news}
-				# tx_ttnews - single-view
-				20 = TEXT
-				20.value = ,.news-single-item
-				20.if.isTrue = {$plugin.tx_jhmagnificpopup.magnificpopup.support.tx_ttnews.single}
-				# tx_ttnews - list-view
-				21 = TEXT
-				21.value = ,.news-list-container
-				21.if.isTrue = {$plugin.tx_jhmagnificpopup.magnificpopup.support.tx_ttnews.list}
-				# tx_ttnews - single-view
-				22 = TEXT
-				22.value = ,.news-latest-container
-				22.if.isTrue = {$plugin.tx_jhmagnificpopup.magnificpopup.support.tx_ttnews.latest}
-				# bootstrap_package
-				30 = TEXT
-				30.value = ,.image-wrap
-				30.if.isTrue = {$plugin.tx_jhmagnificpopup.magnificpopup.support.tx_bootstrappackage}
-				# user-defined selectors (always start with ','!)
-				999 = TEXT
-				999.value = ,{$plugin.tx_jhmagnificpopup.magnificpopup.support.user}
-				999.insertData = 1
-				999.if.isTrue = {$plugin.tx_jhmagnificpopup.magnificpopup.support.user}
-			}
-			templateVariables = COA
-			templateVariables {
-				mainClass = COA
-				mainClass {
-					#default selector
-					1 = TEXT
-					1.value = mfp-img-mobile
-					# user defined selector
-					10 = TEXT
-					10.value = {$plugin.tx_jhmagnificpopup.magnificpopup.mainClass}
-					10.noTrimWrap= | ||
-					10.insertData = 1
-					10.if.isTrue = {$plugin.tx_jhmagnificpopup.magnificpopup.mainClass}
-				}
-				galleryEnabled = TEXT
-				galleryEnabled.value = {$plugin.tx_jhmagnificpopup.magnificpopup.gallery.enabled}
-				galleryPreload = TEXT
-				galleryPreload.value = [{$plugin.tx_jhmagnificpopup.magnificpopup.gallery.preload.before},{$plugin.tx_jhmagnificpopup.magnificpopup.gallery.preload.after}]
-				galleryNavigateByImgClick = TEXT
-				galleryNavigateByImgClick.value = {$plugin.tx_jhmagnificpopup.magnificpopup.gallery.navigateByImgClick}
-				imageCursor = TEXT
-				imageCursor.value = {$plugin.tx_jhmagnificpopup.magnificpopup.image.cursor}
-				imageVerticalGap = TEXT
-				imageVerticalGap.value = {$plugin.tx_jhmagnificpopup.magnificpopup.image.verticalGap}
-				imageVerticalFit = TEXT
-				imageVerticalFit.value = {$plugin.tx_jhmagnificpopup.magnificpopup.image.verticalFit}
-				removalDelay = TEXT
-				removalDelay.value = {$plugin.tx_jhmagnificpopup.magnificpopup.removalDelay}
-			}
+			disableOn = {$plugin.tx_jhmagnificpopup.type.iframe.disableOn}
+			mainClass = {$plugin.tx_jhmagnificpopup.type.iframe.mainClass}
+			preloader = {$plugin.tx_jhmagnificpopup.type.iframe.preloader}
+			closeOnContentClick = {$plugin.tx_jhmagnificpopup.type.iframe.closeOnContentClick}
+			closeOnBgClick = {$plugin.tx_jhmagnificpopup.type.iframe.closeOnBgClick}
+			closeBtnInside = {$plugin.tx_jhmagnificpopup.type.iframe.closeBtnInside}
+			showCloseBtn = {$plugin.tx_jhmagnificpopup.type.iframe.showCloseBtn}
+			enableEscapeKey = {$plugin.tx_jhmagnificpopup.type.iframe.enableEscapeKey}
+			modal = {$plugin.tx_jhmagnificpopup.type.iframe.modal}
+			alignTop = {$plugin.tx_jhmagnificpopup.type.iframe.alignTop}
+			fixedContentPos = {$plugin.tx_jhmagnificpopup.type.iframe.fixedContentPos}
+			fixedBgPos = {$plugin.tx_jhmagnificpopup.type.iframe.fixedBgPos}
+			overflowY = {$plugin.tx_jhmagnificpopup.type.iframe.overflowY}
+			removalDelay = {$plugin.tx_jhmagnificpopup.type.iframe.removalDelay}
+			closeMarkup = {$plugin.tx_jhmagnificpopup.type.iframe.closeMarkup}
+		}
+		// Set default settings for Magnific Popup type inline
+		inline {
+			disableOn = {$plugin.tx_jhmagnificpopup.type.inline.disableOn}
+			mainClass = {$plugin.tx_jhmagnificpopup.type.inline.mainClass}
+			preloader = {$plugin.tx_jhmagnificpopup.type.inline.preloader}
+			focus = {$plugin.tx_jhmagnificpopup.type.inline.focus}
+			closeOnContentClick = {$plugin.tx_jhmagnificpopup.type.inline.closeOnContentClick}
+			closeOnBgClick = {$plugin.tx_jhmagnificpopup.type.inline.closeOnBgClick}
+			closeBtnInside = {$plugin.tx_jhmagnificpopup.type.inline.closeBtnInside}
+			showCloseBtn = {$plugin.tx_jhmagnificpopup.type.inline.showCloseBtn}
+			enableEscapeKey = {$plugin.tx_jhmagnificpopup.type.inline.enableEscapeKey}
+			modal = {$plugin.tx_jhmagnificpopup.type.inline.modal}
+			alignTop = {$plugin.tx_jhmagnificpopup.type.inline.alignTop}
+			fixedContentPos = {$plugin.tx_jhmagnificpopup.type.inline.fixedContentPos}
+			fixedBgPos = {$plugin.tx_jhmagnificpopup.type.inline.fixedBgPos}
+			overflowY = {$plugin.tx_jhmagnificpopup.type.inline.overflowY}
+			removalDelay = {$plugin.tx_jhmagnificpopup.type.inline.removalDelay}
+			closeMarkup = {$plugin.tx_jhmagnificpopup.type.inline.closeMarkup}
+		}
+		// Set default settings for Magnific Popup type ajax
+		ajax {
+			ajax.cursor = {$plugin.tx_jhmagnificpopup.type.ajax.ajax.cursor}
+			disableOn = {$plugin.tx_jhmagnificpopup.type.ajax.disableOn}
+			mainClass = {$plugin.tx_jhmagnificpopup.type.ajax.mainClass}
+			preloader = {$plugin.tx_jhmagnificpopup.type.ajax.preloader}
+			focus = {$plugin.tx_jhmagnificpopup.type.ajax.focus}
+			closeOnContentClick = {$plugin.tx_jhmagnificpopup.type.ajax.closeOnContentClick}
+			closeOnBgClick = {$plugin.tx_jhmagnificpopup.type.ajax.closeOnBgClick}
+			closeBtnInside = {$plugin.tx_jhmagnificpopup.type.ajax.closeBtnInside}
+			showCloseBtn = {$plugin.tx_jhmagnificpopup.type.ajax.showCloseBtn}
+			enableEscapeKey = {$plugin.tx_jhmagnificpopup.type.ajax.enableEscapeKey}
+			modal = {$plugin.tx_jhmagnificpopup.type.ajax.modal}
+			alignTop = {$plugin.tx_jhmagnificpopup.type.ajax.alignTop}
+			fixedContentPos = {$plugin.tx_jhmagnificpopup.type.ajax.fixedContentPos}
+			fixedBgPos = {$plugin.tx_jhmagnificpopup.type.ajax.fixedBgPos}
+			overflowY = {$plugin.tx_jhmagnificpopup.type.ajax.overflowY}
+			removalDelay = {$plugin.tx_jhmagnificpopup.type.ajax.removalDelay}
+			closeMarkup = {$plugin.tx_jhmagnificpopup.type.ajax.closeMarkup}
 		}
 	}
+	templateVariables = COA
+	templateVariables {
+		disableOn = TEXT
+		disableOn.value = {$plugin.tx_jhmagnificpopup.type.iframe.disableOn}
+		disableOn.value.intval = 1
+		mainClass = TEXT
+		mainClass.value = {$plugin.tx_jhmagnificpopup.type.iframe.mainClass}
+		preloader = TEXT
+		preloader.value = {$plugin.tx_jhmagnificpopup.type.iframe.preloader}
+		closeOnContentClick = TEXT
+		closeOnContentClick.value = {$plugin.tx_jhmagnificpopup.type.iframe.closeOnContentClick}
+		closeOnBgClick = TEXT
+		closeOnBgClick.value = {$plugin.tx_jhmagnificpopup.type.iframe.closeOnBgClick}
+		closeBtnInside = TEXT
+		closeBtnInside.value = {$plugin.tx_jhmagnificpopup.type.iframe.closeBtnInside}
+		showCloseBtn = TEXT
+		showCloseBtn.value = {$plugin.tx_jhmagnificpopup.type.iframe.showCloseBtn}
+		enableEscapeKey = TEXT
+		enableEscapeKey.value = {$plugin.tx_jhmagnificpopup.type.iframe.enableEscapeKey}
+		modal = TEXT
+		modal.value = {$plugin.tx_jhmagnificpopup.type.iframe.modal}
+		alignTop = TEXT
+		alignTop.value = {$plugin.tx_jhmagnificpopup.type.iframe.alignTop}
+		fixedContentPos = TEXT
+		fixedContentPos.value = {$plugin.tx_jhmagnificpopup.type.iframe.fixedContentPos}
+		fixedBgPos = TEXT
+		fixedBgPos.value = {$plugin.tx_jhmagnificpopup.type.iframe.fixedBgPos}
+		overflowY = TEXT
+		overflowY.value = {$plugin.tx_jhmagnificpopup.type.iframe.overflowY}
+		removalDelay = TEXT
+		removalDelay.value = {$plugin.tx_jhmagnificpopup.type.iframe.removalDelay}
+		closeMarkup = TEXT
+		closeMarkup.value = {$plugin.tx_jhmagnificpopup.type.iframe.closeMarkup}
+	}
+	templateVariablesAjax = COA
+	templateVariablesAjax {
+		ajax.cursor = TEXT
+		ajax.cursor.value = {$plugin.tx_jhmagnificpopup.type.ajax.ajax.cursor}
+		disableOn = TEXT
+		disableOn.value = {$plugin.tx_jhmagnificpopup.type.ajax.disableOn}
+		disableOn.value.intval = 1
+		mainClass = TEXT
+		mainClass.value = {$plugin.tx_jhmagnificpopup.type.ajax.mainClass}
+		preloader = TEXT
+		preloader.value = {$plugin.tx_jhmagnificpopup.type.ajax.preloader}
+		focus = TEXT
+		focus.value = {$plugin.tx_jhmagnificpopup.type.ajax.focus}
+		closeOnContentClick = TEXT
+		closeOnContentClick.value = {$plugin.tx_jhmagnificpopup.type.ajax.closeOnContentClick}
+		closeOnBgClick = TEXT
+		closeOnBgClick.value = {$plugin.tx_jhmagnificpopup.type.ajax.closeOnBgClick}
+		closeBtnInside = TEXT
+		closeBtnInside.value = {$plugin.tx_jhmagnificpopup.type.ajax.closeBtnInside}
+		showCloseBtn = TEXT
+		showCloseBtn.value = {$plugin.tx_jhmagnificpopup.type.ajax.showCloseBtn}
+		enableEscapeKey = TEXT
+		enableEscapeKey.value = {$plugin.tx_jhmagnificpopup.type.ajax.enableEscapeKey}
+		modal = TEXT
+		modal.value = {$plugin.tx_jhmagnificpopup.type.ajax.modal}
+		alignTop = TEXT
+		alignTop.value = {$plugin.tx_jhmagnificpopup.type.ajax.alignTop}
+		fixedContentPos = TEXT
+		fixedContentPos.value = {$plugin.tx_jhmagnificpopup.type.ajax.fixedContentPos}
+		fixedBgPos = TEXT
+		fixedBgPos.value = {$plugin.tx_jhmagnificpopup.type.ajax.fixedBgPos}
+		overflowY = TEXT
+		overflowY.value = {$plugin.tx_jhmagnificpopup.type.ajax.overflowY}
+		removalDelay = TEXT
+		removalDelay.value = {$plugin.tx_jhmagnificpopup.type.ajax.removalDelay}
+		closeMarkup = TEXT
+		closeMarkup.value = {$plugin.tx_jhmagnificpopup.type.ajax.closeMarkup}
+	}
+}
+
+// Include javascript of iframe if enabled global
+[globalVar = LIT:1 = {$plugin.tx_jhmagnificpopup.type.iframe.enableglobal}]
+plugin.tx_jhmagnificpopup.settings.type.iframe {
 	# Copy actual page.jsFooterInline to setup to prevent from data-loss
 	setup < page.jsFooterInline
 	setup {
-		# add fluidtemplate
-		109 = FLUIDTEMPLATE
-		109 {
-			file = EXT:jh_magnificpopup/Resources/Private/Templates/TypoScript/Default.html
-			variables {
-				selector < plugin.tx_jhmagnificpopup.settings.magnificpopup.selector
-			}
+		110 = FLUIDTEMPLATE
+		110 {
+			file = EXT:jh_magnificpopup/Resources/Private/Templates/TypoScript/Inline.html
 		}
 	}
 }
+// Add javascript of iframe to footer
+ page.jsFooterInline < plugin.tx_jhmagnificpopup.settings.type.iframe.setup
+[global]
 
-//add javascript to footer
-page.jsFooterInline < plugin.tx_jhmagnificpopup.setup
-
-// enable lightbox, add the right class and remove the unused rel-attriubute
-styles.content.imgtext.linkWrap {
-	lightboxEnabled = 1
-	lightboxCssClass = magnificpopup
-	lightboxRelAttribute >
+// Include javascript of ajax if enabled global
+[globalVar = LIT:1 = {$plugin.tx_jhmagnificpopup.type.ajax.enableglobal}]
+plugin.tx_jhmagnificpopup.settings.type.ajax {
+	# Copy actual page.jsFooterInline to setup to prevent from data-loss
+	setup < page.jsFooterInline
+	setup {
+		111 = FLUIDTEMPLATE
+		111 {
+			file = EXT:jh_magnificpopup/Resources/Private/Templates/TypoScript/InlineAjax.html
+		}
+	}
 }
+// Add javascript of ajax to footer
+ page.jsFooterInline < plugin.tx_jhmagnificpopup.settings.type.ajax.setup
+[global]
 
-// images in content elements
-tt_content.image.20.1.imageLinkWrap {
-  JSwindow = 0
-  directImageLink = 1
-  linkParams.ATagParams.dataWrap = class="magnificpopup"
-}
+// Definde page for ajax-requests
+ajaxcontent = PAGE
+ajaxcontent {
+	typeNum = 109
+	disableAllHeaderCode = 1
+	disableCharsetHeader = 1
+	disablePrefixComment = 1
 
-// images in RTE
-lib.parseFunc_RTE.tags.img.postUserFunc.imageLinkWrap {
-  JSwindow = 0
-  directImageLink = 1
-  linkParams.ATagParams.dataWrap = class="magnificpopup"
+	10 = COA
+	10 {
+		wrap = <div class="white-popup-block">|</div>
+	}
 }
+// Render inline-content
+[globalString = GP:jh_magnificpopup|type=inline]
+ajaxcontent.10 {
+	10 >
+	10 = CONTENT
+	10 {
+		table = tt_content
+		select {
+			where = hidden=0 AND deleted=0
+			andWhere.data = GP:jh_magnificpopup|irre_parrentid
+			#andWhere.intval = 1
+			andWhere.wrap = tx_jhmagnificpopup_irre_parentid=|
+			orderBy = sorting
+		}
+	}
+}
+[global]
+// Render from reference to content-element
+[globalString = GP:jh_magnificpopup|type=reference]
+ajaxcontent.10 {
+	10 >
+	10 = CONTENT
+	10 {
+		table = tt_content
+		select {
+			andWhere.dataWrap = tt_content.uid IN ({GP:jh_magnificpopup|uid})|
+			languageField=sys_language_uid
+			orderBy = sorting
+			pidInList.data = GP:jh_magnificpopup|pid
+		}
+	}
+}
+[global]
+
+
+
+
+//
+// alpha-features::
+//
+
+
+// Include javascript of inlineCE if enabled
+[globalVar = LIT:1 = {$plugin.tx_jhmagnificpopup.enableAlphaFeatures}]
+plugin.tx_jhmagnificpopup.settings.type.iframe {
+	# Copy actual page.jsFooterInline to setup to prevent from data-loss
+	setup < page.jsFooterInline
+	setup {
+		120 = FLUIDTEMPLATE
+		120 {
+			file = EXT:jh_magnificpopup/Resources/Private/Templates/TypoScript/InlineCE.html
+		}
+	}
+}
+// Add javascript of iframe to footer
+page.jsFooterInline < plugin.tx_jhmagnificpopup.settings.type.iframe.setup
+[global]
