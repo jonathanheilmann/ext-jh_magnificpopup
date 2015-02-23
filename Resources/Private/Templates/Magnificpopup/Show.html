@@ -117,7 +117,14 @@
 </script>
 
 
-<a class="{link-class}" href='{link}'>{link-text}</a>
+<f:if condition="{tsLink}">
+	<f:then>
+		{tsLink -> f:format.raw()}
+	</f:then>
+	<f:else>
+		<a class="{link-class}" href='{link}'>{link-text}</a>
+	</f:else>
+</f:if>
 <f:if condition="{inlinecontent}">
 	<div id="{inlinecontent_id}" class="white-popup-block mfp-hide">
 		{inlinecontent -> f:format.raw()}

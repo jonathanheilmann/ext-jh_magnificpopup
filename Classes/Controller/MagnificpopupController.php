@@ -197,6 +197,11 @@ class MagnificpopupController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 		$viewAssign['link'] = '#mfp-inline-'.$this->data['uid'];
 		$viewAssign['link-text'] = $this->settings['mfpOption']['text'];
 
+		$lConf = array();
+		$lConf['ATagParams'] = 'class="mfp-inline-'.$this->data['uid'].'" data-mfp-src="#mfp-inline-'.$this->data['uid'].'"';
+		$lConf['parameter'] = $GLOBALS['TSFE']->id;
+		$viewAssign['tsLink'] = $this->cObj->typolink($this->settings['mfpOption']['text'], $lConf);
+
 		// Get settings from flexform
 		// If something else than the default from setup is selected or a value is empty use setting from flexform
 		foreach($this->settings['mfpOption'] as $key => $value) {
