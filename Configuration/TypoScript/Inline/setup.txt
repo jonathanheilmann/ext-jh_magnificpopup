@@ -222,7 +222,20 @@ ajaxcontent.10 {
 }
 [global]
 
+// TS to render images as link
+lib.tx_jhmagnificpopup_pi1.image < tt_content.image.20.1
+lib.tx_jhmagnificpopup_pi1.image {
+  file.width >
+  file.maxW = {$styles.content.imgtext.maxW}
+}
 
+// add css hack to position an image at center
+plugin.tx_jhmagnificpopup._CSS_DEFAULT_STYLE >
+plugin.tx_jhmagnificpopup._CSS_DEFAULT_STYLE (
+	.image-center .image>a>img {
+		margin: 0 auto;
+	}
+)
 
 
 //

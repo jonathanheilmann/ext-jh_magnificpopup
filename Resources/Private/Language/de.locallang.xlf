@@ -101,6 +101,10 @@
 				<source>General settings</source>
 				<target>Allgemeine Einstellungen</target>
 			</trans-unit>
+			<trans-unit id="pi_flexform.sheetMfpConfiguration">
+				<source>Magnific Popup settings</source>
+				<target>Magnific Popup Einstellungen</target>
+			</trans-unit>
 			<trans-unit id="pi_flexform.sheetOptions.contenttype">
 				<source>Display type</source>
 				<target>Anzeige-Typ</target>
@@ -145,9 +149,33 @@
 				<target>Inline Content</target>
 			</trans-unit>
 
+			<trans-unit id="pi_flexform.sheetOptions.mfpOption.linktype">
+				<source>Link type</source>
+				<target>Link-Typ</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.mfpOption.linktype.text">
+				<source>Text</source>
+				<target>Text</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.mfpOption.linktype.file">
+				<source>Image</source>
+				<target>Bild</target>
+			</trans-unit>
 			<trans-unit id="pi_flexform.sheetOptions.mfpOption.text">
 				<source>Link text</source>
 				<target>Link text</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.mfpOption.file">
+				<source>Link image</source>
+				<target>Link-Bild</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.mfpOption.file_width">
+				<source>Image maxWidth (in px)</source>
+				<target>Bild maxWidth (in px)</target>
+			</trans-unit>
+			<trans-unit id="pi_flexform.sheetOptions.mfpOption.file_height">
+				<source>Image maxHeight (in px)</source>
+				<target>Bild maxWidth (in px)</target>
 			</trans-unit>
 			<trans-unit id="pi_flexform.sheetOptions.mfpOption.link">
 				<source>Link target</source>
@@ -162,8 +190,8 @@
 				<target>mainClass value</target>
 			</trans-unit>
 			<trans-unit id="pi_flexform.sheetOptions.mfpOption.focus">
-				<source>focus</source>
-				<target>focus</target>
+				<source>focus (not available for iframe)</source>
+				<target>focus (not available for iframe)</target>
 			</trans-unit>
 			<trans-unit id="pi_flexform.sheetOptions.mfpOption.closeBtnInside">
 				<source>closeBtnInside</source>
