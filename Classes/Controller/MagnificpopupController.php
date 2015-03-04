@@ -108,7 +108,6 @@ class MagnificpopupController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 	private function ajax() {
 		$viewAssign['type'] = 'ajax';
 		// Use ajax procedure
-		$viewAssign['link-class'] = 'mfp-ajax-'.$this->data['uid'];
 		if($this->settings['contenttype'] == 'reference') {
 			// Get the list of pid's
 			$uidList = $this->settings['content']['reference'];
@@ -137,8 +136,54 @@ class MagnificpopupController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 			}
 		}
 		// Link-setup
+		$viewAssign['link-class'] = 'mfp-ajax-'.$this->data['uid'];
 		$viewAssign['link'] = $this->cObj->typolink_URL($linkconf);
 		$viewAssign['link-text'] = $this->settings['mfpOption']['text'];
+
+		$lConf = array();
+		$lConf['ATagParams'] = 'class="mfp-ajax-'.$this->data['uid'].'"';
+		$lConf['parameter'] = $linkconf['parameter'];
+		$lConf['additionalParams'] = $linkconf['additionalParams'];
+		if ($this->settings['linktype'] == 'file') {
+			// Get file
+			$fileRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\FileRepository');
+			$fileObjects = $fileRepository->findByRelation('tt_content', 'mfp_image', $this->data['uid']);
+			$file = $fileObjects[0];
+
+			// Configure the image
+			$theImgCode = $this->cObj->setCurrentFile($file);
+			$imageConf = array();
+			$imageConf = $GLOBALS['TSFE']->tmpl->setup['lib.']['tx_jhmagnificpopup_pi1.']['image.'];
+			$imageConf['file.']['treatIdAsReference'] = 1;
+			$imageConf['file'] = $file;
+			if (!empty($this->settings['mfpOption']['file_width'])) {
+				$imageConf["file."]["maxW"] = $this->settings['mfpOption']['file_width'];
+			}
+			if (!empty($this->settings['mfpOption']['file_height'])) {
+				$imageConf["file."]["maxH"] = $this->settings['mfpOption']['file_height'];
+			}
+			$theImgCode = $this->cObj->IMAGE($imageConf);
+
+			// Get image orientation
+			switch ($this->settings['mfpOption']['file_orient']) {
+				case 1:
+					$viewAssign['imageorient'] = 'right';
+					break;
+				case 2:
+					$viewAssign['imageorient'] = 'left';
+					break;
+				case 0:
+				default:
+					$viewAssign['imageorient'] = 'center';
+			}
+			// Get image description/caption
+			$viewAssign['imagecaption'] = $file->getProperty('description');
+
+			// Render image
+			$viewAssign['tsLink'] = $this->cObj->typolink($theImgCode, $lConf);
+		} else {
+			$viewAssign['tsLink'] = $this->cObj->typolink($this->settings['mfpOption']['text'], $lConf);
+		}
 
 		// Get settings from flexform
 		// If something else than the default from setup is selected or a value is empty use setting from flexform
@@ -200,7 +245,46 @@ class MagnificpopupController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 		$lConf = array();
 		$lConf['ATagParams'] = 'class="mfp-inline-'.$this->data['uid'].'" data-mfp-src="#mfp-inline-'.$this->data['uid'].'"';
 		$lConf['parameter'] = $GLOBALS['TSFE']->id;
-		$viewAssign['tsLink'] = $this->cObj->typolink($this->settings['mfpOption']['text'], $lConf);
+		if ($this->settings['linktype'] == 'file') {
+			// Get file
+			$fileRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\FileRepository');
+			$fileObjects = $fileRepository->findByRelation('tt_content', 'mfp_image', $this->data['uid']);
+			$file = $fileObjects[0];
+
+			// Configure the image
+			$theImgCode = $this->cObj->setCurrentFile($file);
+			$imageConf = array();
+			$imageConf = $GLOBALS['TSFE']->tmpl->setup['lib.']['tx_jhmagnificpopup_pi1.']['image.'];
+			$imageConf['file.']['treatIdAsReference'] = 1;
+			$imageConf['file'] = $file;
+			if (!empty($this->settings['mfpOption']['file_width'])) {
+				$imageConf["file."]["maxW"] = $this->settings['mfpOption']['file_width'];
+			}
+			if (!empty($this->settings['mfpOption']['file_height'])) {
+				$imageConf["file."]["maxH"] = $this->settings['mfpOption']['file_height'];
+			}
+			$theImgCode = $this->cObj->IMAGE($imageConf);
+
+			// Get image orientation
+			switch ($this->settings['mfpOption']['file_orient']) {
+				case 1:
+					$viewAssign['imageorient'] = 'right';
+					break;
+				case 2:
+					$viewAssign['imageorient'] = 'left';
+					break;
+				case 0:
+				default:
+					$viewAssign['imageorient'] = 'center';
+			}
+			// Get image description/caption
+			$viewAssign['imagecaption'] = $file->getProperty('description');
+
+			// Render image
+			$viewAssign['tsLink'] = $this->cObj->typolink($theImgCode, $lConf);
+		} else {
+			$viewAssign['tsLink'] = $this->cObj->typolink($this->settings['mfpOption']['text'], $lConf);
+		}
 
 		// Get settings from flexform
 		// If something else than the default from setup is selected or a value is empty use setting from flexform
