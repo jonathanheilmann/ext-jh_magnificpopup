@@ -116,13 +116,13 @@
 				<source>Inline Content</source>
 			</trans-unit>
 
-			<trans-unit id="pi_flexform.sheetOptions.mfpOption.linktype">
+			<trans-unit id="pi_flexform.sheetOptions.linktype">
 				<source>Link type</source>
 			</trans-unit>
-			<trans-unit id="pi_flexform.sheetOptions.mfpOption.linktype.text">
+			<trans-unit id="pi_flexform.sheetOptions.linktype.text">
 				<source>Text</source>
 			</trans-unit>
-			<trans-unit id="pi_flexform.sheetOptions.mfpOption.linktype.file">
+			<trans-unit id="pi_flexform.sheetOptions.linktype.file">
 				<source>Image</source>
 			</trans-unit>
 			<trans-unit id="pi_flexform.sheetOptions.mfpOption.text">
