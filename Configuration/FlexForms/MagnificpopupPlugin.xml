@@ -186,9 +186,24 @@
 							<displayCond>FIELD:settings.contenttype:=:iframe</displayCond>
 							<config>
 								<type>input</type>
-								<size>20</size>
-								<max>300</max>
+								<size>50</size>
+								<max>256</max>
 								<eval>trim</eval>
+								<wizards type="array">
+									<_PADDING type="integer">2</_PADDING>
+									<link type="array">
+										<type>popup</type>
+										<title>LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pi_flexform.sheetOptions.mfpOption.link</title>
+										<icon>link_popup.gif</icon>
+										<module type="array">
+												<name>wizard_element_browser</name>
+												<urlParameters type="array">
+													<mode>wizard</mode>
+												</urlParameters>
+										</module>
+										<JSopenParams>height=300,width=500,status=0,menubar=0,scrollbars=1</JSopenParams>
+									</link>
+								</wizards>
 							</config>
 						</TCEforms>
 					</settings.mfpOption.href>
