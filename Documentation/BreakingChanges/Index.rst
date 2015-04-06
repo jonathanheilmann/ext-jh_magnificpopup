@@ -22,7 +22,6 @@ Breaking changes
    :titlesonly:
    :glob:
 
-   Version050/Index
    Version040/Index
    Version026/Index
    Version024/Index

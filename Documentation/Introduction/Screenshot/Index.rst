@@ -16,7 +16,7 @@
 Screenshot
 ^^^^^^^^^^
 
-.. figure:: ../../Images/Introduction-Screenshot.jpg
+.. figure:: ../../Images/Introduction-Screenshot.png
 
 Magnific Popup gallery-view (Screenshot taken from `http://dimsemenov.com/plugins/magnific-popup/
 <http://dimsemenov.com/plugins/magnific-popup/>`_)

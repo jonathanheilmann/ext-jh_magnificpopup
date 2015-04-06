@@ -28,20 +28,6 @@ ChangeLog
          Changes
 
  - :Version:
-         0.5.0
-
-   :Changes:
-         \* Rewritten rendering of link in plugin
-
-         \* Set Link-text length of plugin to 256
-
-         \* Added Link-image to plugin
-
-         \* Added link wizard to iframe in plugin
-
-
-
- - :Version:
          0.4.0
 
    :Changes:

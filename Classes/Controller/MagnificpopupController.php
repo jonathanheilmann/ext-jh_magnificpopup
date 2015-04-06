@@ -108,6 +108,7 @@ class MagnificpopupController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 	private function ajax() {
 		$viewAssign['type'] = 'ajax';
 		// Use ajax procedure
+		$viewAssign['link-class'] = 'mfp-ajax-'.$this->data['uid'];
 		if($this->settings['contenttype'] == 'reference') {
 			// Get the list of pid's
 			$uidList = $this->settings['content']['reference'];
@@ -136,20 +137,8 @@ class MagnificpopupController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 			}
 		}
 		// Link-setup
-		$lConf = array();
-		$lConf['ATagParams'] = 'class="mfp-ajax-'.$this->data['uid'].'"';
-		$lConf['parameter'] = $linkconf['parameter'];
-		$lConf['additionalParams'] = $linkconf['additionalParams'];
-		// Support old way of link-setup. Will be removed later!
-		$viewAssign['link-class'] = 'mfp-ajax-'.$this->data['uid'];
 		$viewAssign['link'] = $this->cObj->typolink_URL($linkconf);
 		$viewAssign['link-text'] = $this->settings['mfpOption']['text'];
-
-		if ($this->settings['linktype'] == 'file') {
-			\TYPO3\CMS\Core\Utility\ArrayUtility::mergeRecursiveWithOverrule($viewAssign, $this->renderLinktypeFile($lConf));
-		} else {
-			$viewAssign['tsLink'] = $this->cObj->typolink($this->settings['mfpOption']['text'], $lConf);
-		}
 
 		// Get settings from flexform
 		// If something else than the default from setup is selected or a value is empty use setting from flexform
@@ -203,21 +192,10 @@ class MagnificpopupController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 		// Render inlinecontent
 		$viewAssign['inlinecontent'] = $this->cObj->CONTENT($irre_conf);
 		$viewAssign['inlinecontent_id'] = 'mfp-inline-'.$this->data['uid'];
-
 		// Link-setup
-		$lConf = array();
-		$lConf['ATagParams'] = 'class="mfp-inline-'.$this->data['uid'].'" data-mfp-src="#mfp-inline-'.$this->data['uid'].'"';
-		$lConf['parameter'] = $GLOBALS['TSFE']->id;
-		// Support old way of link-setup. Will be removed later!
 		$viewAssign['link-class'] = 'mfp-inline-'.$this->data['uid'];
 		$viewAssign['link'] = '#mfp-inline-'.$this->data['uid'];
 		$viewAssign['link-text'] = $this->settings['mfpOption']['text'];
-
-		if ($this->settings['linktype'] == 'file') {
-			\TYPO3\CMS\Core\Utility\ArrayUtility::mergeRecursiveWithOverrule($viewAssign, $this->renderLinktypeFile($lConf));
-		} else {
-			$viewAssign['tsLink'] = $this->cObj->typolink($this->settings['mfpOption']['text'], $lConf);
-		}
 
 		// Get settings from flexform
 		// If something else than the default from setup is selected or a value is empty use setting from flexform
@@ -237,23 +215,10 @@ class MagnificpopupController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 	private function iframe() {
 		$viewAssign['type'] = 'iframe';
 		//$viewAssign['uid'] = $this->data['uid'];
-
 		// Link-setup
-		$lConf = array();
-		$lConf = $this->configureLink($selectorClass = 'mfp-iframe-'.$this->data['uid']);
-		// Support old way of link-setup. Will be removed later!
-		$parameters = \TYPO3\CMS\Core\Utility\GeneralUtility::unQuoteFilenames($this->settings['mfpOption']['href'], TRUE);
-		if (count($parameters) == 1) {
-			$viewAssign['link-class'] = 'mfp-iframe-'.$this->data['uid'];
-			$viewAssign['link'] = $this->settings['mfpOption']['href'];
-			$viewAssign['link-text'] = $this->settings['mfpOption']['text'];
-		}
-
-		if ($this->settings['linktype'] == 'file') {
-			\TYPO3\CMS\Core\Utility\ArrayUtility::mergeRecursiveWithOverrule($viewAssign, $this->renderLinktypeFile($lConf));
-		} else {
-			$viewAssign['tsLink'] = $this->cObj->typolink($this->settings['mfpOption']['text'], $lConf);
-		}
+		$viewAssign['link-class'] = 'mfp-iframe-'.$this->data['uid'];
+		$viewAssign['link'] = $this->settings['mfpOption']['href'];
+		$viewAssign['link-text'] = $this->settings['mfpOption']['text'];
 
 		// Get settings from flexform
 		// If something else than the default from setup is selected or a value is empty use setting from flexform
@@ -267,80 +232,6 @@ class MagnificpopupController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 			}
 		}
 		$viewAssign['settings'] = $this->settings;
-		return $viewAssign;
-	}
-
-	/**
-	 * Configure the link
-	 *
-	 * @param string $selectorClass
-	 * @return array
-	 */
-	private function configureLink($selectorClass) {
-		$lConf = array();
-		// Modify parameter to add jQuery selector class to link
-		$parameter = $this->settings['mfpOption']['href'];
-		$parameters = \TYPO3\CMS\Core\Utility\GeneralUtility::unQuoteFilenames($parameter, TRUE);
-		if (count($parameters) >= 3) {
-			$parameters[2] = $parameters[2] . ' ' . $selectorClass;
-			// Quote values (has been unquoted by GeneralUtility::unQuoteFilenames)
-			foreach ($parameters as $key => $value) {
-				$parameters[$key] = '"' . $value . '"';
-			}
-			$parameter = implode(' ', $parameters);
-		} else {
-			$lConf['ATagParams'] = 'class="' . $selectorClass . '"';
-		}
-		$lConf['parameter'] = $parameter;
-
-		return $lConf;
-	}
-
-	/**
-	 * Render link of type file
-	 *
-	 * @param array $lConf
-	 * @return array
-	 */
-	private function renderLinktypeFile($lConf) {
-		$viewAssign = array();
-		// Get file
-		$fileRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\FileRepository');
-		$fileObjects = $fileRepository->findByRelation('tt_content', 'mfp_image', $this->data['uid']);
-		$file = $fileObjects[0];
-
-		// Configure the image
-		$theImgCode = $this->cObj->setCurrentFile($file);
-		$imageConf = array();
-		$imageConf = $GLOBALS['TSFE']->tmpl->setup['lib.']['tx_jhmagnificpopup_pi1.']['image.'];
-		$imageConf['file.']['treatIdAsReference'] = 1;
-		$imageConf['file'] = $file;
-		if (!empty($this->settings['mfpOption']['file_width'])) {
-			$imageConf["file."]["maxW"] = $this->settings['mfpOption']['file_width'];
-		}
-		if (!empty($this->settings['mfpOption']['file_height'])) {
-			$imageConf["file."]["maxH"] = $this->settings['mfpOption']['file_height'];
-		}
-		// Render image
-		$theImgCode = $this->cObj->IMAGE($imageConf);
-
-		// Get image orientation
-		switch ($this->settings['mfpOption']['file_orient']) {
-			case 1:
-				$viewAssign['imageorient'] = 'right';
-				break;
-			case 2:
-				$viewAssign['imageorient'] = 'left';
-				break;
-			case 0:
-			default:
-				$viewAssign['imageorient'] = 'center';
-		}
-		// Get image description/caption
-		$viewAssign['imagecaption'] = $file->getProperty('description');
-
-		// Render typolink
-		$viewAssign['tsLink'] = $this->cObj->typolink($theImgCode, $lConf);
 		return $viewAssign;
 	}
 }

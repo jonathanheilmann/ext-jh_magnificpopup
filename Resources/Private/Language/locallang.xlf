@@ -79,9 +79,6 @@
 			<trans-unit id="pi_flexform.sheetOptions">
 				<source>General settings</source>
 			</trans-unit>
-			<trans-unit id="pi_flexform.sheetMfpConfiguration">
-				<source>Magnific Popup settings</source>
-			</trans-unit>
 			<trans-unit id="pi_flexform.sheetOptions.contenttype">
 				<source>Display type</source>
 			</trans-unit>
@@ -116,26 +113,8 @@
 				<source>Inline Content</source>
 			</trans-unit>
 
-			<trans-unit id="pi_flexform.sheetOptions.linktype">
-				<source>Link type</source>
-			</trans-unit>
-			<trans-unit id="pi_flexform.sheetOptions.linktype.text">
-				<source>Text</source>
-			</trans-unit>
-			<trans-unit id="pi_flexform.sheetOptions.linktype.file">
-				<source>Image</source>
-			</trans-unit>
 			<trans-unit id="pi_flexform.sheetOptions.mfpOption.text">
 				<source>Link text</source>
-			</trans-unit>
-			<trans-unit id="pi_flexform.sheetOptions.mfpOption.file">
-				<source>Link image</source>
-			</trans-unit>
-			<trans-unit id="pi_flexform.sheetOptions.mfpOption.file_width">
-				<source>Image maxWidth (in px)</source>
-			</trans-unit>
-			<trans-unit id="pi_flexform.sheetOptions.mfpOption.file_height">
-				<source>Image maxHeight (in px)</source>
 			</trans-unit>
 			<trans-unit id="pi_flexform.sheetOptions.mfpOption.link">
 				<source>Link target</source>
@@ -147,7 +126,7 @@
 				<source>mainClass value</source>
 			</trans-unit>
 			<trans-unit id="pi_flexform.sheetOptions.mfpOption.focus">
-				<source>focus (not available for iframe)</source>
+				<source>focus</source>
 			</trans-unit>
 			<trans-unit id="pi_flexform.sheetOptions.mfpOption.closeBtnInside">
 				<source>closeBtnInside</source>
