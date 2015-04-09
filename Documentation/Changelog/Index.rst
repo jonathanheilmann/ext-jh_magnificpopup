@@ -31,15 +31,19 @@ ChangeLog
          0.5.0
 
    :Changes:
-         \* Rewritten rendering of link in plugin
+         \* [TASK] Rewritten rendering of link in plugin
 
-         \* Set Link-text length of plugin to 256
+         \* [FEATURE] Added Link-image to plugin
 
-         \* Added Link-image to plugin
+         \* [FEATURE] Added link wizard to iframe-link in plugin
 
-         \* Added link wizard to iframe in plugin
+ - :Version:
+         0.4.1
 
+   :Changes:
+         \* [TASK] Set Link-text length to 256 instead of 30
 
+         \* [BUGFIX] Add missing semicolon
 
  - :Version:
          0.4.0

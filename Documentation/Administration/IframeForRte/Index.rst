@@ -28,7 +28,13 @@ already) and set the magnificpopup.type.iframe.enableglobal constant
 
 .. important::
 
-   In some cases EXT:bootstrap_package overrides the PageTS added by jh_magnificpopup. If you can't see the options described in "Users manual" -> "Iframe for RTE", please add the PageTS to your RootPage.
+   | In some cases an extension overrides the PageTS added by jh_magnificpopup.
+   | If you can't see the options described in "Users manual" -> "Iframe for RTE", please add the PageTS to your RootPage.
+   |
+   | Actually known for this behavior are the extensions:
+
+   - bootstrap_package
+   - cd_foundation
 
 
 .. code-block:: typoscript

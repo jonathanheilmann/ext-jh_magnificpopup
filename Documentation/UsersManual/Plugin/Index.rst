@@ -21,9 +21,13 @@ Plugin
 Create a content element with a plugin and select “Magnific Popup” or
 use the wizard and select “Mapgnific Popup”.
 
-Select the display type (Link, Inline-Content or Content-Reference)
 
-**Link:**
+Tab: General settings
+"""""""""""""""""""""
+
+Select "Display type" (Link, Inline-Content or Content-Reference) and "Link type" (Text or Image) introduced in version 0.5.0.
+
+**Display type: Link**
 
 .. ### BEGIN~OF~TABLE ###
 
@@ -40,7 +44,15 @@ Select the display type (Link, Inline-Content or Content-Reference)
          Link text
 
    :Description:
-         The text that is displayed to the user
+         | Available if Link type is "Text":
+         | The text that is displayed to the user
+
+ - :Field:
+         Link image
+
+   :Description:
+         | Available if Link type is "Image":
+         | The image that is displayed to the user
 
  - :Field:
          Link target
@@ -50,52 +62,10 @@ Select the display type (Link, Inline-Content or Content-Reference)
          domain.tld/>`_ ). This could be a website, a youtube-movie or
          everything else.
 
- - :Field:
-         mainClass
-
-   :Description:
-         String that contains classes that will be added to the root element of
-         popup wrapper and to dark overlay.
-
- - :Field:
-         closeBtnInside
-
-   :Description:
-         If enabled, Magnific Popup will put close button inside content of
-         popup.
-
- - :Field:
-         modal
-
-   :Description:
-         When set to true, the popup will have a modal-like behavior: it won’t
-         be possible to dismiss it by usual means (close button, escape key, or
-         clicking in the overlay).
-
- - :Field:
-         alignTop
-
-   :Description:
-         If set to true popup is aligned to top instead of to center.
-
- - :Field:
-         overflowY
-
-   :Description:
-         Defines scrollbar of the popup, works as overflow-y CSS property - any
-         CSS acceptable value is allowed (e.g. auto, scroll, hidden). Option is
-         applied only when fixed position is enabled.
-
- - :Field:
-         removalDelay
-
-   :Description:
-         Delay before popup is removed from DOM.
-
 
 .. ###### END~OF~TABLE ######
 
-**Inline-Content:**
+**Display type: Inline-Content**
 
 .. ### BEGIN~OF~TABLE ###
 
@@ -112,7 +82,15 @@ Select the display type (Link, Inline-Content or Content-Reference)
          Link text
 
    :Description:
-         The text that is displayed to the user
+         | Available if Link type is "Text":
+         | The text that is displayed to the user
+
+ - :Field:
+         Link image
+
+   :Description:
+         | Available if Link type is "Image":
+         | The image that is displayed to the user
 
  - :Field:
          Method
@@ -128,61 +106,10 @@ Select the display type (Link, Inline-Content or Content-Reference)
    :Description:
          Create the content that should be displayed.
 
- - :Field:
-         mainClass
-
-   :Description:
-         String that contains classes that will be added to the root element of
-         popup wrapper and to dark overlay.
-
- - :Field:
-         focus
-
-   :Description:
-         String with CSS selector of an element inside popup that should be
-         focused. Ideally it should be the first element of popup that can be
-         focused. For example 'input' or '#login-input'. Leave empty to focus
-         the popup itself.
-
- - :Field:
-         closeBtnInside
-
-   :Description:
-         If enabled, Magnific Popup will put close button inside content of
-         popup.
-
- - :Field:
-         modal
-
-   :Description:
-         When set to true, the popup will have a modal-like behavior: it won’t
-         be possible to dismiss it by usual means (close button, escape key, or
-         clicking in the overlay).
-
- - :Field:
-         alignTop
-
-   :Description:
-         If set to true popup is aligned to top instead of to center.
-
- - :Field:
-         overflowY
-
-   :Description:
-         Defines scrollbar of the popup, works as overflow-y CSS property - any
-         CSS acceptable value is allowed (e.g. auto, scroll, hidden). Option is
-         applied only when fixed position is enabled.
-
- - :Field:
-         removalDelay
-
-   :Description:
-         Delay before popup is removed from DOM.
-
 
 .. ###### END~OF~TABLE ######
 
-**Content-Reference:**
+**Display type: Content-Reference**
 
 .. ### BEGIN~OF~TABLE ###
 
@@ -199,7 +126,15 @@ Select the display type (Link, Inline-Content or Content-Reference)
          Link text
 
    :Description:
-         The text that is displayed to the user
+         | Available if Link type is "Text":
+         | The text that is displayed to the user
+
+ - :Field:
+         Link image
+
+   :Description:
+         | Available if Link type is "Image":
+         | The image that is displayed to the user
 
  - :Field:
          Method
@@ -214,6 +149,23 @@ Select the display type (Link, Inline-Content or Content-Reference)
 
    :Description:
          Select the content that should be displayed.
+
+.. ###### END~OF~TABLE ######
+
+
+Tab: Magnific Popup settings
+""""""""""""""""""""""""""""
+
+.. ### BEGIN~OF~TABLE ###
+
+.. t3-field-list-table::
+ :header-rows: 1
+
+ - :Field:
+         Field
+
+   :Description:
+         Description
 
  - :Field:
          mainClass
