@@ -3,7 +3,7 @@
 /***************************************************************
  * Extension Manager/Repository config file for ext "jh_magnificpopup".
  *
- * Auto generated 03-10-2014 22:52
+ * Auto generated 23-02-2015 17:18
  *
  * Manual updates:
  * Only the data in the array - everything else is removed by next
@@ -15,7 +15,7 @@ $EM_CONF[$_EXTKEY] = array (
 	'description' => 'This extension provides the responsive jQuery lightbox plugin Magnific
 Popup for images in content elements. Opening content like videos, other websites or inline/referenced content is supported within a plugin.',
 	'category' => 'plugin',
-	'version' => '0.4.1-dev',
+	'version' => '0.5.0-dev',
 	'state' => 'stable',
 	'uploadfolder' => true,
 	'createDirs' => '',
