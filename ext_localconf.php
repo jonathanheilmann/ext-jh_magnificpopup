@@ -24,19 +24,19 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['proc
 	    class = mfp-link external-link-new-window
 	    type = url
 	    image >
-	    titleText = LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xml:pageTSconfig.externalLinkInMagnificpopup
+	    titleText = LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pageTSconfig.externalLinkInMagnificpopup
 	  }
 	  internalLinkInMagnificpopup {
 	    class = mfp-link internal-link-new-window
 	    type = page
 	    image >
-	    titleText = LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xml:pageTSconfig.internalLinkInMagnificpopup
+	    titleText = LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pageTSconfig.internalLinkInMagnificpopup
 	  }
 	  downloadInMagnificpopup {
 	    class = mfp-link download
 	    type = file
 	    image >
-	    titleText = LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xml:pageTSconfig.downloadInMagnificpopup
+	    titleText = LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pageTSconfig.downloadInMagnificpopup
 	  }
 	}
 
@@ -49,6 +49,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['proc
 // Add eID for ajax-content
 $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['jh_magnificpopup_ajax'] = 'EXT:'.$_EXTKEY.'/Resources/Public/Php/EidRunner.php';
 
+
 //
 // alpha-features::
 //
@@ -60,7 +61,7 @@ if (isset($extConfig['enableAlphaFeatures']) && $extConfig['enableAlphaFeatures'
 		    class = mfp-content-element internal-link-new-window
 		    type = page
 		    image >
-		    titleText = LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xml:pageTSconfig.internalCEInMagnificpopup
+		    titleText = LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pageTSconfig.internalCEInMagnificpopup
 		  }
 		}
 
