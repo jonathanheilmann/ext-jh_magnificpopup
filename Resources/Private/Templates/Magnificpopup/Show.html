@@ -38,13 +38,13 @@
 				closeMarkup: '{f:format.raw(value:settings.type.ajax.closeMarkup)}',
 				callbacks: {
 					ajaxContentAdded: function() {
-						//if (typeof responsiveimages == 'function') {
+						try {
 							$("img.lazyload").responsiveimages({}, function() {
 								$(this).load(function() {
 									this.style.opacity = 1;
 								});
 							});
-						//}
+						} catch (e) {}
 					}
 				}
 			});
@@ -77,13 +77,13 @@
 				closeMarkup: '{f:format.raw(value:settings.type.inline.closeMarkup)}',
 				callbacks: {
 					open: function() {
-						//if (typeof responsiveimages == 'function') {
+						try {
 							$("img.lazyload").responsiveimages({}, function() {
 								$(this).load(function() {
 									this.style.opacity = 1;
 								});
 							});
-						//}
+						} catch (e) {}
 					}
 				}
 			});

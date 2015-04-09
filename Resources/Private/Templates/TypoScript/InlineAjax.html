@@ -26,13 +26,13 @@
 		closeMarkup: '<f:cObject typoscriptObjectPath="plugin.tx_jhmagnificpopup.settings.templateVariablesAjax.closeMarkup" />',
 		callbacks: {
 			ajaxContentAdded: function() {
-				//if (typeof responsiveimages == 'function') {
+				try {
 					$("img.lazyload").responsiveimages({}, function() {
 						$(this).load(function() {
 							this.style.opacity = 1;
 						});
 					});
-				//}
+				} catch(e) {}
 			}
 		}
 	});
