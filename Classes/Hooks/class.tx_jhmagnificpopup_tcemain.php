@@ -42,10 +42,10 @@ class tx_jhmagnificpopup_tcemain {
 	 * @param array $incomingFieldArray
 	 * @param string $table
 	 * @param integer $id
-	 * @param t3lib_TCEmain $pObj
+	 * @param TYPO3\CMS\Core\DataHandling\DataHandler $pObj
 	 * @see tx_templavoila_tcemain::processDatamap_afterDatabaseOperations()
 	 */
-	public function processDatamap_preProcessFieldArray(array &$incomingFieldArray, $table, $id, t3lib_TCEmain &$pObj) {
+	public function processDatamap_preProcessFieldArray(array &$incomingFieldArray, $table, $id, TYPO3\CMS\Core\DataHandling\DataHandler &$pObj) {
 		if ($incomingFieldArray['list_type'] != 'jhmagnificpopup_pi1') {
 			if (is_array($pObj->datamap['tt_content'])) {
 				foreach ($pObj->datamap['tt_content'] as $key => $val) {
