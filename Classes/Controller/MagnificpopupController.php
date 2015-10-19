@@ -1,10 +1,14 @@
 <?php
 namespace TYPO3\JhMagnificpopup\Controller;
 
+use TYPO3\CMS\Core\Messaging\AbstractMessage;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\ArrayUtility;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2013 Jonathan Heilmann <mail@jonathan-heilmann.de>, Webprogrammierung Jonathan Heilmann
+ *  (c) 2013-2015 Jonathan Heilmann <mail@jonathan-heilmann.de>
  *
  *  All rights reserved
  *
@@ -25,10 +29,6 @@ namespace TYPO3\JhMagnificpopup\Controller;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
- use \TYPO3\CMS\Extbase\Utility\LocalizationUtility;
- use \TYPO3\CMS\Core\Messaging\AbstractMessage;
- use \TYPO3\CMS\Core\Utility\GeneralUtility;
-
 /**
  *
  *
@@ -36,15 +36,7 @@ namespace TYPO3\JhMagnificpopup\Controller;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class MagnificpopupController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
-
-	/**
-	 * magnificpopupRepository
-	 *
-	 * @var \TYPO3\JhMagnificpopup\Domain\Repository\magnificpopupRepository
-	 * @inject
-	 */
-	protected $magnificPopupRepository;
+class MagnificpopupController extends ActionController {
 
 	/**
 	 * SignalSlotDispatcher
@@ -55,13 +47,25 @@ class MagnificpopupController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 	protected $signalSlotDispatcher;
 
 	/**
+	 * ContentObject
+	 *
+	 * @var \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer
+	 */
+	protected $cObj;
+
+	/**
+	 * Data
+	 *
+	 * @var array
+	 */
+	protected $data;
+
+	/**
 	 * action show
 	 *
 	 * @return void
 	 */
 	public function showAction() {
-		// Flush all messages
-		$this->flashMessageContainer->flush();
 		// Assign multiple values
 		$viewAssign = array();
 		$this->cObj = $this->configurationManager->getContentObject();
@@ -80,15 +84,15 @@ class MagnificpopupController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 					$viewAssign = GeneralUtility::array_merge($viewAssign, $this->inline());
 				} else if ($this->settings['content']['procedure_reference'] == '' && $this->settings['content']['procedure_inline'] == '') {
 					// Add error if no method (inline or ajax) has been selected
-					$this->flashMessageContainer->add('Please select the method (inline or ajax) to display Magnific Popup content', 'Select method', AbstractMessage::WARNING);
+					$this->addFlashMessage('Please select the method (inline or ajax) to display Magnific Popup content', 'Select method', AbstractMessage::WARNING);
 				} else if ($this->settings['content']['procedure_reference'] != '' && empty($this->settings['contenttype'])) {
 					// Add error if no content has been selected
-					$this->flashMessageContainer->add('Please select a content to display with Magnific Popup', 'Select content', AbstractMessage::WARNING);
+					$this->addFlashMessage('Please select a content to display with Magnific Popup', 'Select content', AbstractMessage::WARNING);
 				}
 				break;
 			default:
 				// Add error if no "Display type" has been selected
-				$this->flashMessageContainer->add('Please select a "Display type" to use Magnific Popup', 'Select "Display type"', AbstractMessage::WARNING);
+				$this->addFlashMessage('Please select a "Display type" to use Magnific Popup', 'Select "Display type"', AbstractMessage::WARNING);
 		}
 
 		// Signal for show action (may be used to modify the array assigned to fluid-template)
@@ -112,18 +116,18 @@ class MagnificpopupController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 			// Get the list of pid's
 			$uidList = $this->settings['content']['reference'];
 			$uidArray = explode(',', $uidList);
+			$pidInList = array();
 			foreach($uidArray as $uid) {
 				$row = $GLOBALS['TYPO3_DB']->exec_SELECTgetSingleRow('pid', 'tt_content', 'uid='.$uid);
-				$pidInList .= $row['pid'].',';
+				$pidInList[] = $row['pid'];
 			}
-			$pidInList = substr($pidInList, 0, -1);
 			// Configure the link
 			$linkconf = array();
 			$linkconf['parameter'] = $this->data['pid'];
 			if ($this->settings['useEidForAjaxMethod'] != 1) {
-				$linkconf['additionalParams'] = '&type=109&jh_magnificpopup[type]=reference&jh_magnificpopup[uid]='.$this->settings['content']['reference'].'&jh_magnificpopup[pid]='.$pidInList;
+				$linkconf['additionalParams'] = '&type=109&jh_magnificpopup[type]=reference&jh_magnificpopup[uid]='.$this->settings['content']['reference'].'&jh_magnificpopup[pid]='.implode(',', $pidInList);
 			} else {
-				$linkconf['additionalParams'] = '&eID=jh_magnificpopup_ajax&jh_magnificpopup[type]=reference&jh_magnificpopup[uid]='.$this->settings['content']['reference'].'&jh_magnificpopup[pid]='.$pidInList;
+				$linkconf['additionalParams'] = '&eID=jh_magnificpopup_ajax&jh_magnificpopup[type]=reference&jh_magnificpopup[uid]='.$this->settings['content']['reference'].'&jh_magnificpopup[pid]='.implode(',', $pidInList);
 			}
 		} else {
 			// Configure the link
@@ -146,7 +150,7 @@ class MagnificpopupController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 		$viewAssign['link-text'] = $this->settings['mfpOption']['text'];
 
 		if ($this->settings['linktype'] == 'file') {
-			\TYPO3\CMS\Core\Utility\ArrayUtility::mergeRecursiveWithOverrule($viewAssign, $this->renderLinktypeFile($lConf));
+			ArrayUtility::mergeRecursiveWithOverrule($viewAssign, $this->renderLinktypeFile($lConf));
 		} else {
 			$viewAssign['tsLink'] = $this->cObj->typolink($this->settings['mfpOption']['text'], $lConf);
 		}
@@ -174,18 +178,18 @@ class MagnificpopupController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 			//get list of pid's
 			$uidList = $this->settings['content']['reference'];
 			$uidArray = explode(',', $uidList);
+			$pidInList = array();
 			foreach($uidArray as $uid) {
 				$row = $GLOBALS['TYPO3_DB']->exec_SELECTgetSingleRow('pid', 'tt_content', 'uid='.$uid);
-				$pidInList .= $row['pid'].',';
+				$pidInList[] = $row['pid'];
 			}
-			$pidInList = substr($pidInList, 0, -1);
 			// Configure the content
 			$irre_conf = array(
 				'table'	=> 'tt_content',
 				'select.'	=> array(
 					'where' => 'tt_content.uid IN('.$this->settings['content']['reference'].')',
 					'languageField' => 'sys_language_uid',
-					'pidInList' => $pidInList,
+					'pidInList' => implode(',', $pidInList),
 					'orderBy' => 'sorting'
 				)
 			);
@@ -214,7 +218,7 @@ class MagnificpopupController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 		$viewAssign['link-text'] = $this->settings['mfpOption']['text'];
 
 		if ($this->settings['linktype'] == 'file') {
-			\TYPO3\CMS\Core\Utility\ArrayUtility::mergeRecursiveWithOverrule($viewAssign, $this->renderLinktypeFile($lConf));
+			ArrayUtility::mergeRecursiveWithOverrule($viewAssign, $this->renderLinktypeFile($lConf));
 		} else {
 			$viewAssign['tsLink'] = $this->cObj->typolink($this->settings['mfpOption']['text'], $lConf);
 		}
@@ -236,13 +240,11 @@ class MagnificpopupController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 
 	private function iframe() {
 		$viewAssign['type'] = 'iframe';
-		//$viewAssign['uid'] = $this->data['uid'];
 
 		// Link-setup
-		$lConf = array();
 		$lConf = $this->configureLink($selectorClass = 'mfp-iframe-'.$this->data['uid']);
 		// Support old way of link-setup. Will be removed later!
-		$parameters = \TYPO3\CMS\Core\Utility\GeneralUtility::unQuoteFilenames($this->settings['mfpOption']['href'], TRUE);
+		$parameters = GeneralUtility::unQuoteFilenames($this->settings['mfpOption']['href'], TRUE);
 		if (count($parameters) == 1) {
 			$viewAssign['link-class'] = 'mfp-iframe-'.$this->data['uid'];
 			$viewAssign['link'] = $this->settings['mfpOption']['href'];
@@ -250,7 +252,7 @@ class MagnificpopupController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 		}
 
 		if ($this->settings['linktype'] == 'file') {
-			\TYPO3\CMS\Core\Utility\ArrayUtility::mergeRecursiveWithOverrule($viewAssign, $this->renderLinktypeFile($lConf));
+			ArrayUtility::mergeRecursiveWithOverrule($viewAssign, $this->renderLinktypeFile($lConf));
 		} else {
 			$viewAssign['tsLink'] = $this->cObj->typolink($this->settings['mfpOption']['text'], $lConf);
 		}
@@ -280,7 +282,7 @@ class MagnificpopupController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 		$lConf = array();
 		// Modify parameter to add jQuery selector class to link
 		$parameter = $this->settings['mfpOption']['href'];
-		$parameters = \TYPO3\CMS\Core\Utility\GeneralUtility::unQuoteFilenames($parameter, TRUE);
+		$parameters = GeneralUtility::unQuoteFilenames($parameter, TRUE);
 		if (count($parameters) >= 3) {
 			$parameters[2] = $parameters[2] . ' ' . $selectorClass;
 			// Quote values (has been unquoted by GeneralUtility::unQuoteFilenames)
@@ -305,42 +307,46 @@ class MagnificpopupController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 	private function renderLinktypeFile($lConf) {
 		$viewAssign = array();
 		// Get file
-		$fileRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\FileRepository');
+		$fileRepository = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\FileRepository');
 		$fileObjects = $fileRepository->findByRelation('tt_content', 'mfp_image', $this->data['uid']);
+		/** @var \TYPO3\CMS\Core\Resource\File $file */
 		$file = $fileObjects[0];
 
-		// Configure the image
-		$theImgCode = $this->cObj->setCurrentFile($file);
-		$imageConf = array();
-		$imageConf = $GLOBALS['TSFE']->tmpl->setup['lib.']['tx_jhmagnificpopup_pi1.']['image.'];
-		$imageConf['file.']['treatIdAsReference'] = 1;
-		$imageConf['file'] = $file;
-		if (!empty($this->settings['mfpOption']['file_width'])) {
-			$imageConf["file."]["maxW"] = $this->settings['mfpOption']['file_width'];
-		}
-		if (!empty($this->settings['mfpOption']['file_height'])) {
-			$imageConf["file."]["maxH"] = $this->settings['mfpOption']['file_height'];
-		}
-		// Render image
-		$theImgCode = $this->cObj->IMAGE($imageConf);
+		if (!empty($file)) {
+			// Configure the image
+			$this->cObj->setCurrentFile($file);
+			$imageConf = $GLOBALS['TSFE']->tmpl->setup['lib.']['tx_jhmagnificpopup_pi1.']['image.'];
+			$imageConf['file.']['treatIdAsReference'] = 1;
+			$imageConf['file'] = $file;
+			if (!empty($this->settings['mfpOption']['file_width'])) {
+				$imageConf["file."]["maxW"] = $this->settings['mfpOption']['file_width'];
+			}
+			if (!empty($this->settings['mfpOption']['file_height'])) {
+				$imageConf["file."]["maxH"] = $this->settings['mfpOption']['file_height'];
+			}
+			// Render image
+			$theImgCode = $this->cObj->IMAGE($imageConf);
 
-		// Get image orientation
-		switch ($this->settings['mfpOption']['file_orient']) {
-			case 1:
-				$viewAssign['imageorient'] = 'right';
-				break;
-			case 2:
-				$viewAssign['imageorient'] = 'left';
-				break;
-			case 0:
-			default:
-				$viewAssign['imageorient'] = 'center';
-		}
-		// Get image description/caption
-		$viewAssign['imagecaption'] = $file->getProperty('description');
+			// Get image orientation
+			switch ($this->settings['mfpOption']['file_orient']) {
+				case 1:
+					$viewAssign['imageorient'] = 'right';
+					break;
+				case 2:
+					$viewAssign['imageorient'] = 'left';
+					break;
+				case 0:
+				default:
+					$viewAssign['imageorient'] = 'center';
+			}
+			// Get image description/caption
+			$viewAssign['imagecaption'] = $file->getProperty('description');
 
-		// Render typolink
-		$viewAssign['tsLink'] = $this->cObj->typolink($theImgCode, $lConf);
+			// Render typolink
+			$viewAssign['tsLink'] = $this->cObj->typolink($theImgCode, $lConf);
+		} else {
+			$this->addFlashMessage('Please select an image', 'No image', AbstractMessage::WARNING);
+		}
 		return $viewAssign;
 	}
 }

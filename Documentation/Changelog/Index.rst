@@ -31,6 +31,8 @@ ChangeLog
          0.5.0
 
    :Changes:
+		 \* [TASK] Added support for TYPO3 CMS 7.6 (7.5 requires Bugfix: https://forge.typo3.org/issues/70314)
+   
          \* [TASK] Rewritten rendering of link in plugin
 
          \* [FEATURE] Added Link-image to plugin

@@ -27,7 +27,7 @@ Popup for images in content elements. Opening content like videos, other website
 	array (
 		'depends' =>
 		array (
-			'typo3' => '6.2.0-6.2.99',
+			'typo3' => '6.2.0-7.6.99',
 		),
 		'conflicts' =>
 		array (
