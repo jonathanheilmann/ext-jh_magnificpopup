@@ -70,7 +70,7 @@ plugin.tx_jhmagnificpopup {
 				22.if.isTrue = {$plugin.tx_jhmagnificpopup.magnificpopup.support.tx_ttnews.latest}
 				# bootstrap_package
 				30 = TEXT
-				30.value = ,.image-wrap
+				30.value = ,.img-wrap
 				30.if.isTrue = {$plugin.tx_jhmagnificpopup.magnificpopup.support.tx_bootstrappackage}
 				# user-defined selectors (always start with ','!)
 				999 = TEXT
