@@ -31,13 +31,19 @@ ChangeLog
          0.5.0
 
    :Changes:
-		 \* [TASK] Added support for TYPO3 CMS 7.6 (7.5 requires Bugfix: https://forge.typo3.org/issues/70314)
+         \* [TASK] Add support for TYPO3 CMS 7.6
    
-         \* [TASK] Rewritten rendering of link in plugin
+         \* [TASK] Rewrite rendering of link in plugin
 
-         \* [FEATURE] Added Link-image to plugin
+         \* [FEATURE] Add Link-image to plugin
 
-         \* [FEATURE] Added link wizard to iframe-link in plugin
+         \* [FEATURE] Add link wizard to iframe-link in plugin
+
+         \* [TASK] Update documentation
+
+         \* [TASK] Implement PSR-2 standard
+
+         \* [TASK] Move to GitHub
 
  - :Version:
          0.4.1
