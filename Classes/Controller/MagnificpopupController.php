@@ -8,7 +8,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2013-2015 Jonathan Heilmann <mail@jonathan-heilmann.de>
+ *  (c) 2013-2016 Jonathan Heilmann <mail@jonathan-heilmann.de>
  *
  *  All rights reserved
  *
