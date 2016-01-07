@@ -1,5 +1,6 @@
 <?php
 namespace TYPO3\JhMagnificpopup\ViewHelpers\Extension;
+
 /***************************************************************
  *  Copyright notice
  *
@@ -36,30 +37,32 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractConditionViewHelper;
  * @package Vhs
  * @subpackage ViewHelpers\Extension
  */
-class LoadedViewHelper extends AbstractConditionViewHelper {
+class LoadedViewHelper extends AbstractConditionViewHelper
+{
 
-	/**
-	 * Initialize arguments
-	 */
-	public function initializeArguments() {
-		parent::initializeArguments();
-		$this->registerArgument('extensionName', 'string', 'Name of extension that must be loaded in order to evaluate as TRUE, UpperCamelCase', TRUE);
-	}
+    /**
+     * Initialize arguments
+     */
+    public function initializeArguments()
+    {
+        parent::initializeArguments();
+        $this->registerArgument('extensionName', 'string', 'Name of extension that must be loaded in order to evaluate as TRUE, UpperCamelCase', true);
+    }
 
-	/**
-	 * Render method
-	 *
-	 * @return string
-	 */
-	public function render() {
-		$extensionName = $this->arguments['extensionName'];
-		$extensionKey = GeneralUtility::camelCaseToLowerCaseUnderscored($extensionName);
-		$isLoaded = ExtensionManagementUtility::isLoaded($extensionKey);
-		if (TRUE === $isLoaded) {
-			return $this->renderThenChild();
-		} else {
-			return $this->renderElseChild();
-		}
-	}
-
+    /**
+     * Render method
+     *
+     * @return string
+     */
+    public function render()
+    {
+        $extensionName = $this->arguments['extensionName'];
+        $extensionKey = GeneralUtility::camelCaseToLowerCaseUnderscored($extensionName);
+        $isLoaded = ExtensionManagementUtility::isLoaded($extensionKey);
+        if (true === $isLoaded) {
+            return $this->renderThenChild();
+        } else {
+            return $this->renderElseChild();
+        }
+    }
 }

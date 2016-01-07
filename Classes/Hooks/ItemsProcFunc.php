@@ -32,45 +32,48 @@ namespace Heilmann\JhMagnificpopup\Hooks;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class ItemsProcFunc extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+class ItemsProcFunc extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+{
 
-	/**
-	 * Itemsproc function to extend the selection of mainClass in the plugin
-	 *
-	 * @param array &$config configuration array
-	 * @return void
-	 */
-	public function user_mainClass(array &$config) {
-		/** @var Tx_News_Utility_TemplateLayout $templateLayoutsUtility */
-		$templateLayoutsUtility = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Heilmann\JhMagnificpopup\Utility\MainClass');
-		$templateLayouts = $templateLayoutsUtility->getAvailableMainClass($config['row']['pid']);
-		foreach ($templateLayouts as $layout) {
-			$additionalLayout = array(
-				$GLOBALS['LANG']->sL($layout[0], TRUE),
-				$layout[1]
-			);
-			array_push($config['items'], $additionalLayout);
-		}
-		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($config);
-	}
+    /**
+     * Itemsproc function to extend the selection of mainClass in the plugin
+     *
+     * @param array &$config configuration array
+     * @return void
+     */
+    public function user_mainClass(array &$config)
+    {
+        /** @var Tx_News_Utility_TemplateLayout $templateLayoutsUtility */
+        $templateLayoutsUtility = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Heilmann\JhMagnificpopup\Utility\MainClass');
+        $templateLayouts = $templateLayoutsUtility->getAvailableMainClass($config['row']['pid']);
+        foreach ($templateLayouts as $layout) {
+            $additionalLayout = array(
+                $GLOBALS['LANG']->sL($layout[0], true),
+                $layout[1]
+            );
+            array_push($config['items'], $additionalLayout);
+        }
+        //\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($config);
+    }
 
-	/**
-	 * Itemsproc function to extend the selection of emovalDelay in the plugin
-	 *
-	 * @param array &$config configuration array
-	 * @return void
-	 */
-	public function user_removalDelay(array &$config) {
-		/** @var Tx_News_Utility_TemplateLayout $templateLayoutsUtility */
-		$templateLayoutsUtility = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Heilmann\JhMagnificpopup\Utility\RemovalDelay');
-		$templateLayouts = $templateLayoutsUtility->getAvailableRemovalDelay($config['row']['pid']);
-		foreach ($templateLayouts as $layout) {
-			$additionalLayout = array(
-				$GLOBALS['LANG']->sL($layout[0], TRUE),
-				$layout[1]
-			);
-			array_push($config['items'], $additionalLayout);
-		}
-		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($config);
-	}
+    /**
+     * Itemsproc function to extend the selection of emovalDelay in the plugin
+     *
+     * @param array &$config configuration array
+     * @return void
+     */
+    public function user_removalDelay(array &$config)
+    {
+        /** @var Tx_News_Utility_TemplateLayout $templateLayoutsUtility */
+        $templateLayoutsUtility = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Heilmann\JhMagnificpopup\Utility\RemovalDelay');
+        $templateLayouts = $templateLayoutsUtility->getAvailableRemovalDelay($config['row']['pid']);
+        foreach ($templateLayouts as $layout) {
+            $additionalLayout = array(
+                $GLOBALS['LANG']->sL($layout[0], true),
+                $layout[1]
+            );
+            array_push($config['items'], $additionalLayout);
+        }
+        //\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($config);
+    }
 }

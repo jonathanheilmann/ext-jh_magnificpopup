@@ -1,17 +1,17 @@
 <?php
 if (!defined('TYPO3_MODE')) {
-	die ('Access denied.');
+    die('Access denied.');
 }
 
 // Configure frontend plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-	'TYPO3.' . $_EXTKEY,
-	'Pi1',
-	array(
-		'Magnificpopup' => 'show'
-	),
-	array(
-	)
+    'TYPO3.' . $_EXTKEY,
+    'Pi1',
+    array(
+        'Magnificpopup' => 'show'
+    ),
+    array(
+    )
 );
 
 // Save the IRRE content (use hook to change colPos)
@@ -55,7 +55,7 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['jh_magnificpopup_ajax'] = 'EXT
 //
 $extConfig = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['jh_magnificpopup']);
 if (isset($extConfig['enableAlphaFeatures']) && $extConfig['enableAlphaFeatures'] == 1) {
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('
 		RTE.classesAnchor {
 		  internalCEInMagnificpopup {
 		    class = mfp-content-element internal-link-new-window
@@ -71,5 +71,3 @@ if (isset($extConfig['enableAlphaFeatures']) && $extConfig['enableAlphaFeatures'
 		RTE.default.buttons.link.properties.class.allowedClasses := addToList(mfp-content-element internal-link-new-window)
 	');
 }
-
-?>

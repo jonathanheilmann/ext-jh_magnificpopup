@@ -29,43 +29,46 @@ namespace Heilmann\JhMagnificpopup\Utility;
  * originally from EXT:news
  *
  */
-class MainClass implements \TYPO3\CMS\Core\SingletonInterface {
+class MainClass implements \TYPO3\CMS\Core\SingletonInterface
+{
 
-	/**
-	 * Get available template layouts for a certain page
-	 *
-	 * @param int $pageUid
-	 * @return array
-	 */
-	public function getAvailableMainClass($pageUid) {
-		$templateLayouts = array();
+    /**
+     * Get available template layouts for a certain page
+     *
+     * @param int $pageUid
+     * @return array
+     */
+    public function getAvailableMainClass($pageUid)
+    {
+        $templateLayouts = array();
 
-		// Check if the layouts are extended by ext_tables
-		if (isset($GLOBALS['TYPO3_CONF_VARS']['EXT']['jh_magnificpopup']['mainClass'])
-			&& is_array($GLOBALS['TYPO3_CONF_VARS']['EXT']['jh_magnificpopup']['mainClass'])) {
-			$templateLayouts = $GLOBALS['TYPO3_CONF_VARS']['EXT']['jh_magnificpopup']['mainClass'];
-		}
+        // Check if the layouts are extended by ext_tables
+        if (isset($GLOBALS['TYPO3_CONF_VARS']['EXT']['jh_magnificpopup']['mainClass'])
+            && is_array($GLOBALS['TYPO3_CONF_VARS']['EXT']['jh_magnificpopup']['mainClass'])) {
+            $templateLayouts = $GLOBALS['TYPO3_CONF_VARS']['EXT']['jh_magnificpopup']['mainClass'];
+        }
 
-		// Add TsConfig values
-		foreach($this->getTemplateLayoutsFromTsConfig($pageUid) as $animation => $class) {
-			$templateLayouts[] = array($animation, $class);
-		}
+        // Add TsConfig values
+        foreach ($this->getTemplateLayoutsFromTsConfig($pageUid) as $animation => $class) {
+            $templateLayouts[] = array($animation, $class);
+        }
 
-		return $templateLayouts;
-	}
+        return $templateLayouts;
+    }
 
-	/**
-	 * Get template layouts defined in TsConfig
-	 *
-	 * @param $pageUid
-	 * @return array
-	 */
-	protected function getTemplateLayoutsFromTsConfig($pageUid) {
-		$templateLayouts = array();
-		$pagesTsConfig = \TYPO3\CMS\Backend\Utility\BackendUtility::getPagesTSconfig($pageUid);
-		if (isset($pagesTsConfig['tx_jhmagnificpopup.']['mainClass.']) && is_array($pagesTsConfig['tx_jhmagnificpopup.']['mainClass.'])) {
-			$templateLayouts = $pagesTsConfig['tx_jhmagnificpopup.']['mainClass.'];
-		}
-		return $templateLayouts;
-	}
+    /**
+     * Get template layouts defined in TsConfig
+     *
+     * @param $pageUid
+     * @return array
+     */
+    protected function getTemplateLayoutsFromTsConfig($pageUid)
+    {
+        $templateLayouts = array();
+        $pagesTsConfig = \TYPO3\CMS\Backend\Utility\BackendUtility::getPagesTSconfig($pageUid);
+        if (isset($pagesTsConfig['tx_jhmagnificpopup.']['mainClass.']) && is_array($pagesTsConfig['tx_jhmagnificpopup.']['mainClass.'])) {
+            $templateLayouts = $pagesTsConfig['tx_jhmagnificpopup.']['mainClass.'];
+        }
+        return $templateLayouts;
+    }
 }
