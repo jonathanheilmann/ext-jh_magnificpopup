@@ -18,6 +18,7 @@ $extensionName = \TYPO3\CMS\Core\Utility\GeneralUtility::underscoredToUpperCamel
 $pluginSignature = strtolower($extensionName) . '_pi1';
 $TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:'.$_EXTKEY.'/Configuration/FlexForms/MagnificpopupPlugin.xml');
+$TCA['tt_content']['types']['list']['subtypes_excludelist'][$pluginSignature]='layout,select_key,pages,recursive';
 
 // Add static files
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript/Default', 'Magnific Popup');
