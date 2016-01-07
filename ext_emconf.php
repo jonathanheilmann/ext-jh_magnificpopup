@@ -10,31 +10,30 @@
  * writing. "version" and "dependencies" must not be touched!
  ***************************************************************/
 
-$EM_CONF[$_EXTKEY] = array (
-	'title' => 'Magnific Popup',
-	'description' => 'This extension provides the responsive jQuery lightbox plugin Magnific
+$EM_CONF[$_EXTKEY] = array(
+    'title' => 'Magnific Popup',
+    'description' => 'This extension provides the responsive jQuery lightbox plugin Magnific
 Popup for images in content elements. Opening content like videos, other websites or inline/referenced content is supported within a plugin.',
-	'category' => 'plugin',
-	'version' => '0.5.0-beta2',
-	'state' => 'stable',
-	'uploadfolder' => true,
-	'createDirs' => '',
-	'clearcacheonload' => true,
-	'author' => 'Jonathan Heilmann',
-	'author_email' => 'mail@jonathan-heilmann.de',
-	'author_company' => '',
-	'constraints' =>
-	array (
-		'depends' =>
-		array (
-			'typo3' => '6.2.0-7.6.99',
-		),
-		'conflicts' =>
-		array (
-		),
-		'suggests' =>
-		array (
-		),
-	),
+    'category' => 'plugin',
+    'version' => '0.5.0-beta3',
+    'state' => 'stable',
+    'uploadfolder' => true,
+    'createDirs' => '',
+    'clearcacheonload' => true,
+    'author' => 'Jonathan Heilmann',
+    'author_email' => 'mail@jonathan-heilmann.de',
+    'author_company' => '',
+    'constraints' =>
+    array(
+        'depends' =>
+        array(
+            'typo3' => '6.2.0-7.6.99',
+        ),
+        'conflicts' =>
+        array(
+        ),
+        'suggests' =>
+        array(
+        ),
+    ),
 );
-
