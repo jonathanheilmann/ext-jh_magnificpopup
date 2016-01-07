@@ -27,3 +27,7 @@ For more information and some working examples of Magnific Popup visit
 `http://dimsemenov.com/plugins/magnific-popup/
 <http://dimsemenov.com/plugins/magnific-popup/>`_
 
+A german video tutorial may be find here
+`https://jweiland.net/video-anleitungen/typo3/interessante-typo3-extensions/jh-magnificpopup.html
+<https://jweiland.net/video-anleitungen/typo3/interessante-typo3-extensions/jh-magnificpopup.html>`_
+
