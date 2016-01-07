@@ -20,7 +20,7 @@ EXT: Magnific Popup
       2010-02-18 17:03
 
 :Changed:
-      2015-04-09 13:11
+      2016-01-07 17:06
 
 :Classification:
       jh_magnificpopup
