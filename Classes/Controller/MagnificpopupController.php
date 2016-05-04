@@ -1,10 +1,5 @@
 <?php
-namespace TYPO3\JhMagnificpopup\Controller;
-
-use TYPO3\CMS\Core\Messaging\AbstractMessage;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Core\Utility\ArrayUtility;
-use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+namespace Heilmann\JhMagnificpopup\Controller;
 
 /***************************************************************
  *  Copyright notice
@@ -30,12 +25,14 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use TYPO3\CMS\Core\Messaging\AbstractMessage;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\ArrayUtility;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+
 /**
- *
- *
- * @package jh_magnificpopup
- * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
- *
+ * Class MagnificpopupController
+ * @package Heilmann\JhMagnificpopup\Controller
  */
 class MagnificpopupController extends ActionController
 {
