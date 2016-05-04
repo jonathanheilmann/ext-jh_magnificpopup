@@ -72,6 +72,7 @@ The content of this document is related to TYPO3
    ConfigurationOfPlugin/Index
    Development/Index
    BreakingChanges/Index
+   HowTo/Index
    KnownProblems/Index
    Changelog/Index
 
