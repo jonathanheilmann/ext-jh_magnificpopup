@@ -145,34 +145,34 @@ plugin.tx_jhmagnificpopup.settings {
 
 // Include javascript of iframe if enabled global
 [globalVar = LIT:1 = {$plugin.tx_jhmagnificpopup.type.iframe.enableglobal}]
-plugin.tx_jhmagnificpopup.settings.type.iframe {
-	# Copy actual page.jsFooterInline to setup to prevent from data-loss
-	setup < page.jsFooterInline
-	setup {
-		110 = FLUIDTEMPLATE
-		110 {
-			file = EXT:jh_magnificpopup/Resources/Private/Templates/TypoScript/Inline.html
+	plugin.tx_jhmagnificpopup.settings.type.iframe {
+		# Copy actual page.jsFooterInline to setup to prevent from data-loss
+		setup < page.jsFooterInline
+		setup {
+			110 = FLUIDTEMPLATE
+			110 {
+				file = EXT:jh_magnificpopup/Resources/Private/Templates/TypoScript/Inline.html
+			}
 		}
 	}
-}
-// Add javascript of iframe to footer
- page.jsFooterInline < plugin.tx_jhmagnificpopup.settings.type.iframe.setup
+	// Add javascript of iframe to footer
+	page.jsFooterInline < plugin.tx_jhmagnificpopup.settings.type.iframe.setup
 [global]
 
 // Include javascript of ajax if enabled global
 [globalVar = LIT:1 = {$plugin.tx_jhmagnificpopup.type.ajax.enableglobal}]
-plugin.tx_jhmagnificpopup.settings.type.ajax {
-	# Copy actual page.jsFooterInline to setup to prevent from data-loss
-	setup < page.jsFooterInline
-	setup {
-		111 = FLUIDTEMPLATE
-		111 {
-			file = EXT:jh_magnificpopup/Resources/Private/Templates/TypoScript/InlineAjax.html
+	plugin.tx_jhmagnificpopup.settings.type.ajax {
+		# Copy actual page.jsFooterInline to setup to prevent from data-loss
+		setup < page.jsFooterInline
+		setup {
+			111 = FLUIDTEMPLATE
+			111 {
+				file = EXT:jh_magnificpopup/Resources/Private/Templates/TypoScript/InlineAjax.html
+			}
 		}
 	}
-}
-// Add javascript of ajax to footer
- page.jsFooterInline < plugin.tx_jhmagnificpopup.settings.type.ajax.setup
+	// Add javascript of ajax to footer
+	page.jsFooterInline < plugin.tx_jhmagnificpopup.settings.type.ajax.setup
 [global]
 
 // Definde page for ajax-requests
@@ -190,43 +190,43 @@ ajaxcontent {
 }
 // Render inline-content
 [globalString = GP:jh_magnificpopup|type=inline]
-ajaxcontent.10 {
-	10 >
-	10 = CONTENT
-	10 {
-		table = tt_content
-		select {
-			where = hidden=0 AND deleted=0
-			andWhere.data = GP:jh_magnificpopup|irre_parrentid
-			#andWhere.intval = 1
-			andWhere.wrap = tx_jhmagnificpopup_irre_parentid=|
-			orderBy = sorting
+	ajaxcontent.10 {
+		10 >
+		10 = CONTENT
+		10 {
+			table = tt_content
+			select {
+				where = hidden=0 AND deleted=0
+				andWhere.data = GP:jh_magnificpopup|irre_parrentid
+				#andWhere.intval = 1
+				andWhere.wrap = tx_jhmagnificpopup_irre_parentid=|
+				orderBy = sorting
+			}
 		}
 	}
-}
 [global]
 // Render from reference to content-element
 [globalString = GP:jh_magnificpopup|type=reference]
-ajaxcontent.10 {
-	10 >
-	10 = CONTENT
-	10 {
-		table = tt_content
-		select {
-			andWhere.dataWrap = tt_content.uid IN ({GP:jh_magnificpopup|uid})|
-			languageField=sys_language_uid
-			orderBy = sorting
-			pidInList.data = GP:jh_magnificpopup|pid
+	ajaxcontent.10 {
+		10 >
+		10 = CONTENT
+		10 {
+			table = tt_content
+			select {
+				andWhere.dataWrap = tt_content.uid IN ({GP:jh_magnificpopup|uid})|
+				languageField=sys_language_uid
+				orderBy = sorting
+				pidInList.data = GP:jh_magnificpopup|pid
+			}
 		}
 	}
-}
 [global]
 
 // TS to render images as link
 lib.tx_jhmagnificpopup_pi1.image < tt_content.image.20.1
 lib.tx_jhmagnificpopup_pi1.image {
-  file.width >
-  file.maxW = {$styles.content.imgtext.maxW}
+	file.width >
+	file.maxW = {$styles.content.imgtext.maxW}
 }
 
 // add css hack to position an image at center
@@ -245,16 +245,16 @@ plugin.tx_jhmagnificpopup._CSS_DEFAULT_STYLE (
 
 // Include javascript of inlineCE if enabled
 [globalVar = LIT:1 = {$plugin.tx_jhmagnificpopup.enableAlphaFeatures}]
-plugin.tx_jhmagnificpopup.settings.type.iframe {
-	# Copy actual page.jsFooterInline to setup to prevent from data-loss
-	setup < page.jsFooterInline
-	setup {
-		120 = FLUIDTEMPLATE
-		120 {
-			file = EXT:jh_magnificpopup/Resources/Private/Templates/TypoScript/InlineCE.html
+	plugin.tx_jhmagnificpopup.settings.type.iframe {
+		# Copy actual page.jsFooterInline to setup to prevent from data-loss
+		setup < page.jsFooterInline
+		setup {
+			120 = FLUIDTEMPLATE
+			120 {
+				file = EXT:jh_magnificpopup/Resources/Private/Templates/TypoScript/InlineCE.html
+			}
 		}
 	}
-}
-// Add javascript of iframe to footer
-page.jsFooterInline < plugin.tx_jhmagnificpopup.settings.type.iframe.setup
+	// Add javascript of iframe to footer
+	page.jsFooterInline < plugin.tx_jhmagnificpopup.settings.type.iframe.setup
 [global]
