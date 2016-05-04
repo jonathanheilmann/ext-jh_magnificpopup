@@ -47,7 +47,7 @@ TypoScript Constants – general
          Click-enlarge Image Width (Constants category "CONTENT")
 
    Default
-         \ 
+         \
 
 .. container:: table-row
 
