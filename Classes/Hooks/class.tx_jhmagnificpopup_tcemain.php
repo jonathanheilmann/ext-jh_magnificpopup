@@ -4,7 +4,7 @@
  *
  *  Original: (c) 2009 Juergen Furrer <juergen.furrer@gmail.com>
  *				EXT:jfmulticontent
- *	 Edited: (c) 2013 Jonathan Heilmann <mail@jonathan-heilmann.de>
+ *	 Edited: (c) 2013-2016 Jonathan Heilmann <mail@jonathan-heilmann.de>
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -54,7 +54,7 @@ class tx_jhmagnificpopup_tcemain
                     if (!is_array($val['pi_flexform'])) {
                         $val['pi_flexform'] = \TYPO3\CMS\Core\Utility\GeneralUtility::xml2array($val['pi_flexform']);
                     }
-                    if ($val['list_type'] == 'jhmagnificpopup_pi1' && $val['pi_flexform']['data']['sDEF']['lDEF']['settings.contenttype']['vDEF'] == 'inline') {
+                    if ($val['list_type'] == 'jhmagnificpopup_pi1' && isset($val['pi_flexform']['data']['sDEF']['lDEF']['settings.contenttype']['vDEF']) && $val['pi_flexform']['data']['sDEF']['lDEF']['settings.contenttype']['vDEF'] == 'inline') {
                         // Change the colPos of the IRRE tt_content values
                         $confArr = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['jh_magnificpopup']);
                         $incomingFieldArray['colPos'] = $confArr['colPosOfIrreContent'];
