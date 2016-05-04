@@ -28,30 +28,30 @@
  * @package TYPO3
  * @subpackage tx_jhmagnificpopup
  */
-class jhmagnificpopup_pi1_wizicon {
+class jhmagnificpopup_pi1_wizicon
+{
 
-	const KEY = 'jhmagnificpopup';
+    const KEY = 'jhmagnificpopup';
 
-	/**
-	 * Processing the wizard items array
-	 *
-	 * @param array $wizardItems The wizard items
-	 * @return array array with wizard items
-	 */
-	public function proc($wizardItems) {
-		$wizardItems['plugins_tx_' . self::KEY] = array(
-			'icon'			=> \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('jh_magnificpopup') . 'Resources/Public/Icons/ce_wiz.gif',
-			'title'			=> $GLOBALS['LANG']->sL('LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xml:pi1_title'),
-			'description'	=> $GLOBALS['LANG']->sL('LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xml:pi1_plus_wiz_description'),
-			'params'		=> '&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=' . self::KEY . '_pi1'
-		);
+    /**
+     * Processing the wizard items array
+     *
+     * @param array $wizardItems The wizard items
+     * @return array array with wizard items
+     */
+    public function proc($wizardItems)
+    {
+        $wizardItems['plugins_tx_' . self::KEY] = array(
+            'icon'            => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('jh_magnificpopup') . 'Resources/Public/Icons/ce_wiz.gif',
+            'title'            => $GLOBALS['LANG']->sL('LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xml:pi1_title'),
+            'description'    => $GLOBALS['LANG']->sL('LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xml:pi1_plus_wiz_description'),
+            'params'        => '&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=' . self::KEY . '_pi1'
+        );
 
-		return $wizardItems;
-	}
+        return $wizardItems;
+    }
 }
 
 if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/jh_magnificpopup/Resources/Private/Php/class.jh_magnificpopup_wizicon.php']) {
-	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/jh_magnificpopup/Resources/Private/Php/class.jh_magnificpopup_wizicon.php']);
+    include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/jh_magnificpopup/Resources/Private/Php/class.jh_magnificpopup_wizicon.php']);
 }
-
-?>
