@@ -46,7 +46,6 @@ page.includeJSFooterlibs {
 plugin.tx_jhmagnificpopup {
 				# default selector
 				1.value = .csc-textpic-imagewrap
-				30.value = ,.img-wrap
     settings {
         magnificpopup {
             # Add some selectors if support is activated
@@ -71,6 +70,7 @@ plugin.tx_jhmagnificpopup {
                 22.if.isTrue = {$plugin.tx_jhmagnificpopup.magnificpopup.support.tx_ttnews.latest}
                 # bootstrap_package
                 30 = TEXT
+                30.value = ,.img-wrap,.image-wrap
                 30.if.isTrue = {$plugin.tx_jhmagnificpopup.magnificpopup.support.tx_bootstrappackage}
                 # user-defined selectors (always start with ','!)
                 999 = TEXT
