@@ -1,10 +1,5 @@
 <?php
-namespace TYPO3\JhMagnificpopup\Controller;
-
-use TYPO3\CMS\Core\Messaging\AbstractMessage;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Core\Utility\ArrayUtility;
-use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+namespace Heilmann\JhMagnificpopup\Controller;
 
 /***************************************************************
  *  Copyright notice
@@ -30,12 +25,14 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use TYPO3\CMS\Core\Messaging\AbstractMessage;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\ArrayUtility;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+
 /**
- *
- *
- * @package jh_magnificpopup
- * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
- *
+ * Class MagnificpopupController
+ * @package Heilmann\JhMagnificpopup\Controller
  */
 class MagnificpopupController extends ActionController
 {
@@ -112,7 +109,10 @@ class MagnificpopupController extends ActionController
         $this->view->assignMultiple($viewAssign);
     }
 
-    private function ajax()
+    /**
+     * @return array
+     */
+    protected function ajax()
     {
         $viewAssign['type'] = 'ajax';
         // Use ajax procedure
@@ -174,7 +174,10 @@ class MagnificpopupController extends ActionController
         return $viewAssign;
     }
 
-    private function inline()
+    /**
+     * @return array
+     */
+    protected function inline()
     {
         $viewAssign['type'] = 'inline';
         // Use inline procedure
@@ -243,7 +246,10 @@ class MagnificpopupController extends ActionController
         return $viewAssign;
     }
 
-    private function iframe()
+    /**
+     * @return array
+     */
+    protected function iframe()
     {
         $viewAssign['type'] = 'iframe';
 
@@ -284,7 +290,7 @@ class MagnificpopupController extends ActionController
      * @param string $selectorClass
      * @return array
      */
-    private function configureLink($selectorClass)
+    protected function configureLink($selectorClass)
     {
         $lConf = array();
         // Modify parameter to add jQuery selector class to link
@@ -311,11 +317,11 @@ class MagnificpopupController extends ActionController
      * @param array $lConf
      * @return array
      */
-    private function renderLinktypeFile($lConf)
+    protected function renderLinktypeFile($lConf)
     {
         $viewAssign = array();
         // Get file
-        $fileRepository = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\FileRepository');
+        $fileRepository = $this->objectManager->get('TYPO3\\CMS\\Core\\Resource\\FileRepository');
         $fileObjects = $fileRepository->findByRelation('tt_content', 'mfp_image', $this->data['uid']);
         /** @var \TYPO3\CMS\Core\Resource\File $file */
         $file = $fileObjects[0];

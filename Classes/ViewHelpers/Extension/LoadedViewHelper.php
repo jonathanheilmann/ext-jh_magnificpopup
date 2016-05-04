@@ -1,5 +1,5 @@
 <?php
-namespace TYPO3\JhMagnificpopup\ViewHelpers\Extension;
+namespace Heilmann\JhMagnificpopup\ViewHelpers\Extension;
 
 /***************************************************************
  *  Copyright notice
@@ -24,6 +24,7 @@ namespace TYPO3\JhMagnificpopup\ViewHelpers\Extension;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractConditionViewHelper;

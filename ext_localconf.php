@@ -5,7 +5,7 @@ if (!defined('TYPO3_MODE')) {
 
 // Configure frontend plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'TYPO3.' . $_EXTKEY,
+    'Heilmann.' . $_EXTKEY,
     'Pi1',
     array(
         'Magnificpopup' => 'show'

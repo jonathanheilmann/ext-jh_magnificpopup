@@ -8,7 +8,7 @@ $confArr = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['jh_magnifi
 
 // Add frontend plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-    $_EXTKEY,
+    'Heilmann.' . $_EXTKEY,
     'Pi1',
     'Magnific Popup'
 );

@@ -24,7 +24,7 @@
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-defined('TYPO3_MODE') or die ('Access denied.');
+defined('TYPO3_MODE') or die('Access denied.');
 
 /** @var \Heilmann\JhMagnificpopup\Core\EidRequest $eid */
 $eid = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Heilmann\\JhMagnificpopup\\Core\\EidRequest');
