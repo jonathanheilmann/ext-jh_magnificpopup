@@ -109,7 +109,10 @@ class MagnificpopupController extends ActionController
         $this->view->assignMultiple($viewAssign);
     }
 
-    private function ajax()
+    /**
+     * @return array
+     */
+    protected function ajax()
     {
         $viewAssign['type'] = 'ajax';
         // Use ajax procedure
@@ -171,7 +174,10 @@ class MagnificpopupController extends ActionController
         return $viewAssign;
     }
 
-    private function inline()
+    /**
+     * @return array
+     */
+    protected function inline()
     {
         $viewAssign['type'] = 'inline';
         // Use inline procedure
@@ -240,7 +246,10 @@ class MagnificpopupController extends ActionController
         return $viewAssign;
     }
 
-    private function iframe()
+    /**
+     * @return array
+     */
+    protected function iframe()
     {
         $viewAssign['type'] = 'iframe';
 
@@ -281,7 +290,7 @@ class MagnificpopupController extends ActionController
      * @param string $selectorClass
      * @return array
      */
-    private function configureLink($selectorClass)
+    protected function configureLink($selectorClass)
     {
         $lConf = array();
         // Modify parameter to add jQuery selector class to link
@@ -308,11 +317,11 @@ class MagnificpopupController extends ActionController
      * @param array $lConf
      * @return array
      */
-    private function renderLinktypeFile($lConf)
+    protected function renderLinktypeFile($lConf)
     {
         $viewAssign = array();
         // Get file
-        $fileRepository = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\FileRepository');
+        $fileRepository = $this->objectManager->get('TYPO3\\CMS\\Core\\Resource\\FileRepository');
         $fileObjects = $fileRepository->findByRelation('tt_content', 'mfp_image', $this->data['uid']);
         /** @var \TYPO3\CMS\Core\Resource\File $file */
         $file = $fileObjects[0];
