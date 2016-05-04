@@ -9,23 +9,14 @@
 .. role::   underline
 .. role::   typoscript(code)
 .. role::   ts(typoscript)
-   :class:  typoscript
+:class:  typoscript
 .. role::   php(code)
 
 
-Breaking changes
-----------------
+Version 0.6.0
+^^^^^^^^^^^^^
 
-
-.. toctree::
-   :maxdepth: 5
-   :titlesonly:
-   :glob:
-
-   Version060/Index
-   Version050/Index
-   Version040/Index
-   Version026/Index
-   Version024/Index
-   Version020/Index
-
+| Within version 0.6.0, the namespace vendor has changed from "TYPO3" to "Heilmann".
+| If you use a ViewHelper of this extension in a custom template, please update your namespace declaration.
+| Actually a code migration is available, but will be removed in a later version.
+| **Please consider this if you use a locally modified template**

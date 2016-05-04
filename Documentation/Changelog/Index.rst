@@ -28,6 +28,26 @@ ChangeLog
          Changes
 
  - :Version:
+         0.6.0
+
+   :Changes:
+         \* [ENHANCEMENT] include composer.json
+
+         \* [ENHANCEMENT] Make jh_magnificpopup work with fluid styled content
+
+         \* [DOCUMENTATION] Add section "how to"
+
+         \* [TASK] Update namespace (see Breaking changes -> Version 0.6.0)
+
+         \* [TASK] Update Magnific Popup to version 1.1.0
+
+         \* [TASK] Update jQuery
+
+         \* [TASK] Update documentation
+
+         \* Bugfixes
+
+ - :Version:
          0.5.0
 
    :Changes:
