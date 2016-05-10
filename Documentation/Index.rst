@@ -20,7 +20,7 @@ EXT: Magnific Popup
       2010-02-18 17:03
 
 :Changed:
-      2016-05-04 19:57
+      2016-05-10 10:14
 
 :Classification:
       jh_magnificpopup
@@ -44,7 +44,7 @@ Extension Key: jh\_magnificpopup
 
 Language: en
 
-Version: 0.6.0
+Version: 0.6.1
 
 Keywords: magnific popup, lightbox, responsive
 

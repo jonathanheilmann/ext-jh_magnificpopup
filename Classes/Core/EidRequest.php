@@ -26,8 +26,6 @@ namespace Heilmann\JhMagnificpopup\Core;
  ***************************************************************/
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Core\Bootstrap;
-use TYPO3\CMS\Extbase\Service\TypoScriptService;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 use TYPO3\CMS\Frontend\Utility\EidUtility;
 
@@ -129,15 +127,15 @@ class EidRequest
     }
 
     /**
+     * EidRequest constructor.
      * Initialize frontend environment
-     *
-     * @return void
      */
     public function __construct()
     {
         $this->bootstrap = GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Core\\Bootstrap');
 
         $feUserObj = EidUtility::initFeUser();
+        EidUtility::initTCA();
 
         $pageId = GeneralUtility::_GET('id') ?: 1;
         $pageType = GeneralUtility::_GET('type') ?: 0;
@@ -156,10 +154,8 @@ class EidRequest
         $this->typoScriptFrontendController->id = $pageId;
         $this->typoScriptFrontendController->determineId();
         $this->typoScriptFrontendController->checkAlternativeIdMethods();
-        $this->typoScriptFrontendController->getCompressedTCarray();
         $this->typoScriptFrontendController->initTemplate();
         $this->typoScriptFrontendController->getConfigArray();
-        $this->typoScriptFrontendController->includeTCA();
         $this->typoScriptFrontendController->settingLanguage();
         $this->typoScriptFrontendController->settingLocale();
     }
