@@ -28,6 +28,12 @@ ChangeLog
          Changes
 
  - :Version:
+         0.6.1
+
+   :Changes:
+         \* [BUGFIX] TYPO3 CMS 7 LTS: eID fails
+
+ - :Version:
          0.6.0
 
    :Changes:
