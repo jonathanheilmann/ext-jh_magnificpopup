@@ -1,0 +1,36 @@
+<html xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:jh="http://typo3.org/ns/Heilmann/JhMagnificpopup/ViewHelpers">
+<jh:pageRenderer.addJsInlineCode name="jh_magnificpopup-inline-{uid}" addToFooter="true">
+    $('.mfp-inline-{uid}').magnificPopup({
+        type: 'inline',
+        tClose: '<f:translate key="inline.tClose"/>',
+        tLoading: '<f:translate key="inline.tLoading"/>',
+        disableOn: {settings.type.inline.disableOn},
+        mainClass: '{settings.type.inline.mainClass}',
+        preloader: {settings.type.inline.preloader},
+        focus: '{settings.type.inline.focus}',
+        closeOnContentClick: {settings.type.inline.closeOnContentClick},
+        closeOnBgClick: {settings.type.inline.closeOnBgClick},
+        closeBtnInside: {settings.type.inline.closeBtnInside},
+        showCloseBtn: {settings.type.inline.showCloseBtn},
+        enableEscapeKey: {settings.type.inline.enableEscapeKey},
+        modal: {settings.type.inline.modal},
+        alignTop: {settings.type.inline.alignTop},
+        fixedContentPos: '{settings.type.inline.fixedContentPos}',
+        fixedBgPos: '{settings.type.inline.fixedBgPos}',
+        overflowY: '{settings.type.inline.overflowY}',
+        removalDelay: {settings.type.inline.removalDelay},
+        closeMarkup: '{f:format.raw(value:settings.type.inline.closeMarkup)}',
+        callbacks: {
+            open: function() {
+                try {
+                    $("img.lazyload").responsiveimages({}, function() {
+                        $(this).load(function() {
+                            this.style.opacity = 1;
+                        });
+                    });
+                } catch (e) {}
+            }
+        }
+    });
+</jh:pageRenderer.addJsInlineCode>
+</html>
