@@ -35,6 +35,15 @@ See `https://gist.github.com/jonathanheilmann/c75e139cf1e630f3125c <https://gist
 Working example: `http://jonathan-heilmann.de/index.php?id=156 <http://jonathan-heilmann.de/index.php?id=156>`_
 
 
+Title in Magnific Popup with EXT:fluid_styled_content
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Add this single line to your template-setup to display the image title as title in Magnific Popup:
+
+.. code-block:: typoscript
+
+
+    lib.fluidContent.settings.media.popup.linkParams.ATagParams.dataWrap = class="{$styles.content.textmedia.linkWrap.lightboxCssClass}" rel="{$styles.content.textmedia.linkWrap.lightboxRelAttribute}" title="{file:current:title}"
+
 Custom title in Magnific Popup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The way the Magnific Popup title is customized depends on styling extension used by your website.

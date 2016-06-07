@@ -1,0 +1,36 @@
+<html xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:jh="http://typo3.org/ns/Heilmann/JhMagnificpopup/ViewHelpers">
+<jh:pageRenderer.addJsInlineCode name="jh_magnificpopup-ajax-{uid}" addToFooter="true">
+    $('.mfp-ajax-{uid}').magnificPopup({
+        type: 'ajax',
+        tClose: '<f:translate key="ajax.tClose"/>',
+        tLoading: '<f:translate key="ajax.tLoading"/>',
+        ajax: <![CDATA[{]]>
+            cursor: '{settings.type.ajax.ajax.cursor}',
+            tError: '<f:translate key="ajax.ajax.tError"/>'
+        <![CDATA[}]]>,
+        disableOn: {settings.type.ajax.disableOn},
+        mainClass: '{settings.type.ajax.mainClass}',
+        preloader: {settings.type.ajax.preloader},
+        focus: '{settings.type.ajax.focus}',
+        closeOnContentClick: {settings.type.ajax.closeOnContentClick},
+        closeOnBgClick: {settings.type.ajax.closeOnBgClick},
+        closeBtnInside: {settings.type.ajax.closeBtnInside},
+        showCloseBtn: {settings.type.ajax.showCloseBtn},
+        enableEscapeKey: {settings.type.ajax.enableEscapeKey},
+        modal: {settings.type.ajax.modal},
+        alignTop: {settings.type.ajax.alignTop},
+        fixedContentPos: '{settings.type.ajax.fixedContentPos}',
+        fixedBgPos: '{settings.type.ajax.fixedBgPos}',
+        overflowY: '{settings.type.ajax.overflowY}',
+        removalDelay: {settings.type.ajax.removalDelay},
+        closeMarkup: '{f:format.raw(value:settings.type.ajax.closeMarkup)}',
+        callbacks: {
+            ajaxContentAdded: function() {
+                try {
+                    $("img.lazyload").responsiveimage('unveil');
+                } catch (e) {}
+            }
+        }
+    });
+</jh:pageRenderer.addJsInlineCode>
+</html>

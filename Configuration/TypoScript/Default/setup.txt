@@ -125,25 +125,3 @@ plugin.tx_jhmagnificpopup {
 
 //add javascript to footer
 page.jsFooterInline < plugin.tx_jhmagnificpopup.setup
-
-// EXT:css_styled_content
-// enable lightbox, add the right class and remove the unused rel-attriubute
-styles.content.imgtext.linkWrap {
-    lightboxEnabled = 1
-    lightboxCssClass = magnificpopup
-    lightboxRelAttribute >
-}
-
-// images in content elements
-tt_content.image.20.1.imageLinkWrap {
-    JSwindow = 0
-    directImageLink = 1
-    linkParams.ATagParams.dataWrap = class="magnificpopup"
-}
-
-// EXT:fluid_styled_content
-styles.content.textmedia.linkWrap {
-    lightboxEnabled = 1
-    lightboxCssClass = magnificpopup
-    lightboxRelAttribute = magnificpopup[{field:uid}]
-}
