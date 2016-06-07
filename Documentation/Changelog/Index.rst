@@ -28,6 +28,18 @@ ChangeLog
          Changes
 
  - :Version:
+         0.6.2
+
+   :Changes:
+         \* [BUGFIX] Lazyload for images fails for type ajax and inline
+
+         \* [BUGFIX] Content element fails with bootstrap_grids
+
+         \* [BUGFIX] Wrong located typoscript
+
+         \* [BUGFIX] image title is not shown in overlay
+
+ - :Version:
          0.6.1
 
    :Changes:
