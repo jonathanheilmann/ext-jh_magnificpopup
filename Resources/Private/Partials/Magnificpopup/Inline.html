@@ -23,11 +23,7 @@
         callbacks: {
             open: function() {
                 try {
-                    $("img.lazyload").responsiveimages({}, function() {
-                        $(this).load(function() {
-                            this.style.opacity = 1;
-                        });
-                    });
+                    $("img.lazyload").responsiveimage('unveil');
                 } catch (e) {}
             }
         }
