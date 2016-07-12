@@ -152,8 +152,8 @@ class EidRequest
         $this->typoScriptFrontendController->connectToDB();
         $this->typoScriptFrontendController->fe_user = $feUserObj;
         $this->typoScriptFrontendController->id = $pageId;
-        $this->typoScriptFrontendController->determineId();
         $this->typoScriptFrontendController->checkAlternativeIdMethods();
+        $this->typoScriptFrontendController->determineId();
         $this->typoScriptFrontendController->initTemplate();
         $this->typoScriptFrontendController->getConfigArray();
         $this->typoScriptFrontendController->settingLanguage();
