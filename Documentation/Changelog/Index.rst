@@ -28,6 +28,14 @@ ChangeLog
          Changes
 
  - :Version:
+         0.6.3
+
+   :Changes:
+         \* [BUGFIX] eID fails when realurl is enabled
+
+         \* [BUGFIX] Image filter fetch all links
+
+ - :Version:
          0.6.2
 
    :Changes:
