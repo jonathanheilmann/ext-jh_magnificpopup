@@ -46,6 +46,14 @@ class MagnificpopupController extends ActionController
     protected $signalSlotDispatcher;
 
     /**
+     * PageRepository
+     *
+     * @var \TYPO3\CMS\Frontend\Page\PageRepository
+     * @inject
+     */
+    protected $pageRepository;
+
+    /**
      * ContentObject
      *
      * @var \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer
@@ -70,6 +78,12 @@ class MagnificpopupController extends ActionController
         $viewAssign = array();
         $this->cObj = $this->configurationManager->getContentObject();
         $this->data = $this->cObj->data;
+
+        // Get localized record
+        $localizedRecord = $this->pageRepository->getRecordOverlay('tt_content', $this->data, $GLOBALS['TSFE']->sys_language_uid, $GLOBALS['TSFE']->sys_language_mode);
+        if ($localizedRecord !== false && isset($localizedRecord['_LOCALIZED_UID']))
+            $this->data = $localizedRecord;
+
         $viewAssign['uid'] = $this->data['uid'];
 
         switch ($this->settings['contenttype']) {
@@ -206,8 +220,9 @@ class MagnificpopupController extends ActionController
             $irre_conf = array(
                 'table'    => 'tt_content',
                 'select.'    => array(
-                    'where' => 'deleted=0 AND hidden=0 AND tx_jhmagnificpopup_irre_parentid = '.$this->data['uid'],
-                    'languageField' => 'sys_language_uid',
+                    'where' => 'tx_jhmagnificpopup_irre_parentid=' . (isset($this->data['_LOCALIZED_UID']) ? $this->data['_LOCALIZED_UID'] : $this->data['uid']) . $this->pageRepository->enableFields('tt_content'),
+                    'languageField' => '0',
+                    //'includeRecordsWithoutDefaultTranslation' => 1,
                     'orderBy' => 'sorting'
                 )
             );
@@ -320,15 +335,16 @@ class MagnificpopupController extends ActionController
     protected function renderLinktypeFile($lConf)
     {
         $viewAssign = array();
-        // Get file
-        $fileRepository = $this->objectManager->get('TYPO3\\CMS\\Core\\Resource\\FileRepository');
-        $fileObjects = $fileRepository->findByRelation('tt_content', 'mfp_image', $this->data['uid']);
-        /** @var \TYPO3\CMS\Core\Resource\File $file */
-        $file = $fileObjects[0];
 
-        if (!empty($file)) {
-            // Configure the image
-            $this->cObj->setCurrentFile($file);
+        // Get file
+        /** @var \TYPO3\CMS\Core\Resource\FileRepository $fileRepository */
+        $fileRepository = $this->objectManager->get('TYPO3\\CMS\\Core\\Resource\\FileRepository');
+        $fileObjects = $fileRepository->findByRelation('tt_content', 'mfp_image', isset($this->data['_LOCALIZED_UID']) ? $this->data['_LOCALIZED_UID'] : $this->data['uid']);
+
+        if (!empty($fileObjects)) {
+            /** @var \TYPO3\CMS\Core\Resource\FileReference $file */
+            $file = $fileObjects[0];
+            $this->cObj->setCurrentFile($file->getOriginalFile());
             $imageConf = $GLOBALS['TSFE']->tmpl->setup['lib.']['tx_jhmagnificpopup_pi1.']['image.'];
             $imageConf['file.']['treatIdAsReference'] = 1;
             $imageConf['file'] = $file;
