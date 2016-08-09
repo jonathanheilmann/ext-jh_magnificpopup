@@ -281,7 +281,7 @@ settings.
          int+
 
    Description
-         Delay before popup is removed from DOM.
+         Delay before popup is removed from DOM (value is time in ms).
 
    Default
          0

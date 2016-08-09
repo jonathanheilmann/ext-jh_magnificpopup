@@ -120,7 +120,7 @@ TypoScript Constants – magnificpopup
          int+
 
    Description
-         Since version 0.4.0: removalDelay used for animation effects of images
+         Since version 0.4.0: removalDelay used for animation effects of images, value is time in ms
 
    Default
          0
