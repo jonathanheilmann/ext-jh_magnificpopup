@@ -28,6 +28,14 @@ ChangeLog
          Changes
 
  - :Version:
+         0.6.4
+
+   :Changes:
+         \* [BUGFIX] #37   Fix translation
+
+         \* [TASK]   #35   removalDelay is a ms value
+
+ - :Version:
          0.6.3
 
    :Changes:
