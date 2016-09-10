@@ -111,10 +111,10 @@
 										<width>45</width>
 									</headerThumbnail>
 									<useSortable>0</useSortable>
-									<showPossibleLocalizationRecords>0</showPossibleLocalizationRecords>
-									<showRemovedLocalizationRecords>0</showRemovedLocalizationRecords>
-									<showSynchronizationLink>0</showSynchronizationLink>
-									<showAllLocalizationLink>0</showAllLocalizationLink>
+									<showPossibleLocalizationRecords>1</showPossibleLocalizationRecords>
+									<showRemovedLocalizationRecords>1</showRemovedLocalizationRecords>
+									<showSynchronizationLink>1</showSynchronizationLink>
+									<showAllLocalizationLink>1</showAllLocalizationLink>
 								</appearance>
 								<behaviour type="array">
 									<localizationMode>select</localizationMode>
@@ -246,10 +246,10 @@
 								<foreign_label>header</foreign_label>
 								<maxitems>1000</maxitems>
 								<appearance>
-									<showSynchronizationLink>FALSE</showSynchronizationLink>
-									<showAllLocalizationLink>FALSE</showAllLocalizationLink>
-									<showPossibleLocalizationRecords>FALSE</showPossibleLocalizationRecords>
-									<showRemovedLocalizationRecords>FALSE</showRemovedLocalizationRecords>
+									<showSynchronizationLink>1</showSynchronizationLink>
+									<showAllLocalizationLink>1</showAllLocalizationLink>
+									<showPossibleLocalizationRecords>1</showPossibleLocalizationRecords>
+									<showRemovedLocalizationRecords>1</showRemovedLocalizationRecords>
 									<expandSingle>TRUE</expandSingle>
 									<newRecordLinkAddTitle>TRUE</newRecordLinkAddTitle>
 									<showSynchronizationLink>TRUE</showSynchronizationLink>

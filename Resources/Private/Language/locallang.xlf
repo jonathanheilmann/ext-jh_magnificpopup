@@ -162,10 +162,10 @@
 				<source>overflowY</source>
 			</trans-unit>
 			<trans-unit id="pi_flexform.sheetOptions.mfpOption.removalDelay">
-				<source>removalDelay</source>
+				<source>removalDelay (for animation)</source>
 			</trans-unit>
 			<trans-unit id="pi_flexform.sheetOptions.mfpOption.removalDelay_value">
-				<source>removalDelay value</source>
+				<source>removalDelay value (in ms)</source>
 			</trans-unit>
 
 			<trans-unit id="pi_flexform.sheetOptions.select">

@@ -49,7 +49,7 @@ plugin.tx_jhmagnificpopup.magnificpopup.support.user =
 # cat=plugin.tx_jhmagnificpopup/magnificpopup_imagesetup/100; type=string; label=mainClass: mainClass used for animation effects
 plugin.tx_jhmagnificpopup.magnificpopup.mainClass =
 
-# cat=plugin.tx_jhmagnificpopup/magnificpopup_imagesetup/105; type=int+; label=removalDelay: removalDelay used for animation effects
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_imagesetup/105; type=int+; label=removalDelay: removalDelay used for animation effects (in ms)
 plugin.tx_jhmagnificpopup.magnificpopup.removalDelay = 0
 
 # cat=plugin.tx_jhmagnificpopup/magnificpopup_imagesetup/110; type=boolean; label=Enable gallery: Enable gallery-view of Magnific Popup
