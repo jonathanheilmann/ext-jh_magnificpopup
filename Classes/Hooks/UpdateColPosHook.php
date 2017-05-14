@@ -1,4 +1,6 @@
 <?php
+namespace Heilmann\JhMagnificpopup\Hooks;
+
 /***************************************************************
  *  Copyright notice
  *
@@ -35,7 +37,7 @@
  * @package    TYPO3
  * @subpackage tx_jhmagnificpopup
  */
-class tx_jhmagnificpopup_tcemain
+class UpdateColPosHook
 {
     /**
      * Checks if the colPos will be manipulate
@@ -43,10 +45,10 @@ class tx_jhmagnificpopup_tcemain
      * @param array $incomingFieldArray
      * @param string $table
      * @param integer $id
-     * @param TYPO3\CMS\Core\DataHandling\DataHandler $pObj
+     * @param \TYPO3\CMS\Core\DataHandling\DataHandler $pObj
      * @see tx_templavoila_tcemain::processDatamap_afterDatabaseOperations()
      */
-    public function processDatamap_preProcessFieldArray(array &$incomingFieldArray, $table, $id, TYPO3\CMS\Core\DataHandling\DataHandler &$pObj)
+    public function processDatamap_preProcessFieldArray(array &$incomingFieldArray, $table, $id, \TYPO3\CMS\Core\DataHandling\DataHandler &$pObj)
     {
         if ($incomingFieldArray['list_type'] != 'jhmagnificpopup_pi1') {
             if (is_array($pObj->datamap['tt_content'])) {
@@ -65,6 +67,6 @@ class tx_jhmagnificpopup_tcemain
     }
 }
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/jh_magnificpopup/Classes/Hooks/class.tx_jhmagnificpopup_tcemain.php']) {
-    include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/jh_magnificpopup/Classes/Hooks/class.tx_jhmagnificpopup_tcemain.php']);
+if (defined('TYPO3_MODE') && $GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/jh_magnificpopup/Classes/Hooks/class.tx_jhmagnificpopup_tcemain.php']) {
+    include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/jh_magnificpopup/Classes/Hooks/class.tx_jhmagnificpopup_tcemain.php']);
 }

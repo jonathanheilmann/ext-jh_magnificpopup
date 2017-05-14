@@ -97,7 +97,7 @@
 									</config>
 								</foreign_selector_fieldTcaOverride>
 								<appearance type="array">
-									<createNewRelationLinkTitle>LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference</createNewRelationLinkTitle>
+									<createNewRelationLinkTitle>LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference</createNewRelationLinkTitle>
 									<enabledControls type="array">
 										<delete>1</delete>
 										<dragdrop>1</dragdrop>
@@ -156,25 +156,25 @@
 					</settings.mfpOption.file_height>
 					<settings.mfpOption.file_orient>
 						<TCEforms>
-							<label>LLL:EXT:cms/locallang_ttc.xlf:imageorient</label>
+							<label>LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:imageorient</label>
 							<displayCond>FIELD:settings.linktype:=:file</displayCond>
 							<config>
 								<type>select</type>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:cms/locallang_ttc.xlf:imageorient.I.0</numIndex>
+										<numIndex index="0">LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:imageorient.I.0</numIndex>
 										<numIndex index="1">0</numIndex>
-										<numIndex index="2">selicons/above_center.gif</numIndex>
+										<numIndex index="2">content-beside-text-img-above-center</numIndex>
 									</numIndex>
 									<numIndex index="1" type="array">
-										<numIndex index="0">LLL:EXT:cms/locallang_ttc.xlf:imageorient.I.1</numIndex>
+										<numIndex index="0">LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:imageorient.I.1</numIndex>
 										<numIndex index="1">1</numIndex>
-										<numIndex index="2">selicons/above_right.gif</numIndex>
+										<numIndex index="2">content-beside-text-img-above-right</numIndex>
 									</numIndex>
 									<numIndex index="2" type="array">
-										<numIndex index="0">LLL:EXT:cms/locallang_ttc.xlf:imageorient.I.2</numIndex>
+										<numIndex index="0">LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:imageorient.I.2</numIndex>
 										<numIndex index="1">2</numIndex>
-										<numIndex index="2">selicons/above_left.gif</numIndex>
+										<numIndex index="2">content-beside-text-img-above-left</numIndex>
 									</numIndex>
 								</items>
 								<selicon_cols>6</selicon_cols>
@@ -244,6 +244,9 @@
 								<foreign_field>tx_jhmagnificpopup_irre_parentid</foreign_field>
 								<foreign_sortby>sorting</foreign_sortby>
 								<foreign_label>header</foreign_label>
+                                <foreign_record_defaults>
+                                    <colPos>109</colPos>
+                                </foreign_record_defaults>
 								<maxitems>1000</maxitems>
 								<appearance>
 									<showSynchronizationLink>1</showSynchronizationLink>
@@ -352,7 +355,6 @@
 					<settings.mfpOption.focus>
 						<TCEforms>
 							<label>LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pi_flexform.sheetOptions.mfpOption.focus</label>
-							<displayCond>FIELD:settings.contenttype:!=:iframe</displayCond>
 							<config>
 								<type>input</type>
 								<size>20</size>

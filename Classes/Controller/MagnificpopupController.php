@@ -4,7 +4,7 @@ namespace Heilmann\JhMagnificpopup\Controller;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2013-2016 Jonathan Heilmann <mail@jonathan-heilmann.de>
+ *  (c) 2013-2017 Jonathan Heilmann <mail@jonathan-heilmann.de>
  *
  *  All rights reserved
  *
@@ -89,16 +89,16 @@ class MagnificpopupController extends ActionController
         switch ($this->settings['contenttype'])
         {
             case 'iframe':
-                $viewAssign = GeneralUtility::array_merge($viewAssign, $this->iframe());
+                $viewAssign = $this->iframe() + $viewAssign;
                 break;
             case 'reference':
             case 'inline':
                 if (($this->settings['content']['procedure_reference'] == 'ajax' && !empty($this->settings['contenttype'])) || $this->settings['content']['procedure_inline'] == 'ajax')
                 {
-                    $viewAssign = GeneralUtility::array_merge($viewAssign, $this->ajax());
+                    $viewAssign = $this->ajax() + $viewAssign;
                 } elseif (($this->settings['content']['procedure_reference'] && !empty($this->settings['contenttype'])) == 'inline' || $this->settings['content']['procedure_inline'] == 'inline')
                 {
-                    $viewAssign = GeneralUtility::array_merge($viewAssign, $this->inline());
+                    $viewAssign = $this->inline() + $viewAssign;
                 } elseif ($this->settings['content']['procedure_reference'] == '' && $this->settings['content']['procedure_inline'] == '')
                 {
                     // Add error if no method (inline or ajax) has been selected
@@ -220,7 +220,7 @@ class MagnificpopupController extends ActionController
             );
         }
         // Render inlinecontent
-        $viewAssign['inlinecontent'] = $this->cObj->CONTENT($irre_conf);
+        $viewAssign['inlinecontent'] = $GLOBALS['TSFE']->cObj->getContentObject('CONTENT')->render($irre_conf);
         $viewAssign['inlinecontent_id'] = 'mfp-inline-' . $this->data['uid'];
 
         // Link-setup
@@ -323,6 +323,8 @@ class MagnificpopupController extends ActionController
             $imageConf = $GLOBALS['TSFE']->tmpl->setup['lib.']['tx_jhmagnificpopup_pi1.']['image.'];
             $imageConf['file.']['treatIdAsReference'] = 1;
             $imageConf['file'] = $file;
+            $imageConf['altText'] = $file->getProperty('alternative');
+            $imageConf['titleText'] = $file->getProperty('title');
             if (isset($this->settings['mfpOption']['file_width']) && !empty($this->settings['mfpOption']['file_width']))
                 $imageConf["file."]["maxW"] = $this->settings['mfpOption']['file_width'];
 
@@ -330,7 +332,7 @@ class MagnificpopupController extends ActionController
                 $imageConf["file."]["maxH"] = $this->settings['mfpOption']['file_height'];
 
             // Render image
-            $theImgCode = $this->cObj->IMAGE($imageConf);
+            $theImgCode = $this->cObj->cObjGetSingle('IMAGE', $imageConf);
 
             // Get image orientation
             switch ($this->settings['mfpOption']['file_orient'])

@@ -1,6 +1,8 @@
 <?php
 namespace Heilmann\JhMagnificpopup\ViewHelpers\PageRenderer;
 
+use TYPO3\CMS\Core\Page\PageRenderer;
+
 /***************************************************************
  *
  *  Copyright notice
@@ -25,7 +27,6 @@ namespace Heilmann\JhMagnificpopup\ViewHelpers\PageRenderer;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-use TYPO3\CMS\Core\Page\PageRenderer;
 
 /**
  * Class AddJsInlineCodeViewHelper

@@ -1,6 +1,10 @@
 <?php
 namespace Heilmann\JhMagnificpopup\Hooks;
 
+use Heilmann\JhMagnificpopup\Utility\MainClass;
+use Heilmann\JhMagnificpopup\Utility\RemovalDelay;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
 /***************************************************************
  *  Copyright notice
  *
@@ -43,8 +47,8 @@ class ItemsProcFunc extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function user_mainClass(array &$config)
     {
-        /** @var Tx_News_Utility_TemplateLayout $templateLayoutsUtility */
-        $templateLayoutsUtility = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Heilmann\JhMagnificpopup\Utility\MainClass');
+        /** @var MainClass $templateLayoutsUtility */
+        $templateLayoutsUtility = GeneralUtility::makeInstance(MainClass::class);
         $templateLayouts = $templateLayoutsUtility->getAvailableMainClass($config['row']['pid']);
         foreach ($templateLayouts as $layout) {
             $additionalLayout = array(
@@ -53,7 +57,6 @@ class ItemsProcFunc extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             );
             array_push($config['items'], $additionalLayout);
         }
-        //\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($config);
     }
 
     /**
@@ -64,8 +67,8 @@ class ItemsProcFunc extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function user_removalDelay(array &$config)
     {
-        /** @var Tx_News_Utility_TemplateLayout $templateLayoutsUtility */
-        $templateLayoutsUtility = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Heilmann\JhMagnificpopup\Utility\RemovalDelay');
+        /** @var RemovalDelay $templateLayoutsUtility */
+        $templateLayoutsUtility = GeneralUtility::makeInstance(RemovalDelay::class);
         $templateLayouts = $templateLayoutsUtility->getAvailableRemovalDelay($config['row']['pid']);
         foreach ($templateLayouts as $layout) {
             $additionalLayout = array(
@@ -74,6 +77,5 @@ class ItemsProcFunc extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             );
             array_push($config['items'], $additionalLayout);
         }
-        //\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($config);
     }
 }
