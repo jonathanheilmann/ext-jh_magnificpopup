@@ -93,10 +93,16 @@ class MagnificpopupController extends ActionController
                 break;
             case 'reference':
             case 'inline':
-                if (($this->settings['content']['procedure_reference'] == 'ajax' && !empty($this->settings['contenttype'])) || $this->settings['content']['procedure_inline'] == 'ajax')
+                if (
+                    ($this->settings['content']['procedure_reference'] == 'ajax'
+                        && !empty($this->settings['contenttype'])
+                    ) || $this->settings['content']['procedure_inline'] == 'ajax')
                 {
                     $viewAssign = $this->ajax() + $viewAssign;
-                } elseif (($this->settings['content']['procedure_reference'] && !empty($this->settings['contenttype'])) == 'inline' || $this->settings['content']['procedure_inline'] == 'inline')
+                } elseif (
+                    ($this->settings['content']['procedure_reference'] == 'inline'
+                        && !empty($this->settings['contenttype'])
+                    ) || $this->settings['content']['procedure_inline'] == 'inline')
                 {
                     $viewAssign = $this->inline() + $viewAssign;
                 } elseif ($this->settings['content']['procedure_reference'] == '' && $this->settings['content']['procedure_inline'] == '')

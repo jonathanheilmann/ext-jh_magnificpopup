@@ -1,4 +1,5 @@
-<html xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:jh="http://typo3.org/ns/Heilmann/JhMagnificpopup/ViewHelpers">
+{namespace jh=Heilmann\JhMagnificpopup\ViewHelpers}
+
 <jh:pageRenderer.addJsInlineCode name="jh_magnificpopup-ajax-{uid}" addToFooter="true">
     $('.mfp-ajax-{uid}').magnificPopup({
         type: 'ajax',
@@ -33,4 +34,3 @@
         }
     });
 </jh:pageRenderer.addJsInlineCode>
-</html>

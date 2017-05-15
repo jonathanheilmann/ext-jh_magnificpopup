@@ -246,6 +246,7 @@
 								<foreign_label>header</foreign_label>
                                 <foreign_record_defaults>
                                     <colPos>109</colPos>
+									<CType>text</CType>
                                 </foreign_record_defaults>
 								<maxitems>1000</maxitems>
 								<appearance>
