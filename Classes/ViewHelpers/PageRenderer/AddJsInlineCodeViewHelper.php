@@ -1,5 +1,5 @@
 <?php
-namespace Heilmann\JhMagnificpopup\ViewHelpers\PageRenderer;
+namespace JonathanHeilmann\JhMagnificpopup\ViewHelpers\PageRenderer;
 
 use TYPO3\CMS\Core\Page\PageRenderer;
 
@@ -30,7 +30,7 @@ use TYPO3\CMS\Core\Page\PageRenderer;
 
 /**
  * Class AddJsInlineCodeViewHelper
- * @package Heilmann\JhMagnificpopup\ViewHelpers\PageRenderer
+ * @package JonathanHeilmann\JhMagnificpopup\ViewHelpers\PageRenderer
  */
 class AddJsInlineCodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
 {
