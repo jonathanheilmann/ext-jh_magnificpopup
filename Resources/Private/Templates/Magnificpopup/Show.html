@@ -8,8 +8,6 @@
 
 		<f:render partial="Magnificpopup/{type->jh:format.ucfirst()}" arguments="{uid: uid, settings: settings}"/>
 
-		<f:if condition="{tsLink}">
-			<f:then>
 				<f:if condition="{0: settings.linktype} == {0: 'file'}">
 					<f:then>
 						<jh:extension.loaded extensionName="bootstrap_package">
@@ -58,11 +56,6 @@
 						{tsLink -> f:format.raw()}
 					</f:else>
 				</f:if>
-			</f:then>
-			<f:else>
-				<a class="{link-class}" href='{link}'>{link-text}</a>
-			</f:else>
-		</f:if>
 		<f:if condition="{inlinecontent}">
 			<div id="{inlinecontent_id}" class="white-popup-block mfp-hide">
 				{inlinecontent -> f:format.raw()}

@@ -170,10 +170,6 @@ class MagnificpopupController extends ActionController
         $lConf['ATagParams'] = 'class="mfp-ajax-' . $this->data['uid'] . '"';
         $lConf['parameter'] = $linkconf['parameter'];
         $lConf['additionalParams'] = $linkconf['additionalParams'];
-        // Support old way of link-setup. Will be removed later!
-        $viewAssign['link-class'] = 'mfp-ajax-'.$this->data['uid'];
-        $viewAssign['link'] = $this->cObj->typoLink_URL($linkconf);
-        $viewAssign['link-text'] = $this->settings['mfpOption']['text'];
 
         if ($this->settings['linktype'] == 'file') {
             ArrayUtility::mergeRecursiveWithOverrule($viewAssign, $this->renderLinktypeFile($lConf));
@@ -236,10 +232,6 @@ class MagnificpopupController extends ActionController
         // Link-setup
         $lConf['ATagParams'] = 'class="mfp-inline-' . $this->data['uid'] . '" data-mfp-src="#mfp-inline-' . $this->data['uid'] . '"';
         $lConf['parameter'] = $GLOBALS['TSFE']->id;
-        // Support old way of link-setup. Will be removed later!
-        $viewAssign['link-class'] = 'mfp-inline-'.$this->data['uid'];
-        $viewAssign['link'] = '#mfp-inline-'.$this->data['uid'];
-        $viewAssign['link-text'] = $this->settings['mfpOption']['text'];
 
         if ($this->settings['linktype'] == 'file') {
             ArrayUtility::mergeRecursiveWithOverrule($viewAssign, $this->renderLinktypeFile($lConf));
@@ -262,15 +254,7 @@ class MagnificpopupController extends ActionController
         $viewAssign['type'] = 'iframe';
 
         // Link-setup
-        $lConf = $this->configureLink($selectorClass = 'mfp-iframe-'.$this->data['uid']);
-        // Support old way of link-setup. Will be removed later!
-        $parameters = GeneralUtility::unQuoteFilenames($this->settings['mfpOption']['href'], true);
-        if (count($parameters) == 1)
-        {
-            $viewAssign['link-class'] = 'mfp-iframe-'.$this->data['uid'];
-            $viewAssign['link'] = $this->settings['mfpOption']['href'];
-            $viewAssign['link-text'] = $this->settings['mfpOption']['text'];
-        }
+        $lConf = $this->configureLink($selectorClass = 'mfp-iframe-' . $this->data['uid']);
 
         if ($this->settings['linktype'] == 'file') {
             ArrayUtility::mergeRecursiveWithOverrule($viewAssign, $this->renderLinktypeFile($lConf));
