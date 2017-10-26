@@ -1,0 +1,23 @@
+<div class="csc-textpic csc-textpic-{imageorient} csc-textpic-above">
+    <div class="csc-textpic-imagewrap">
+        <f:if condition="{imageorient} == 'center'"><div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"></f:if>
+        <div class="csc-textpic-image csc-textpic-last">
+            <f:if condition="{imagecaption}">
+                <f:then>
+                    <table>
+                        <caption class="csc-textpic-caption">{imagecaption}</caption>
+                        <tbody>
+                        <tr>
+                            <td>{tsLink->f:format.raw()}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </f:then>
+                <f:else>
+                    {tsLink->f:format.raw()}
+                </f:else>
+            </f:if>
+        </div>
+        <f:if condition="{imageorient} == 'center'"></div></div></f:if>
+    </div>
+</div>
