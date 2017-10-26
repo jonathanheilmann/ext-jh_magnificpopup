@@ -28,6 +28,7 @@ namespace JonathanHeilmann\JhMagnificpopup\Controller;
 
 use TYPO3\CMS\Core\Messaging\AbstractMessage;
 use TYPO3\CMS\Core\Resource\FileRepository;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
@@ -38,6 +39,17 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  */
 class MagnificpopupController extends ActionController
 {
+
+    /**
+     * Array of supported content template packages/extensions
+     *
+     * @var array
+     */
+    protected static $supportedContentTemplateExtensions = [
+        'bootstrap_package',
+        'fluid_styled_content',
+        'css_styled_content'
+    ];
 
     /**
      * SignalSlotDispatcher
@@ -90,6 +102,14 @@ class MagnificpopupController extends ActionController
 
         $viewAssign['uid'] = $this->data['uid'];
         $viewAssign['data'] = $this->data;
+
+        $viewAssign['contentTemplateExtension'] = 'custom';
+        foreach (self::$supportedContentTemplateExtensions as $contentTemplateExtension) {
+            if (ExtensionManagementUtility::isLoaded($contentTemplateExtension)) {
+                $viewAssign['contentTemplateExtension'] = $contentTemplateExtension;
+                break;
+            };
+        }
 
         switch ($this->settings['contenttype']) {
             case 'iframe':
