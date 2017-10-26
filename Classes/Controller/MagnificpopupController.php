@@ -1,5 +1,6 @@
 <?php
-namespace Heilmann\JhMagnificpopup\Controller;
+
+namespace JonathanHeilmann\JhMagnificpopup\Controller;
 
 /***************************************************************
  *  Copyright notice

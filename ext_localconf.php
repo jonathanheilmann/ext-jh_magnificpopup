@@ -5,7 +5,7 @@ if (!defined('TYPO3_MODE')) {
 
 // Configure frontend plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Heilmann.' . $_EXTKEY,
+    'JonathanHeilmann.' . $_EXTKEY,
     'Pi1',
     array(
         'Magnificpopup' => 'show'
@@ -15,7 +15,7 @@ if (!defined('TYPO3_MODE')) {
 );
 
 // Save the IRRE content (use hook to change colPos)
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][$_EXTKEY] = \Heilmann\JhMagnificpopup\Hooks\UpdateColPosHook::class;
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][$_EXTKEY] = \JonathanHeilmann\JhMagnificpopup\Hooks\UpdateColPosHook::class;
 
 // Register icon
 $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);

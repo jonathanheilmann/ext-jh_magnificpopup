@@ -327,7 +327,7 @@
 							<onChange>reload</onChange>
 							<config>
 								<type>select</type>
-								<itemsProcFunc>Heilmann\JhMagnificpopup\Hooks\ItemsProcFunc->user_mainClass</itemsProcFunc>
+								<itemsProcFunc>JonathanHeilmann\JhMagnificpopup\Hooks\ItemsProcFunc->user_mainClass</itemsProcFunc>
 								<items type="array">
 									<numIndex index="0" type="array">
 										<numIndex index="0">LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pi_flexform.sheetOptions.typoscript</numIndex>
@@ -470,7 +470,7 @@
 							<onChange>reload</onChange>
 							<config>
 								<type>select</type>
-								<itemsProcFunc>Heilmann\JhMagnificpopup\Hooks\ItemsProcFunc->user_removalDelay</itemsProcFunc>
+								<itemsProcFunc>JonathanHeilmann\JhMagnificpopup\Hooks\ItemsProcFunc->user_removalDelay</itemsProcFunc>
 								<items type="array">
 									<numIndex index="0" type="array">
 										<numIndex index="0">LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pi_flexform.sheetOptions.typoscript</numIndex>

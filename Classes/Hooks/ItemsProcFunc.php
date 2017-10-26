@@ -1,8 +1,8 @@
 <?php
-namespace Heilmann\JhMagnificpopup\Hooks;
+namespace JonathanHeilmann\JhMagnificpopup\Hooks;
 
-use Heilmann\JhMagnificpopup\Utility\MainClass;
-use Heilmann\JhMagnificpopup\Utility\RemovalDelay;
+use JonathanHeilmann\JhMagnificpopup\Utility\MainClass;
+use JonathanHeilmann\JhMagnificpopup\Utility\RemovalDelay;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /***************************************************************

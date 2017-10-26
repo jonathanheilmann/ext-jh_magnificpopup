@@ -1,5 +1,5 @@
 <?php
-namespace Heilmann\JhMagnificpopup\ViewHelpers\Format;
+namespace JonathanHeilmann\JhMagnificpopup\ViewHelpers\Format;
 
 /***************************************************************
  *
@@ -28,7 +28,7 @@ namespace Heilmann\JhMagnificpopup\ViewHelpers\Format;
 
 /**
  * Class AddJsInlineCodeViewHelper
- * @package Heilmann\JhMagnificpopup\ViewHelpers\PageRenderer
+ * @package JonathanHeilmann\JhMagnificpopup\ViewHelpers\PageRenderer
  */
 class UcfirstViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
 {

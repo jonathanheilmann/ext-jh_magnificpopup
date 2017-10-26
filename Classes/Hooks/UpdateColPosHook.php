@@ -1,5 +1,5 @@
 <?php
-namespace Heilmann\JhMagnificpopup\Hooks;
+namespace JonathanHeilmann\JhMagnificpopup\Hooks;
 
 /***************************************************************
  *  Copyright notice

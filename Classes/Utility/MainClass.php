@@ -1,5 +1,5 @@
 <?php
-namespace Heilmann\JhMagnificpopup\Utility;
+namespace JonathanHeilmann\JhMagnificpopup\Utility;
 
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 

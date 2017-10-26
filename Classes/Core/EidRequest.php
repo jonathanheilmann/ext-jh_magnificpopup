@@ -1,5 +1,5 @@
 <?php
-namespace Heilmann\JhMagnificpopup\Core;
+namespace JonathanHeilmann\JhMagnificpopup\Core;
 
 /***************************************************************
  *  Copyright notice
