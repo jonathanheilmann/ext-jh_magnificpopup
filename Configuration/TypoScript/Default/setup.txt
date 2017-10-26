@@ -51,7 +51,7 @@ plugin.tx_jhmagnificpopup {
             selector {
                 # default selector (css_styled_content and fluid_styled_content)
                 1 = TEXT
-                1.value = .csc-textpic-imagewrap,.ce-textpic
+                1.value = .csc-textpic-imagewrap,.ce-textpic,.ce-image
                 # tx_news
                 10 = TEXT
                 10.value = ,.news-img-wrap
