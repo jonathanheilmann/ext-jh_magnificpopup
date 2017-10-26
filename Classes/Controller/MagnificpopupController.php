@@ -89,6 +89,7 @@ class MagnificpopupController extends ActionController
         }
 
         $viewAssign['uid'] = $this->data['uid'];
+        $viewAssign['data'] = $this->data;
 
         switch ($this->settings['contenttype']) {
             case 'iframe':
@@ -190,44 +191,6 @@ class MagnificpopupController extends ActionController
     protected function inline()
     {
         $viewAssign['type'] = 'inline';
-        // Use inline procedure
-        // Render irre content as inline-htmlcode
-        if ($this->settings['contenttype'] == 'reference')
-        {
-            //get list of pid's
-            $uidArray = explode(',', $this->settings['content']['reference']);
-            $pidInList = array();
-            foreach ($uidArray as $uid)
-            {
-                $row = $GLOBALS['TYPO3_DB']->exec_SELECTgetSingleRow('pid', 'tt_content', 'uid='.$uid);
-                $pidInList[] = $row['pid'];
-            }
-            // Configure the content
-            $irre_conf = array(
-                'table' => 'tt_content',
-                'select.' => [
-                    'where' => 'tt_content.uid IN('.$this->settings['content']['reference'].')',
-                    'languageField' => 'sys_language_uid',
-                    'pidInList' => implode(',', $pidInList),
-                    'orderBy' => 'sorting'
-                ]
-            );
-        } else
-        {
-            // Configure the content
-            $irre_conf = array(
-                'table' => 'tt_content',
-                'select.' => [
-                    'where' => 'tx_jhmagnificpopup_irre_parentid=' . (isset($this->data['_LOCALIZED_UID']) ? $this->data['_LOCALIZED_UID'] : $this->data['uid']) . $this->pageRepository->enableFields('tt_content'),
-                    'languageField' => '0',
-                    //'includeRecordsWithoutDefaultTranslation' => 1,
-                    'orderBy' => 'sorting'
-                ]
-            );
-        }
-        // Render inlinecontent
-        $viewAssign['inlinecontent'] = $GLOBALS['TSFE']->cObj->getContentObject('CONTENT')->render($irre_conf);
-        $viewAssign['inlinecontent_id'] = 'mfp-inline-' . $this->data['uid'];
 
         // Link-setup
         $lConf['ATagParams'] = 'class="mfp-inline-' . $this->data['uid'] . '" data-mfp-src="#mfp-inline-' . $this->data['uid'] . '"';

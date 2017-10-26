@@ -1,12 +1,12 @@
 <html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true" xmlns:jh="http://typo3.org/ns/JonathanHeilmann/JhMagnificpopup/ViewHelpers">
 
-	<f:layout name="Default" />
+<f:layout name="Default" />
 
-	<f:section name="main">
+<f:section name="main">
 
-		<f:flashMessages />
+    <f:flashMessages />
 
-		<f:render partial="Magnificpopup/{type->jh:format.ucfirst()}" arguments="{uid: uid, settings: settings}"/>
+    <f:render partial="Magnificpopup/{type->jh:format.ucfirst()}" arguments="{uid: uid, settings: settings}"/>
 
 				<f:if condition="{0: settings.linktype} == {0: 'file'}">
 					<f:then>
@@ -62,6 +62,19 @@
 			</div>
 		</f:if>
 
-	</f:section>
+    <f:switch expression="{settings.contenttype}">
+        <f:case value="reference">
+            <div id="mfp-inline-{data.uid}" class="white-popup-block mfp-hide">
+                <jh:inlineContent.reference contentUids="{settings.content.reference}" />
+            </div>
+        </f:case>
+        <f:case value="inline">
+            <div id="mfp-inline-{data.uid}" class="white-popup-block mfp-hide">
+                <jh:inlineContent.inline data="{data}" />
+            </div>
+        </f:case>
+    </f:switch>
+
+</f:section>
 
 </html>
