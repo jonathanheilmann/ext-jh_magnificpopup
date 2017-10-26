@@ -70,7 +70,7 @@ plugin.tx_jhmagnificpopup {
                 22.if.isTrue = {$plugin.tx_jhmagnificpopup.magnificpopup.support.tx_ttnews.latest}
                 # bootstrap_package
                 30 = TEXT
-                30.value = ,.img-wrap,.image-wrap
+                30.value = ,.img-wrap,.image-wrap,.gallery-row
                 30.if.isTrue = {$plugin.tx_jhmagnificpopup.magnificpopup.support.tx_bootstrappackage}
                 # user-defined selectors (always start with ','!)
                 999 = TEXT
@@ -125,3 +125,10 @@ plugin.tx_jhmagnificpopup {
 
 //add javascript to footer
 page.jsFooterInline < plugin.tx_jhmagnificpopup.setup
+
+// Remove lightbox from EXT:bootstrap_package
+page.includeJSFooterlibs {
+    photoswipe_core >
+    photoswipe_ui >
+    bootstrap_lightbox >
+}
