@@ -36,33 +36,6 @@ $iconRegistry->registerIcon(
             list_type = jhmagnificpopup_pi1
         }
     }
-
-
-	RTE.classesAnchor {
-	  externalLinkInMagnificpopup {
-	    class = mfp-link external-link-new-window
-	    type = url
-	    image >
-	    titleText = LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pageTSconfig.externalLinkInMagnificpopup
-	  }
-	  internalLinkInMagnificpopup {
-	    class = mfp-link internal-link-new-window
-	    type = page
-	    image >
-	    titleText = LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pageTSconfig.internalLinkInMagnificpopup
-	  }
-	  downloadInMagnificpopup {
-	    class = mfp-link download
-	    type = file
-	    image >
-	    titleText = LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pageTSconfig.downloadInMagnificpopup
-	  }
-	}
-
-	RTE.default.proc.allowedClasses := addToList(mfp-link external-link-new-window, mfp-link internal-link-new-window, mfp-link download)
-	RTE.default.classesAnchor := addToList(mfp-link external-link-new-window, mfp-link internal-link-new-window, mfp-link download)
-
-	RTE.default.buttons.link.properties.class.allowedClasses := addToList(mfp-link external-link-new-window, mfp-link internal-link-new-window, mfp-link download)
 ');
 
 // Add eID for ajax-content
@@ -74,19 +47,5 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['jh_magnificpopup_ajax'] = 'EXT
 //
 $extConfig = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['jh_magnificpopup']);
 if (isset($extConfig['enableAlphaFeatures']) && $extConfig['enableAlphaFeatures'] == 1) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('
-		RTE.classesAnchor {
-		  internalCEInMagnificpopup {
-		    class = mfp-content-element internal-link-new-window
-		    type = page
-		    image >
-		    titleText = LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pageTSconfig.internalCEInMagnificpopup
-		  }
-		}
 
-		RTE.default.proc.allowedClasses := addToList(mfp-content-element internal-link-new-window)
-		RTE.default.classesAnchor := addToList(mfp-content-element internal-link-new-window)
-
-		RTE.default.buttons.link.properties.class.allowedClasses := addToList(mfp-content-element internal-link-new-window)
-	');
 }
