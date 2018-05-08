@@ -21,6 +21,3 @@ Create a content element “Images” or “Text & Images” as normal and set
 
 .. figure:: ../../Images/UsersManual-LightboxForImages.png
 
-Using images in RTE with activated “Click to enlarge” is a second way
-to use Magnific Popup.
-

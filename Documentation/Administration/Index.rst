@@ -26,6 +26,5 @@ Administration
 
    Lightbox/Index
    Plugin/Index
-   IframeForRte/Index
    GlobalIframe/Index
    GlobalAjax/Index

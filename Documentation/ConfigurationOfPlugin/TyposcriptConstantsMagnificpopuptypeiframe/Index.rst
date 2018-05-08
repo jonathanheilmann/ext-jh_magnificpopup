@@ -50,8 +50,6 @@ settings.
    Description
          Makes the Magnific Popup iframe available on every page.
 
-         (Enable this to use iframe in RTE.)
-
    Default
          0
 

@@ -26,6 +26,5 @@ Users manual
 
    LightboxForImages/Index
    Plugin/Index
-   IframeForRte/Index
    IframeForImages/Index
 

@@ -34,12 +34,6 @@ not matter.
 
 Now you may customize your extension with the Constant Editor.
 
-
-For RTE images
-""""""""""""""
-If you want to enable support for images in RTE, also add static template 'Magnific Popup for RTE (jh\_magnificpopup)'. By default, all images within a p-tag will be displayed as a gallery. To change this behaviour edit constant 'plugin.tx_jhmagnificpopup.magnificpopup.support.rteLightbox'.
-
-
 For whole page
 """"""""""""""
 
