@@ -32,17 +32,6 @@ This modifications will try to open a powermail form in Magnific Popup.
 
 See `https://gist.github.com/jonathanheilmann/c75e139cf1e630f3125c <https://gist.github.com/jonathanheilmann/c75e139cf1e630f3125c>`_ for detailed introductions.
 
-Working example: `http://jonathan-heilmann.de/index.php?id=156 <http://jonathan-heilmann.de/index.php?id=156>`_
-
-
-Title in Magnific Popup with EXT:fluid_styled_content
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Add this single line to your template-setup to display the image title as title in Magnific Popup:
-
-.. code-block:: typoscript
-
-
-    lib.fluidContent.settings.media.popup.linkParams.ATagParams.dataWrap = class="{$styles.content.textmedia.linkWrap.lightboxCssClass}" rel="{$styles.content.textmedia.linkWrap.lightboxRelAttribute}" title="{file:current:title}"
 
 Custom title in Magnific Popup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -61,3 +50,19 @@ To add other image-properties, line 5 and 6 of setup.txt should be adapted, and 
 EXT:fluid_styled_content
 """"""""""""""""""""""""
 No how to available yet
+
+
+Open original images instead of processed
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+If you want to show the "original image" you have to change the source-parameter for link-generating:
+
+Actual:
+```
+tt_content.image.20.1.imageLinkWrap.enable.ifEmpty.typolink.parameter.data = file:current:link
+```
+
+New (for opening the original images)
+```
+tt_content.image.20.1.imageLinkWrap.enable.ifEmpty.typolink.parameter.data = file:current:publicUrl
+tt_content.image.20.1.imageLinkWrap.typolink.parameter.data = file:current:publicUrl
+```
