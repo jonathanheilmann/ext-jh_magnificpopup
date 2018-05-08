@@ -31,7 +31,11 @@ ChangeLog
          1.0.0
 
    :Changes:
-         \* [TASK]               Remove unused ViewHelper `extensjon.loaded`
+         \* [BUG]          #50   Compatibility to bootstrap_package > 7 lost
+
+         \* [ENHANCEMENT]  #47   Add compatibility to TYPO3 CMS version 8.5 and higher
+
+         \* [TASK]               Remove unused ViewHelper `extension.loaded`
 
          \* [TASK]               Rewrite link rendering 
 
@@ -41,13 +45,9 @@ ChangeLog
 
          \* [TASK]               Always enable Lightbox, as it's extension's main feature
 
-         \* [BUG]          #50   Compatibility to bootstrap_package > 7 lost
-
          \* [TASK]               Remove RTE support
 
          \* [TASK]               Update Namespace Vendor to `JonathanHeilmann`
-
-         \* [ENHANCEMENT]  #47   Add compatibility to TYPO3 CMS version 8.5 and higher
 
  - :Version:
          0.6.4
