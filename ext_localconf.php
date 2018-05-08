@@ -10,8 +10,7 @@ if (!defined('TYPO3_MODE')) {
     array(
         'Magnificpopup' => 'show'
     ),
-    array(
-    )
+    array()
 );
 
 // Save the IRRE content (use hook to change colPos)
@@ -39,7 +38,7 @@ $iconRegistry->registerIcon(
 ');
 
 // Add eID for ajax-content
-$GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['jh_magnificpopup_ajax'] = 'EXT:'.$_EXTKEY.'/Resources/Public/Php/EidRunner.php';
+$GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['jh_magnificpopup_ajax'] = 'EXT:' . $_EXTKEY . '/Resources/Public/Php/EidRunner.php';
 
 
 //
