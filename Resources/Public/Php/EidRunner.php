@@ -26,6 +26,6 @@
  ***************************************************************/
 defined('TYPO3_MODE') or die('Access denied.');
 
-/** @var \Heilmann\JhMagnificpopup\Core\EidRequest $eid */
-$eid = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Heilmann\\JhMagnificpopup\\Core\\EidRequest');
+/** @var \JonathanHeilmann\JhMagnificpopup\Core\EidRequest $eid */
+$eid = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\JonathanHeilmann\JhMagnificpopup\Core\EidRequest::class);
 echo $eid->run();
