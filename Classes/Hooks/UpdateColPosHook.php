@@ -6,7 +6,7 @@ namespace JonathanHeilmann\JhMagnificpopup\Hooks;
  *
  *  Original: (c) 2009 Juergen Furrer <juergen.furrer@gmail.com>
  *				EXT:jfmulticontent
- *	 Edited: (c) 2013-2016 Jonathan Heilmann <mail@jonathan-heilmann.de>
+ *	 Edited: (c) 2013-2018 Jonathan Heilmann <mail@jonathan-heilmann.de>
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -28,6 +28,13 @@ namespace JonathanHeilmann\JhMagnificpopup\Hooks;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+
+/*
+ * This file is part of the JonathanHeilmann\JhMagnificpopup extension under GPLv2 or later.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.md file that was distributed with this source code.
+ */
 
 /**
  * This class implements a hook to TCEmain to ensure that IRRE data is correctly

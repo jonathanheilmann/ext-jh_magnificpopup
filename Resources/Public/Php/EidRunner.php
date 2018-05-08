@@ -24,6 +24,14 @@
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+
+/*
+ * This file is part of the JonathanHeilmann\JhMagnificpopup extension under GPLv2 or later.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.md file that was distributed with this source code.
+ */
+
 defined('TYPO3_MODE') or die('Access denied.');
 
 /** @var \JonathanHeilmann\JhMagnificpopup\Core\EidRequest $eid */
