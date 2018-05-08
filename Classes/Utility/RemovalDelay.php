@@ -1,5 +1,7 @@
 <?php
-namespace Heilmann\JhMagnificpopup\Utility;
+namespace JonathanHeilmann\JhMagnificpopup\Utility;
+
+use TYPO3\CMS\Backend\Utility\BackendUtility;
 
 /***************************************************************
  *  Copyright notice
@@ -23,6 +25,13 @@ namespace Heilmann\JhMagnificpopup\Utility;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+
+/*
+ * This file is part of the JonathanHeilmann\JhMagnificpopup extension under GPLv2 or later.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.md file that was distributed with this source code.
+ */
 
 /**
  * RemovalDelay utility class
@@ -65,7 +74,7 @@ class RemovalDelay implements \TYPO3\CMS\Core\SingletonInterface
     protected function getTemplateLayoutsFromTsConfig($pageUid)
     {
         $templateLayouts = array();
-        $pagesTsConfig = \TYPO3\CMS\Backend\Utility\BackendUtility::getPagesTSconfig($pageUid);
+        $pagesTsConfig = BackendUtility::getPagesTSconfig($pageUid);
         if (isset($pagesTsConfig['tx_jhmagnificpopup.']['removalDelay.']) && is_array($pagesTsConfig['tx_jhmagnificpopup.']['removalDelay.'])) {
             $templateLayouts = $pagesTsConfig['tx_jhmagnificpopup.']['removalDelay.'];
         }

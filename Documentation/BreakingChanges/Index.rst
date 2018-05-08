@@ -22,6 +22,7 @@ Breaking changes
    :titlesonly:
    :glob:
 
+   Version1000000/Index
    Version060/Index
    Version050/Index
    Version040/Index

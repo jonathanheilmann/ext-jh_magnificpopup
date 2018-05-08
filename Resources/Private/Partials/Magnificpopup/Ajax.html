@@ -1,13 +1,14 @@
-<html xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:jh="http://typo3.org/ns/Heilmann/JhMagnificpopup/ViewHelpers">
+{namespace jh=JonathanHeilmann\JhMagnificpopup\ViewHelpers}
+
 <jh:pageRenderer.addJsInlineCode name="jh_magnificpopup-ajax-{uid}" addToFooter="true">
     $('.mfp-ajax-{uid}').magnificPopup({
         type: 'ajax',
         tClose: '<f:translate key="ajax.tClose"/>',
         tLoading: '<f:translate key="ajax.tLoading"/>',
-        ajax: <![CDATA[{]]>
+        ajax: {
             cursor: '{settings.type.ajax.ajax.cursor}',
             tError: '<f:translate key="ajax.ajax.tError"/>'
-        <![CDATA[}]]>,
+        },
         disableOn: {settings.type.ajax.disableOn},
         mainClass: '{settings.type.ajax.mainClass}',
         preloader: {settings.type.ajax.preloader},
@@ -33,4 +34,3 @@
         }
     });
 </jh:pageRenderer.addJsInlineCode>
-</html>

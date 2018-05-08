@@ -28,6 +28,28 @@ ChangeLog
          Changes
 
  - :Version:
+         1.0.0
+
+   :Changes:
+         \* [BUG]          #50   Compatibility to bootstrap_package > 7 lost
+
+         \* [ENHANCEMENT]  #47   Add compatibility to TYPO3 CMS version 8.5 and higher
+
+         \* [TASK]               Remove unused ViewHelper `extension.loaded`
+
+         \* [TASK]               Rewrite link rendering 
+
+         \* [TASK]               Remove old link-setup
+
+         \* [TASK]               Support EXT:fluid_styled_content CE `image`
+
+         \* [TASK]               Always enable Lightbox, as it's extension's main feature
+
+         \* [TASK]               Remove RTE support
+
+         \* [TASK]               Update Namespace Vendor to `JonathanHeilmann`
+
+ - :Version:
          0.6.4
 
    :Changes:

@@ -51,7 +51,7 @@ plugin.tx_jhmagnificpopup {
             selector {
                 # default selector (css_styled_content and fluid_styled_content)
                 1 = TEXT
-                1.value = .csc-textpic-imagewrap,.ce-textpic
+                1.value = .csc-textpic-imagewrap,.ce-textpic,.ce-image
                 # tx_news
                 10 = TEXT
                 10.value = ,.news-img-wrap
@@ -70,7 +70,7 @@ plugin.tx_jhmagnificpopup {
                 22.if.isTrue = {$plugin.tx_jhmagnificpopup.magnificpopup.support.tx_ttnews.latest}
                 # bootstrap_package
                 30 = TEXT
-                30.value = ,.img-wrap,.image-wrap
+                30.value = ,.img-wrap,.image-wrap,.gallery-row
                 30.if.isTrue = {$plugin.tx_jhmagnificpopup.magnificpopup.support.tx_bootstrappackage}
                 # user-defined selectors (always start with ','!)
                 999 = TEXT
@@ -125,3 +125,13 @@ plugin.tx_jhmagnificpopup {
 
 //add javascript to footer
 page.jsFooterInline < plugin.tx_jhmagnificpopup.setup
+
+// Remove lightbox from EXT:bootstrap_package
+page.includeJSFooterlibs {
+    photoswipe_core >
+    photoswipe_ui >
+    bootstrap_lightbox >
+}
+
+// Add title to Magnific Popup within EXT:fluid_styled_content
+lib.fluidContent.settings.media.popup.linkParams.ATagParams.dataWrap = class="{$styles.content.textmedia.linkWrap.lightboxCssClass}" rel="{$styles.content.textmedia.linkWrap.lightboxRelAttribute}" title="{file:current:title}"

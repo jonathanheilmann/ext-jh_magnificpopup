@@ -1,4 +1,5 @@
-<html xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:jh="http://typo3.org/ns/Heilmann/JhMagnificpopup/ViewHelpers">
+{namespace jh=JonathanHeilmann\JhMagnificpopup\ViewHelpers}
+
 <jh:pageRenderer.addJsInlineCode name="jh_magnificpopup-iframe-{uid}" addToFooter="true">
     $('.mfp-iframe-{uid}').magnificPopup({
         type: 'iframe',
@@ -21,4 +22,3 @@
         closeMarkup: '{f:format.raw(value:settings.type.iframe.closeMarkup)}',
     });
 </jh:pageRenderer.addJsInlineCode>
-</html>

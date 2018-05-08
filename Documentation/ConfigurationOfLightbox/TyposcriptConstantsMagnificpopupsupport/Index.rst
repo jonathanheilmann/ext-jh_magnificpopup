@@ -125,20 +125,5 @@ TypoScript Constants – magnificpopup.support
    Default
          \
 
-
-.. container:: table-row
-
-   Property
-         rteLightbox
-
-   Data type
-         string
-
-   Description
-         jQuery selector for RTE click-enlarge (only if 'Magnific Popup for RTE (jh\_magnificpopup)' has been added to static template)
-
-   Default
-         p
-
 .. # END~OF~TABLE ######
 

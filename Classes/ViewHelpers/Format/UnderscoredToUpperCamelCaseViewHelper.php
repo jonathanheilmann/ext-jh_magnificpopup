@@ -1,4 +1,5 @@
 <?php
+
 namespace JonathanHeilmann\JhMagnificpopup\ViewHelpers\Format;
 
 /*
@@ -8,11 +9,11 @@ namespace JonathanHeilmann\JhMagnificpopup\ViewHelpers\Format;
  * LICENSE.md file that was distributed with this source code.
  */
 
-/**
- * Class AddJsInlineCodeViewHelper
- * @package JonathanHeilmann\JhMagnificpopup\ViewHelpers\PageRenderer
- */
-class UcfirstViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+
+
+class UnderscoredToUpperCamelCaseViewHelper extends AbstractViewHelper
 {
 
     /**
@@ -21,9 +22,11 @@ class UcfirstViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHel
      */
     public function render($string = null)
     {
-        if ($string === null) $string = $this->renderChildren();
+        if ($string === null) {
+            $string = $this->renderChildren();
+        }
 
-        return ucfirst($string);
+        return GeneralUtility::underscoredToUpperCamelCase($string);
     }
 
 }

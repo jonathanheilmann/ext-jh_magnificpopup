@@ -1,10 +1,12 @@
 <?php
+namespace JonathanHeilmann\JhMagnificpopup\Hooks;
+
 /***************************************************************
  *  Copyright notice
  *
  *  Original: (c) 2009 Juergen Furrer <juergen.furrer@gmail.com>
  *				EXT:jfmulticontent
- *	 Edited: (c) 2013-2016 Jonathan Heilmann <mail@jonathan-heilmann.de>
+ *	 Edited: (c) 2013-2018 Jonathan Heilmann <mail@jonathan-heilmann.de>
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -27,6 +29,13 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+/*
+ * This file is part of the JonathanHeilmann\JhMagnificpopup extension under GPLv2 or later.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.md file that was distributed with this source code.
+ */
+
 /**
  * This class implements a hook to TCEmain to ensure that IRRE data is correctly
  * inserted to pages (changes the colPos).
@@ -35,7 +44,7 @@
  * @package    TYPO3
  * @subpackage tx_jhmagnificpopup
  */
-class tx_jhmagnificpopup_tcemain
+class UpdateColPosHook
 {
     /**
      * Checks if the colPos will be manipulate
@@ -43,10 +52,10 @@ class tx_jhmagnificpopup_tcemain
      * @param array $incomingFieldArray
      * @param string $table
      * @param integer $id
-     * @param TYPO3\CMS\Core\DataHandling\DataHandler $pObj
+     * @param \TYPO3\CMS\Core\DataHandling\DataHandler $pObj
      * @see tx_templavoila_tcemain::processDatamap_afterDatabaseOperations()
      */
-    public function processDatamap_preProcessFieldArray(array &$incomingFieldArray, $table, $id, TYPO3\CMS\Core\DataHandling\DataHandler &$pObj)
+    public function processDatamap_preProcessFieldArray(array &$incomingFieldArray, $table, $id, \TYPO3\CMS\Core\DataHandling\DataHandler &$pObj)
     {
         if ($incomingFieldArray['list_type'] != 'jhmagnificpopup_pi1') {
             if (is_array($pObj->datamap['tt_content'])) {
@@ -65,6 +74,6 @@ class tx_jhmagnificpopup_tcemain
     }
 }
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/jh_magnificpopup/Classes/Hooks/class.tx_jhmagnificpopup_tcemain.php']) {
-    include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/jh_magnificpopup/Classes/Hooks/class.tx_jhmagnificpopup_tcemain.php']);
+if (defined('TYPO3_MODE') && $GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/jh_magnificpopup/Classes/Hooks/class.tx_jhmagnificpopup_tcemain.php']) {
+    include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/jh_magnificpopup/Classes/Hooks/class.tx_jhmagnificpopup_tcemain.php']);
 }
