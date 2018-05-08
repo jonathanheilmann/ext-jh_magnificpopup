@@ -85,6 +85,8 @@ class MagnificpopupController extends ActionController
      * action show
      *
      * @return void
+     * @throws \TYPO3\CMS\Extbase\SignalSlot\Exception\InvalidSlotException
+     * @throws \TYPO3\CMS\Extbase\SignalSlot\Exception\InvalidSlotReturnException
      */
     public function showAction()
     {
