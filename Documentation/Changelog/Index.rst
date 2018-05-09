@@ -28,6 +28,12 @@ ChangeLog
          Changes
 
  - :Version:
+         1.0.1
+
+   :Changes:
+         \* [BUG]          #56   plugin magnificpopup for content - Inline and content-reference partial not found
+
+ - :Version:
          1.0.0
 
    :Changes:

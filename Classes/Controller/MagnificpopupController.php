@@ -98,28 +98,63 @@ class MagnificpopupController extends ActionController
 
         switch ($this->settings['contenttype']) {
             case 'iframe':
-                $viewAssign = $this->iframe() + $viewAssign;
+                ArrayUtility::mergeRecursiveWithOverrule($viewAssign, $this->iframe());
                 break;
             case 'reference':
-            case 'inline':
                 if (
-                    ($this->settings['content']['procedure_reference'] == 'ajax'
-                        && !empty($this->settings['contenttype'])
-                    ) || $this->settings['content']['procedure_inline'] == 'ajax') {
-                    $viewAssign = $this->ajax() + $viewAssign;
-                } elseif (
-                    ($this->settings['content']['procedure_reference'] == 'inline'
-                        && !empty($this->settings['contenttype'])
-                    ) || $this->settings['content']['procedure_inline'] == 'inline') {
-                    $viewAssign = $this->inline() + $viewAssign;
-                } elseif ($this->settings['content']['procedure_reference'] == '' && $this->settings['content']['procedure_inline'] == '') {
+                    $this->settings['content']['procedure_reference'] == 'ajax') {
+                    ArrayUtility::mergeRecursiveWithOverrule($viewAssign, $this->ajax());
+                } else if (
+                    $this->settings['content']['procedure_reference'] == 'inline') {
+                    ArrayUtility::mergeRecursiveWithOverrule($viewAssign, $this->inline());
+                } else if (!$this->settings['content']['procedure_reference']) {
                     // Add error if no method (inline or ajax) has been selected
-                    $this->addFlashMessage('Please select the method (inline or ajax) to display Magnific Popup content',
-                        'Select method', AbstractMessage::WARNING);
-                } elseif ($this->settings['content']['procedure_reference'] != '' && empty($this->settings['contenttype'])) {
+                    $this->addFlashMessage(
+                        'Please select the method (inline or ajax) to display Magnific Popup content',
+                        'Select method',
+                        AbstractMessage::WARNING
+                    );
+                } else if (!$this->settings['content']['reference']) {
                     // Add error if no content has been selected
-                    $this->addFlashMessage('Please select a content to display with Magnific Popup', 'Select content',
+                    $this->addFlashMessage(
+                        'Please select a content to display with Magnific Popup',
+                        'Select content',
+                        AbstractMessage::WARNING
+                    );
+                } else {
+                    // Add general error
+                    $this->addFlashMessage(
+                        'Please check your Magnific Popup Plugin configuration',
+                        'Failure in plugin config',
+                        AbstractMessage::WARNING
+                    );
+                }
+                break;
+            case 'inline':
+                if ($this->settings['content']['procedure_inline'] == 'ajax') {
+                    ArrayUtility::mergeRecursiveWithOverrule($viewAssign, $this->ajax());
+                } else if ($this->settings['content']['procedure_inline'] == 'inline') {
+                    ArrayUtility::mergeRecursiveWithOverrule($viewAssign, $this->inline());
+                } else if (!$this->settings['content']['procedure_inline']) {
+                    // Add error if no method (inline or ajax) has been selected
+                    $this->addFlashMessage(
+                        'Please select the method (inline or ajax) to display Magnific Popup content',
+                        'Select method',
                         AbstractMessage::WARNING);
+                } else if (!$this->settings['content']['inline']) {
+                    // Add error if no content has been selected
+                    $this->addFlashMessage(
+                        'Please select a content to display with Magnific Popup',
+                        'Select content',
+                        AbstractMessage::WARNING
+                    );
+                } else {
+                    // Add general error
+                    $this->addFlashMessage(
+                        'Please check your Magnific Popup Plugin configuration',
+                        'Failure in plugin config',
+                        AbstractMessage::WARNING
+                    );
                 }
                 break;
             default:

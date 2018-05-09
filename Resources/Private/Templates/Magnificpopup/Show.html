@@ -6,7 +6,9 @@
 
     <f:flashMessages />
 
-    <f:render partial="Magnificpopup/{type->jh:format.ucfirst()}" arguments="{uid: uid, settings: settings}"/>
+    <f:if condition="{type}">
+        <f:render partial="Magnificpopup/{type->jh:format.ucfirst()}" arguments="{uid: uid, settings: settings}"/>
+    </f:if>
 
     <f:if condition="{settings.linktype} == 'file'">
         <f:then>
