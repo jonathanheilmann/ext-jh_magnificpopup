@@ -33,6 +33,8 @@ ChangeLog
    :Changes:
          \* [BUG]          #56   plugin magnificpopup for content - Inline and content-reference partial not found
 
+         \* [DOCUMENTATION]#49   Not compatible to EXT:imagecycle (Added `how to`)
+
  - :Version:
          1.0.0
 

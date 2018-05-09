@@ -85,3 +85,17 @@ titleSrc: function(item) {
     return item.el.attr('title') + ' &middot; <a href="'+item.src+'" target="_blank">view original image</a>';
 },
 ```
+
+
+EXT:imagecycle
+^^^^^^^^^^^^^^
+
+EXT:imagecycle modifies default TypoScript setup, thus these lines are required:
+
+```
+tt_content.image.20.1.imageLinkWrap.JSwindow = 0
+tt_content.image.20.default.1.imageLinkWrap.JSwindow = 0
+
+tt_content.image.20.1.imageLinkWrap.directImageLink = 1
+tt_content.image.20.default.1.imageLinkWrap.directImageLink = 1
+```
