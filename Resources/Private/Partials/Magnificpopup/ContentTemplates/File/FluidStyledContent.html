@@ -1,12 +1,13 @@
-<div class="ce-image ce-{imageorient} ce-above">
+<div class="ce-textpic ce-{imageorient} ce-above">
     <div class="ce-gallery" data-ce-columns="1" data-ce-images="1">
         <f:if condition="{imageorient} == 'center'"><div class="ce-outer"><div class="ce-inner"></f:if>
         <div class="ce-row">
             <div class="ce-column">
                 <figure class="image">
-                    <img class="image-embed-item"
-                         src="fileadmin/introduction/images/content/content-audio.png"
-                         width="512" height="512" alt="">
+                    {tsLink->f:format.raw()}
+                    <f:if condition="{imagecaption}">
+                        <figcaption>{imagecaption}</figcaption>
+                    </f:if>
                 </figure>
             </div>
         </div>
