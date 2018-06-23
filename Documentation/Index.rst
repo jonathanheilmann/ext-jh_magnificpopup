@@ -1,68 +1,52 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
+.. include:: Includes.txt
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. _start:
 
 ===================
 EXT: Magnific Popup
 ===================
 
-:Created:
-      2010-02-18 17:03
+.. only:: html
 
-:Changed:
-      2018-05-08 10:22
+   :Classification:
+            jh_magnificpopup
 
-:Classification:
-      jh_magnificpopup
+   :Version:
+            |release|
 
-:Keywords:
-      magnific popup, lightbox, responsive
+   :Language:
+            en
 
-:Author:
-      Jonathan Heilmann
+   :Description:
+   		    Manual covering TYPO3 extension Magnific Popup
 
-:Email:
-      mail@jonathan-heilmann.de
+   :Keywords:
+            magnific popup, lightbox, responsive
 
-:Info 4:
+   :Copyright:
+            2013-2018
 
+   :Author:
+            Jonathan Heilmann
 
-:Language:
-      en
+   :Email:
+            mail@jonathan-heilmann.de
 
-Extension Key: jh\_magnificpopup
+   :License:
+   		    This document is published under the Open Publication License
+   		    available from http://www.opencontent.org/openpub/
 
-Language: en
+   :Rendered:
+   		    |today|
 
-Version: 1.0.0
+	The content of this document is related to TYPO3,
+	a GNU/GPL CMS/Framework available from `www.typo3.org <https://typo3.org/>`__.
 
-Keywords: magnific popup, lightbox, responsive
-
-Copyright 2013-2018, Jonathan Heilmann, <mail@jonathan-heilmann.de>
-
-This document is published under the Open Content License
-
-available from http://www.opencontent.org/opl.shtml
-
-The content of this document is related to TYPO3
-
-\- a GNU/GPL CMS/Framework available from www.typo3.org
-
+   **Table of Contents**
 
 .. toctree::
    :maxdepth: 5
    :titlesonly:
-   :glob:
 
    Introduction/Index
    UsersManual/Index
@@ -75,4 +59,4 @@ The content of this document is related to TYPO3
    HowTo/Index
    KnownProblems/Index
    Changelog/Index
-
+   Links

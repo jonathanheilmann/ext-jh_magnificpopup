@@ -1,18 +1,4 @@
-
-
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-:class:  typoscript
-.. role::   php(code)
+.. include:: ../Includes.txt
 
 
 How to
@@ -65,33 +51,33 @@ If you want to show the "original image" you have to change the source-parameter
 
 Actual:
 
-```
-tt_content.image.20.1.imageLinkWrap.enable.ifEmpty.typolink.parameter.data = file:current:link
-```
+.. code-block:: typoscript
+
+    tt_content.image.20.1.imageLinkWrap.enable.ifEmpty.typolink.parameter.data = file:current:link
 
 New (for opening the original images)
 
-```
-tt_content.image.20.1.imageLinkWrap.enable.ifEmpty.typolink.parameter.data = file:current:publicUrl
-tt_content.image.20.1.imageLinkWrap.typolink.parameter.data = file:current:publicUrl
-```
+.. code-block:: typoscript
+
+    tt_content.image.20.1.imageLinkWrap.enable.ifEmpty.typolink.parameter.data = file:current:publicUrl
+    tt_content.image.20.1.imageLinkWrap.typolink.parameter.data = file:current:publicUrl
 
 
 Link to original image in image title
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 In file `Templates/TypoScript/Default.html` replace
 
-```
-titleSrc: 'title',
-```
+.. code-block:: typoscript
+
+    titleSrc: 'title',
 
 by
 
-```
-titleSrc: function(item) {
-    return item.el.attr('title') + ' &middot; <a href="'+item.src+'" target="_blank">view original image</a>';
-},
-```
+.. code-block:: typoscript
+
+    titleSrc: function(item) {
+        return item.el.attr('title') + ' &middot; <a href="'+item.src+'" target="_blank">view original image</a>';
+    },
 
 
 EXT:imagecycle
@@ -99,10 +85,10 @@ EXT:imagecycle
 
 EXT:imagecycle modifies default TypoScript setup, thus these lines are required:
 
-```
-tt_content.image.20.1.imageLinkWrap.JSwindow = 0
-tt_content.image.20.default.1.imageLinkWrap.JSwindow = 0
+.. code-block:: typoscript
 
-tt_content.image.20.1.imageLinkWrap.directImageLink = 1
-tt_content.image.20.default.1.imageLinkWrap.directImageLink = 1
-```
+    tt_content.image.20.1.imageLinkWrap.JSwindow = 0
+    tt_content.image.20.default.1.imageLinkWrap.JSwindow = 0
+
+    tt_content.image.20.1.imageLinkWrap.directImageLink = 1
+    tt_content.image.20.default.1.imageLinkWrap.directImageLink = 1
