@@ -32,6 +32,13 @@ This modifications will try to open a powermail form in Magnific Popup.
 
 See `https://gist.github.com/jonathanheilmann/c75e139cf1e630f3125c <https://gist.github.com/jonathanheilmann/c75e139cf1e630f3125c>`_ for detailed introductions.
 
+Title in Magnific Popup with EXT:fluid_styled_content
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Add this single line to your template-setup to display the image title as title in Magnific Popup:
+
+.. code-block:: typoscript
+
+    lib.fluidContent.settings.media.popup.linkParams.ATagParams.dataWrap = class="{$styles.content.textmedia.linkWrap.lightboxCssClass}" rel="{$styles.content.textmedia.linkWrap.lightboxRelAttribute}" title="{file:current:title}"
 
 Custom title in Magnific Popup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
