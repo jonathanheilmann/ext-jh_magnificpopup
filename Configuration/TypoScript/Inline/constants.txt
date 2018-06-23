@@ -34,7 +34,7 @@ plugin.tx_jhmagnificpopup.type.iframe.overflowY = auto
 # cat=plugin.tx_jhmagnificpopup/mfp_type_iframe/340; type=int+; label=removalDelay: removalDelay used for animation effects (in ms)
 plugin.tx_jhmagnificpopup.type.iframe.removalDelay = 0
 # cat=plugin.tx_jhmagnificpopup/mfp_type_iframe/350; type=string; label=closeMarkup
-plugin.tx_jhmagnificpopup.type.iframe.closeMarkup = <button title="%title%" class="mfp-close"><i class="mfp-close-icn">&times;</i></button>
+plugin.tx_jhmagnificpopup.type.iframe.closeMarkup = <button title="%title%" class="mfp-close"><i class="mfp-close-icn mfp-close">&times;</i></button>
 
 
 #customsubcategory=mfp_type_inline=LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:constants.subcat.magnificpopup.type.inline
@@ -69,7 +69,7 @@ plugin.tx_jhmagnificpopup.type.inline.overflowY = auto
 # cat=plugin.tx_jhmagnificpopup/mfp_type_inline/350; type=int+; label=removalDelay: removalDelay used for animation effects (in ms)
 plugin.tx_jhmagnificpopup.type.inline.removalDelay = 0
 # cat=plugin.tx_jhmagnificpopup/mfp_type_inline/360; type=string; label=closeMarkup
-plugin.tx_jhmagnificpopup.type.inline.closeMarkup = <button title="%title%" class="mfp-close"><i class="mfp-close-icn">&times;</i></button>
+plugin.tx_jhmagnificpopup.type.inline.closeMarkup = <button title="%title%" class="mfp-close"><i class="mfp-close-icn mfp-close">&times;</i></button>
 
 
 #customsubcategory=mfp_type_ajax=LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:constants.subcat.magnificpopup.type.ajax
@@ -109,4 +109,4 @@ plugin.tx_jhmagnificpopup.type.ajax.overflowY = auto
 # cat=plugin.tx_jhmagnificpopup/mfp_type_ajax/330; type=int+; label=removalDelay: removalDelay used for animation effects (in ms)
 plugin.tx_jhmagnificpopup.type.ajax.removalDelay = 0
 # cat=plugin.tx_jhmagnificpopup/mfp_type_ajax/340; type=string; label=closeMarkup
-plugin.tx_jhmagnificpopup.type.ajax.closeMarkup = <button title="%title%" class="mfp-close"><i class="mfp-close-icn">&times;</i></button>
+plugin.tx_jhmagnificpopup.type.ajax.closeMarkup = <button title="%title%" class="mfp-close"><i class="mfp-close-icn mfp-close">&times;</i></button>
