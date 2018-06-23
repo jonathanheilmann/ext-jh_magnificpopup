@@ -92,3 +92,19 @@ EXT:imagecycle modifies default TypoScript setup, thus these lines are required:
 
     tt_content.image.20.1.imageLinkWrap.directImageLink = 1
     tt_content.image.20.default.1.imageLinkWrap.directImageLink = 1
+
+
+EXT:jumpurl
+^^^^^^^^^^^
+
+EXT:jumpurl is deprecated and thus not supported natively. But you may modify a local copy of
+`Resources/Public/js/jquery.filter-isImageFile.js` and set Constant
+`plugin.tx_jhmagnificpopup.includeFilterIsImageFileJs` to your local copy path.
+
+Just add
+
+.. code-block:: javascript
+
+    extension = extension.substr(0, (extension.lastIndexOf('&')));
+
+after line 23. A full version is available here: `https://gist.github.com/jonathanheilmann/3e6e21559a0850450a366a67546a33c4 <https://gist.github.com/jonathanheilmann/3e6e21559a0850450a366a67546a33c4>`_
