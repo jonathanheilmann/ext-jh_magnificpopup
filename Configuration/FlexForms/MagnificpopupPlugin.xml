@@ -218,10 +218,6 @@
 							<config>
 								<type>select</type>
 								<items type="array">
-									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pi_flexform.sheetOptions.select</numIndex>
-										<numIndex index="1"></numIndex>
-									</numIndex>
 									<numIndex index="1" type="array">
 										<numIndex index="0">LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pi_flexform.sheetOptions.content.procedure.ajax</numIndex>
 										<numIndex index="1">ajax</numIndex>
@@ -273,10 +269,6 @@
 							<config>
 								<type>select</type>
 								<items type="array">
-									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pi_flexform.sheetOptions.select</numIndex>
-										<numIndex index="1"></numIndex>
-									</numIndex>
 									<numIndex index="1" type="array">
 										<numIndex index="0">LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pi_flexform.sheetOptions.content.procedure.ajax</numIndex>
 										<numIndex index="1">ajax</numIndex>

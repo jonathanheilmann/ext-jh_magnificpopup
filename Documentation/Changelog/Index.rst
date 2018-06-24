@@ -1,16 +1,4 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
+.. include:: ../Includes.txt
 
 
 ChangeLog
@@ -26,6 +14,20 @@ ChangeLog
 
    :Changes:
          Changes
+
+ - :Version:
+         1.0.1
+
+   :Changes:
+         \* [BUG]          #56   plugin magnificpopup for content - Inline and content-reference partial not found
+
+         \* [BUG]          #45   In Inline-Content with option "closeBtnInside=True" the Close Button is NOT working with EDGE
+
+         \* [DOCUMENTATION]#58   Title in Magnific Popup with EXT:fluid_styled_content
+
+         \* [DOCUMENTATION]#54   Filter skips images when JumpURL enabled
+
+         \* [DOCUMENTATION]#49   Not compatible to EXT:imagecycle (Added `how to`)
 
  - :Version:
          1.0.0

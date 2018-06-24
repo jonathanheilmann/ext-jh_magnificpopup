@@ -1,18 +1,4 @@
-
-
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-:class:  typoscript
-.. role::   php(code)
+.. include:: ../Includes.txt
 
 
 How to
@@ -32,6 +18,13 @@ This modifications will try to open a powermail form in Magnific Popup.
 
 See `https://gist.github.com/jonathanheilmann/c75e139cf1e630f3125c <https://gist.github.com/jonathanheilmann/c75e139cf1e630f3125c>`_ for detailed introductions.
 
+Title in Magnific Popup with EXT:fluid_styled_content
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Add this single line to your template-setup to display the image title as title in Magnific Popup:
+
+.. code-block:: typoscript
+
+    lib.fluidContent.settings.media.popup.linkParams.ATagParams.dataWrap = class="{$styles.content.textmedia.linkWrap.lightboxCssClass}" rel="{$styles.content.textmedia.linkWrap.lightboxRelAttribute}" title="{file:current:title}"
 
 Custom title in Magnific Popup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -58,30 +51,60 @@ If you want to show the "original image" you have to change the source-parameter
 
 Actual:
 
-```
-tt_content.image.20.1.imageLinkWrap.enable.ifEmpty.typolink.parameter.data = file:current:link
-```
+.. code-block:: typoscript
+
+    tt_content.image.20.1.imageLinkWrap.enable.ifEmpty.typolink.parameter.data = file:current:link
 
 New (for opening the original images)
 
-```
-tt_content.image.20.1.imageLinkWrap.enable.ifEmpty.typolink.parameter.data = file:current:publicUrl
-tt_content.image.20.1.imageLinkWrap.typolink.parameter.data = file:current:publicUrl
-```
+.. code-block:: typoscript
+
+    tt_content.image.20.1.imageLinkWrap.enable.ifEmpty.typolink.parameter.data = file:current:publicUrl
+    tt_content.image.20.1.imageLinkWrap.typolink.parameter.data = file:current:publicUrl
 
 
 Link to original image in image title
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 In file `Templates/TypoScript/Default.html` replace
 
-```
-titleSrc: 'title',
-```
+.. code-block:: typoscript
+
+    titleSrc: 'title',
 
 by
 
-```
-titleSrc: function(item) {
-    return item.el.attr('title') + ' &middot; <a href="'+item.src+'" target="_blank">view original image</a>';
-},
-```
+.. code-block:: typoscript
+
+    titleSrc: function(item) {
+        return item.el.attr('title') + ' &middot; <a href="'+item.src+'" target="_blank">view original image</a>';
+    },
+
+
+EXT:imagecycle
+^^^^^^^^^^^^^^
+
+EXT:imagecycle modifies default TypoScript setup, thus these lines are required:
+
+.. code-block:: typoscript
+
+    tt_content.image.20.1.imageLinkWrap.JSwindow = 0
+    tt_content.image.20.default.1.imageLinkWrap.JSwindow = 0
+
+    tt_content.image.20.1.imageLinkWrap.directImageLink = 1
+    tt_content.image.20.default.1.imageLinkWrap.directImageLink = 1
+
+
+EXT:jumpurl
+^^^^^^^^^^^
+
+EXT:jumpurl is deprecated and thus not supported natively. But you may modify a local copy of
+`Resources/Public/js/jquery.filter-isImageFile.js` and set Constant
+`plugin.tx_jhmagnificpopup.includeFilterIsImageFileJs` to your local copy path.
+
+Just add
+
+.. code-block:: javascript
+
+    extension = extension.substr(0, (extension.lastIndexOf('&')));
+
+after line 23. A full version is available here: `https://gist.github.com/jonathanheilmann/3e6e21559a0850450a366a67546a33c4 <https://gist.github.com/jonathanheilmann/3e6e21559a0850450a366a67546a33c4>`_
