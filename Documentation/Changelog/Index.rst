@@ -16,6 +16,12 @@ ChangeLog
          Changes
 
  - :Version:
+         1.1.0
+
+   :Changes:
+        
+
+ - :Version:
          1.0.1
 
    :Changes:
