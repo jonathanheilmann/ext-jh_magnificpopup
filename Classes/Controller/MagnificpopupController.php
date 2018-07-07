@@ -353,6 +353,7 @@ class MagnificpopupController extends ActionController
             }
             // Get image description/caption
             $viewAssign['imagecaption'] = $file->getProperty('description');
+            $viewAssign['linkedImagecaption'] = $this->cObj->typoLink($viewAssign['imagecaption'], $lConf);
 
             // Render typolink
             $viewAssign['tsLink'] = $this->cObj->typoLink($theImgCode, $lConf);

@@ -1,5 +1,7 @@
 # cat=plugin.tx_jhmagnificpopup/magnificpopup_general/060; type=boolean; label=Use eID for Method "Ajax"
 plugin.tx_jhmagnificpopup.useEidForAjaxMethod = 0
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_general/061; type=boolean; label=Link image caption to Magnific Popup lightbox
+plugin.tx_jhmagnificpopup.linkImagecaption = 0
 
 #customsubcategory=mfp_type_iframe=LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:constants.subcat.magnificpopup.type.iframe
 # cat=plugin.tx_jhmagnificpopup/mfp_type_iframe/010; type=boolean; label=Enable global: Enable iframe popup globally

@@ -8,6 +8,7 @@ page.includeJSFooterlibs {
 
 plugin.tx_jhmagnificpopup.settings {
     useEidForAjaxMethod = {$plugin.tx_jhmagnificpopup.useEidForAjaxMethod}
+    linkImagecaption = {$plugin.tx_jhmagnificpopup.linkImagecaption}
     type {
         // Set default settings for Magnific Popup type iframe
         iframe {

@@ -35,4 +35,19 @@ TypoScript Constants – magnificpopup
    Default
          0
 
+
+.. container:: table-row
+
+   Property
+         linkImagecaption
+
+   Data type
+         boolean
+
+   Description
+         Since version 1.1.0: Activate to link image caption to Magnific Popup lightbox
+
+   Default
+         0
+
 .. ###### END~OF~TABLE ######

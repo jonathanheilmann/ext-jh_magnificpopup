@@ -6,7 +6,12 @@
                 <figure class="image">
                     {tsLink->f:format.raw()}
                     <f:if condition="{imagecaption}">
-                        <figcaption>{imagecaption}</figcaption>
+                        <figcaption>
+                            <f:if condition="{settings.linkImagecaption}">
+                                <f:then>{linkedImagecaption->f:format.raw()}</f:then>
+                                <f:else>{imagecaption}</f:else>
+                            </f:if>
+                        </figcaption>
                     </f:if>
                 </figure>
             </div>

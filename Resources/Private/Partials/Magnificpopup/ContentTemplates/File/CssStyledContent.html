@@ -5,7 +5,12 @@
             <f:if condition="{imagecaption}">
                 <f:then>
                     <table>
-                        <caption class="csc-textpic-caption">{imagecaption}</caption>
+                        <caption class="csc-textpic-caption">
+                            <f:if condition="{settings.linkImagecaption}">
+                                <f:then>{linkedImagecaption->f:format.raw()}</f:then>
+                                <f:else>{imagecaption}</f:else>
+                            </f:if>
+                        </caption>
                         <tbody>
                         <tr>
                             <td>{tsLink->f:format.raw()}</td>

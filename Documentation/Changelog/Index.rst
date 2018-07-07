@@ -19,7 +19,7 @@ ChangeLog
          1.1.0
 
    :Changes:
-        
+        \* [ENHANCEMENT]   #61   Link for the <figcaption>
 
  - :Version:
          1.0.1
