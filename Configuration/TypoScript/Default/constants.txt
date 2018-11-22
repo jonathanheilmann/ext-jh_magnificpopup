@@ -76,12 +76,6 @@ plugin.tx_jhmagnificpopup.magnificpopup.image.verticalFit = 1
 
 
 // Configure lightbox for images
-// EXT:css_styled_content
-styles.content.imgtext.linkWrap {
-    lightboxEnabled = 1
-    lightboxCssClass = magnificpopup
-    lightboxRelAttribute  = magnificpopup[{field:uid}]
-}
 
 // EXT:fluid_styled_content
 styles.content.textmedia.linkWrap {

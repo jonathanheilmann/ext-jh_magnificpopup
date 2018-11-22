@@ -30,8 +30,7 @@ class MagnificpopupController extends ActionController
      */
     protected static $supportedContentTemplateExtensions = [
         'bootstrap_package',
-        'fluid_styled_content',
-        'css_styled_content'
+        'fluid_styled_content'
     ];
 
     /**
