@@ -1,5 +1,3 @@
-# cat=plugin.tx_jhmagnificpopup/magnificpopup_general/060; type=boolean; label=Use eID for Method "Ajax"
-plugin.tx_jhmagnificpopup.useEidForAjaxMethod = 0
 # cat=plugin.tx_jhmagnificpopup/magnificpopup_general/061; type=boolean; label=Link image caption to Magnific Popup lightbox
 plugin.tx_jhmagnificpopup.linkImagecaption = 0
 

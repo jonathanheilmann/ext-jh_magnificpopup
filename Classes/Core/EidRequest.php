@@ -13,7 +13,7 @@ use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 use TYPO3\CMS\Frontend\Utility\EidUtility;
 
 /**
- * Class tu handle the eID request.
+ * Class to handle the eID request.
  */
 class EidRequest
 {
@@ -24,7 +24,7 @@ class EidRequest
     protected $typoScriptFrontendController = null;
 
     /**
-     *
+     * @deprecated
      *
      * @return string
      */
@@ -110,11 +110,15 @@ class EidRequest
     }
 
     /**
+     * @deprecated
+     *
      * EidRequest constructor.
      * Initialize frontend environment
      */
     public function __construct()
     {
+        GeneralUtility::deprecationLog('eID=jh_magnificpopup_ajax is deprecated and will be removed in EXT:jh_magnificpopup version 3.0.0');
+
         $this->bootstrap = GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Core\\Bootstrap');
 
         $feUserObj = EidUtility::initFeUser();

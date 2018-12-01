@@ -208,15 +208,13 @@ class MagnificpopupController extends ActionController
             }
             // Configure the link
             $linkconf['parameter'] = $this->data['pid'];
-            $linkconf['additionalParams'] = '&' .
-                ($this->settings['useEidForAjaxMethod'] != 1 ? 'type=109' : 'eID=jh_magnificpopup_ajax') .
+            $linkconf['additionalParams'] = '&type=109' .
                 '&jh_magnificpopup[type]=reference&jh_magnificpopup[uid]=' . $this->settings['content']['reference'] .
                 '&jh_magnificpopup[pid]=' . implode(',', $pidInList);
         } else {
             // Configure the link
             $linkconf['parameter'] = $this->data['pid'];
-            $linkconf['additionalParams'] = '&' .
-                ($this->settings['useEidForAjaxMethod'] != 1 ? 'type=109' : 'eID=jh_magnificpopup_ajax') .
+            $linkconf['additionalParams'] = '&type=109' .
                 '&jh_magnificpopup[type]=inline&jh_magnificpopup[irre_parrentid]=' . $this->data['uid'];
         }
         // Link-setup
