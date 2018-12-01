@@ -9,6 +9,11 @@ namespace JonathanHeilmann\JhMagnificpopup\ViewHelpers\InlineContent;
  * LICENSE.md file that was distributed with this source code.
  */
 
+use Doctrine\DBAL\Driver\Statement;
+use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Database\Query\QueryBuilder;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
 
 /**
  * ViewHelper used to render referenced content elements in Fluid templates
@@ -43,11 +48,24 @@ class ReferenceViewHelper extends AbstractInlineContentViewHelper
 
         $contentUids = explode(',', $this->arguments['contentUids']);
 
+        /** @var QueryBuilder $queryBuilder */
+        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+
         // Get contentPids
         $contentPids = [];
         foreach ($contentUids as $uid) {
-            $row = $GLOBALS['TYPO3_DB']->exec_SELECTgetSingleRow('pid', 'tt_content', 'uid=' . $uid);
-            $contentPids[] = $row['pid'];
+            /** @var Statement $statement */
+            $statement = $queryBuilder
+                ->select('pid')
+                ->from('tt_content')
+                ->where(
+                    $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid, \PDO::PARAM_INT))
+                )
+                ->execute();
+            if ($statement->fetchColumn()) {
+                $contentPids[] = $statement->fetchColumn();
+            }
+
         }
         $contentPids = array_unique($contentPids);
 

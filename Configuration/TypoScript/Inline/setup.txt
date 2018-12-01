@@ -225,12 +225,10 @@ ajaxcontent {
             table = tt_content
             select {
                 where.data = GP:jh_magnificpopup|uid
-                where.intval = 1
-                where.wrap = hidden=0 AND deleted=0 AND tt_content.uid IN (|)
+                where.wrap = tt_content.uid IN (|)
                 languageField = sys_language_uid
                 orderBy = sorting
                 pidInList.data = GP:jh_magnificpopup|pid
-                pidInList.intval = 1
             }
         }
     }

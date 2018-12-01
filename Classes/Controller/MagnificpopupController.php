@@ -9,6 +9,9 @@ namespace JonathanHeilmann\JhMagnificpopup\Controller;
  * LICENSE.md file that was distributed with this source code.
  */
 
+use Doctrine\DBAL\Driver\Statement;
+use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\Messaging\AbstractMessage;
 use TYPO3\CMS\Core\Resource\FileRepository;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
@@ -189,8 +192,19 @@ class MagnificpopupController extends ActionController
             $uidArray = explode(',', $this->settings['content']['reference']);
             $pidInList = array();
             foreach ($uidArray as $uid) {
-                $row = $GLOBALS['TYPO3_DB']->exec_SELECTgetSingleRow('pid', 'tt_content', 'uid=' . $uid);
-                $pidInList[] = $row['pid'];
+                /** @var QueryBuilder $queryBuilder */
+                $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+                /** @var Statement $statement */
+                $statement = $queryBuilder
+                    ->select('pid')
+                    ->from('tt_content')
+                    ->where(
+                        $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid, \PDO::PARAM_INT))
+                    )
+                    ->execute();
+                if ($firstCol = $statement->fetchColumn()) {
+                    $pidInList[] = $firstCol;
+                }
             }
             // Configure the link
             $linkconf['parameter'] = $this->data['pid'];
