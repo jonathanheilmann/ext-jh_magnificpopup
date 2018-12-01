@@ -2,6 +2,9 @@
 namespace JonathanHeilmann\JhMagnificpopup\ViewHelpers\PageRenderer;
 
 use TYPO3\CMS\Core\Page\PageRenderer;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /*
  * This file is part of the JonathanHeilmann\JhMagnificpopup extension under GPLv2 or later.
@@ -14,28 +17,39 @@ use TYPO3\CMS\Core\Page\PageRenderer;
  * Class AddJsInlineCodeViewHelper
  * @package JonathanHeilmann\JhMagnificpopup\ViewHelpers\PageRenderer
  */
-class AddJsInlineCodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+class AddJsInlineCodeViewHelper extends AbstractViewHelper
 {
 
-    /**
-     * @param string $name
-     * @param string|null $block
-     * @param bool $compress
-     * @param bool $forceOnTop
-     * @param bool $addToFooter
-     */
-    public function render($name, $block = null, $compress = true, $forceOnTop = false, $addToFooter = false)
-    {
-        if ($block === null) $block = $this->renderChildren();
+    /** @var ObjectManager */
+    protected $objectManager;
 
-        /** @var PageRenderer $pageRenderer */
-        $pageRenderer = $this->objectManager->get(PageRenderer::class);
-        if ($addToFooter === false)
-        {
-            $pageRenderer->addJsInlineCode($name, $block, $compress, $forceOnTop);
-        } else{
-            $pageRenderer->addJsFooterInlineCode($name, $block, $compress, $forceOnTop);
-        }
+    /** @var PageRenderer */
+    protected $pageRenderer;
+
+    public function initialize()
+    {
+        $this->objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+        $this->pageRenderer = $this->objectManager->get(PageRenderer::class);
     }
 
+    public function initializeArguments()
+    {
+        $this->registerArgument('name', 'string', 'The name of the file', true, null);
+        $this->registerArgument('block', 'string', 'The JS content', false, null);
+        $this->registerArgument('compress', 'boolean', 'Compress output', false, false);
+        $this->registerArgument('forceOnTop', 'boolean', 'Force to top?', false, false);
+        $this->registerArgument('addToFooter', 'boolean', 'Add to footer?', false, false);
+    }
+
+    public function render()
+    {
+        if ($this->arguments['block'] === null) $this->arguments['block'] = htmlspecialchars_decode($this->renderChildren(), ENT_QUOTES);
+
+        if ($this->arguments['addToFooter'] === false) {
+            $this->pageRenderer->addJsInlineCode($this->arguments['name'], $this->arguments['block'], $this->arguments['compress'], $this->arguments['forceOnTop']);
+        } else {
+            $this->pageRenderer->addJsFooterInlineCode($this->arguments['name'], $this->arguments['block'], $this->arguments['compress'], $this->arguments['forceOnTop']);
+        }
+        return '';
+    }
 }

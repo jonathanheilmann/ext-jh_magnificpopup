@@ -8,11 +8,13 @@ namespace JonathanHeilmann\JhMagnificpopup\ViewHelpers\Format;
  * LICENSE.md file that was distributed with this source code.
  */
 
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+
 /**
  * Class AddJsInlineCodeViewHelper
  * @package JonathanHeilmann\JhMagnificpopup\ViewHelpers\PageRenderer
  */
-class UcfirstViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+class UcfirstViewHelper extends AbstractViewHelper
 {
 
     /**

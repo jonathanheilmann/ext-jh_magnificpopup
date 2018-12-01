@@ -11,7 +11,7 @@ namespace JonathanHeilmann\JhMagnificpopup\ViewHelpers\InlineContent;
  */
 
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
-use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
  * Base class: InlineContent ViewHelpers
