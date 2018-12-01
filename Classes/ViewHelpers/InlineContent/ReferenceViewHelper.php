@@ -13,6 +13,7 @@ use Doctrine\DBAL\Driver\Statement;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 
 
 /**
@@ -38,15 +39,18 @@ class ReferenceViewHelper extends AbstractInlineContentViewHelper
     /**
      * Render method
      *
-     * @return mixed
+     * @param array $arguments
+     * @param \Closure $renderChildrenClosure
+     * @param RenderingContextInterface $renderingContext
+     * @return string
      */
-    public function render()
+    public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext)
     {
         if ('BE' === TYPO3_MODE) {
             return '';
         }
 
-        $contentUids = explode(',', $this->arguments['contentUids']);
+        $contentUids = explode(',', $arguments['contentUids']);
 
         /** @var QueryBuilder $queryBuilder */
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
@@ -70,10 +74,10 @@ class ReferenceViewHelper extends AbstractInlineContentViewHelper
         $contentPids = array_unique($contentPids);
 
         // Get records
-        $records = $this->getRecords([
-            'uidInList' => $this->arguments['contentUids'],
+        $records = ReferenceViewHelper::getRecords([
+            'uidInList' => $arguments['contentUids'],
             'pidInList' => '-1,' . implode(',', $contentPids),
-            'includeRecordsWithoutDefaultTranslation' => !$this->arguments['hideUntranslated']
+            'includeRecordsWithoutDefaultTranslation' => !$arguments['hideUntranslated']
         ]);
         if (empty($records)) {
             return '';
@@ -86,7 +90,7 @@ class ReferenceViewHelper extends AbstractInlineContentViewHelper
         }
 
         // Render records
-        $renderedRecords = $this->getRenderedRecords($sortedRecords);
+        $renderedRecords = ReferenceViewHelper::getRenderedRecords($sortedRecords);
 
         $content = implode(LF, $renderedRecords);
         return $content;

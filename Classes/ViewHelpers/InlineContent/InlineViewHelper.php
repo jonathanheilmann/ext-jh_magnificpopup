@@ -9,6 +9,8 @@ namespace JonathanHeilmann\JhMagnificpopup\ViewHelpers\InlineContent;
  * LICENSE.md file that was distributed with this source code.
  */
 
+use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
+
 
 /**
  * ViewHelper used to render inline content elements in Fluid templates
@@ -33,23 +35,26 @@ class InlineViewHelper extends AbstractInlineContentViewHelper
     /**
      * Render method
      *
-     * @return mixed
+     * @param array $arguments
+     * @param \Closure $renderChildrenClosure
+     * @param RenderingContextInterface $renderingContext
+     * @return string
      */
-    public function render()
+    public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext)
     {
         if ('BE' === TYPO3_MODE) {
             return '';
         }
 
         // Get records
-        $records = $this->getRecords([
+        $records =InlineViewHelper::getRecords([
             'where' => 'tx_jhmagnificpopup_irre_parentid=' .
-                (isset($this->arguments['data']['_LOCALIZED_UID'])
-                    ? $this->arguments['data']['_LOCALIZED_UID']
-                    : $this->arguments['data']['uid']
+                (isset($arguments['data']['_LOCALIZED_UID'])
+                    ? $arguments['data']['_LOCALIZED_UID']
+                    : $arguments['data']['uid']
                 ),
             'pidInList' => 'this',
-            'includeRecordsWithoutDefaultTranslation' => !$this->arguments['hideUntranslated'],
+            'includeRecordsWithoutDefaultTranslation' => !$arguments['hideUntranslated'],
             'orderBy' => 'sorting'
         ]);
         if (empty($records)) {
@@ -57,7 +62,7 @@ class InlineViewHelper extends AbstractInlineContentViewHelper
         }
 
         // Render records
-        $renderedRecords = $this->getRenderedRecords($records);
+        $renderedRecords = InlineViewHelper::getRenderedRecords($records);
 
         $content = implode(LF, $renderedRecords);
         return $content;

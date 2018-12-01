@@ -8,6 +8,7 @@ namespace JonathanHeilmann\JhMagnificpopup\ViewHelpers\Format;
  * LICENSE.md file that was distributed with this source code.
  */
 
+use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
@@ -18,14 +19,34 @@ class UcfirstViewHelper extends AbstractViewHelper
 {
 
     /**
-     * @param string $string
+     * @return void
+     */
+    public function initializeArguments()
+    {
+        parent::initializeArguments();
+
+        $this->registerArgument(
+            'string',
+            'string',
+            ''
+        );
+    }
+
+    /**
+     * Render method
+     *
+     * @param array $arguments
+     * @param \Closure $renderChildrenClosure
+     * @param RenderingContextInterface $renderingContext
      * @return string
      */
-    public function render($string = null)
+    public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext)
     {
-        if ($string === null) $string = $this->renderChildren();
+        if ($arguments['string'] === null) {
+            $arguments['string'] = $renderChildrenClosure();
+        }
 
-        return ucfirst($string);
+        return ucfirst($arguments['string']);
     }
 
 }

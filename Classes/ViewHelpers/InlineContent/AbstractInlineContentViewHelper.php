@@ -10,7 +10,6 @@ namespace JonathanHeilmann\JhMagnificpopup\ViewHelpers\InlineContent;
  * LICENSE.md file that was distributed with this source code.
  */
 
-use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
@@ -23,26 +22,6 @@ abstract class AbstractInlineContentViewHelper extends AbstractViewHelper
      * @var boolean
      */
     protected $escapeOutput = false;
-
-    /**
-     * @var \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer
-     */
-    protected $contentObject;
-
-    /**
-     * @var \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface
-     */
-    protected $configurationManager;
-
-    /**
-     * @param \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface $configurationManager
-     * @return void
-     */
-    public function injectConfigurationManager(ConfigurationManagerInterface $configurationManager)
-    {
-        $this->configurationManager = $configurationManager;
-        $this->contentObject = $configurationManager->getContentObject();
-    }
 
     /**
      * Initialize
@@ -64,7 +43,7 @@ abstract class AbstractInlineContentViewHelper extends AbstractViewHelper
      * @param array $queryConfiguration
      * @return array[]
      */
-    protected function getRecords(array $queryConfiguration)
+    protected static function getRecords(array $queryConfiguration)
     {
         $records = $GLOBALS['TSFE']->cObj->getRecords('tt_content', $queryConfiguration);
         return $records;
@@ -77,7 +56,7 @@ abstract class AbstractInlineContentViewHelper extends AbstractViewHelper
      * @param array $rows database rows of records (each item is a tt_content table record)
      * @return array
      */
-    protected function getRenderedRecords(array $rows)
+    protected static function getRenderedRecords(array $rows)
     {
         if ($rows === null || count($rows) === 0) {
             return [];
