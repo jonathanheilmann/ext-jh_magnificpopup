@@ -102,8 +102,8 @@
 			<target>Inline Content</target>
 		</trans-unit>
 		<trans-unit id="pi_flexform.sheetOptions.content.procedure" approved="yes">
-			<source>Method</source>
-			<target>Methode</target>
+			<source>Method (only available in compatibility mode, otherwise forced to Inline)</source>
+			<target>Methode (nur im Kompatibilitäts-Modus verfügbar, andernfalls festgelegt auf Inline)</target>
 		</trans-unit>
 		<trans-unit id="pi_flexform.sheetOptions.content.procedure.ajax" approved="yes">
 			<source>Ajax</source>

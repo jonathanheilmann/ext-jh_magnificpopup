@@ -1,4 +1,6 @@
-# cat=plugin.tx_jhmagnificpopup/magnificpopup_general/061; type=boolean; label=Link image caption to Magnific Popup lightbox
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_general/005; type=boolean; label=Enable compatibility mode: Stay compatible to templates/partials from extension version 1.x
+plugin.tx_jhmagnificpopup.compatibilityMode = 0
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_general/061; type=boolean; label=Link image caption to Magnific Popup lightbox: Only available in compatibility mode
 plugin.tx_jhmagnificpopup.linkImagecaption = 0
 
 #customsubcategory=mfp_type_iframe=LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:constants.subcat.magnificpopup.type.iframe

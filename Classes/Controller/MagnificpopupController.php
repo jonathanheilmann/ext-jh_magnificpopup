@@ -76,19 +76,68 @@ class MagnificpopupController extends ActionController
     public function showAction()
     {
         // Assign multiple values
-        $viewAssign = array();
+        $viewAssign = ['compatibilityMode' => isset($this->settings['compatibilityMode']) ?: false];
         $this->cObj = $this->configurationManager->getContentObject();
         $this->data = $this->cObj->data;
 
         // Get localized record
-        $localizedRecord = $this->pageRepository->getRecordOverlay('tt_content', $this->data,
-            $GLOBALS['TSFE']->sys_language_uid, $GLOBALS['TSFE']->sys_language_mode);
+        $localizedRecord = $this->pageRepository->getRecordOverlay(
+            'tt_content',
+            $this->data,
+            $GLOBALS['TSFE']->sys_language_uid,
+            $GLOBALS['TSFE']->sys_language_mode
+        );
         if ($localizedRecord !== false && isset($localizedRecord['_LOCALIZED_UID'])) {
             $this->data = $localizedRecord;
         }
 
-        $viewAssign['uid'] = $this->data['uid'];
         $viewAssign['data'] = $this->data;
+
+        if ($viewAssign['compatibilityMode'] === false) {
+            $this->getSettingsFromFlexform($this->settings['contenttype']);
+            $viewAssign['settings'] = $this->settings;
+
+            if ($this->settings['linktype'] === 'file') {
+                /** @var FileRepository $fileRepository */
+                $fileRepository = $this->objectManager->get(FileRepository::class);
+                $files = $fileRepository->findByRelation(
+                    'tt_content',
+                    'mfp_image',
+                    isset($this->data['_LOCALIZED_UID']) ? $this->data['_LOCALIZED_UID'] : $this->data['uid']
+                );
+                $viewAssign['settings']['mfpOption']['file'] = isset($files[0]) ? $files[0] : null;
+            }
+        } else {
+            $viewAssign['uid'] = $this->data['uid'];
+            $viewAssign['type'] = $this->settings['contenttype'];
+            ArrayUtility::mergeRecursiveWithOverrule($viewAssign, $this->showCompatibilityModeAction());
+        }
+
+        // Signal for show action (may be used to modify the array assigned to fluid-template)
+        $this->signalSlotDispatcher->dispatch(
+            __CLASS__,
+            __FUNCTION__,
+            array(
+                'data' => $this->data,
+                'settings' => $this->settings,
+                'viewAssign' => &$viewAssign
+            )
+        );
+
+        // Assign array to fluid-template
+        $this->view->assignMultiple($viewAssign);
+    }
+
+    /**
+     * show action compatibility mode
+     *
+     * @return array
+     * @deprecated
+     */
+    private function showCompatibilityModeAction()
+    {
+        GeneralUtility::deprecationLog('Compatibility mode in EXT:jh_magnificpopup is activated. Please migrate before version 3.0.0');
+        $viewAssign = [];
 
         $viewAssign['contentTemplateExtension'] = 'custom';
         foreach (self::$supportedContentTemplateExtensions as $contentTemplateExtension) {
@@ -165,23 +214,12 @@ class MagnificpopupController extends ActionController
                     AbstractMessage::WARNING);
         }
 
-        // Signal for show action (may be used to modify the array assigned to fluid-template)
-        $this->signalSlotDispatcher->dispatch(
-            __CLASS__,
-            __FUNCTION__,
-            array(
-                'data' => $this->data,
-                'settings' => $this->settings,
-                'viewAssign' => &$viewAssign
-            )
-        );
-
-        // Assign array to fluid-template
-        $this->view->assignMultiple($viewAssign);
+        return $viewAssign;
     }
 
     /**
      * @return array
+     * @deprecated
      */
     protected function ajax()
     {
@@ -238,6 +276,7 @@ class MagnificpopupController extends ActionController
 
     /**
      * @return array
+     * @deprecated
      */
     protected function inline()
     {
@@ -262,6 +301,7 @@ class MagnificpopupController extends ActionController
 
     /**
      * @return array
+     * @deprecated
      */
     protected function iframe()
     {
@@ -288,6 +328,7 @@ class MagnificpopupController extends ActionController
      *
      * @param string $selectorClass
      * @return array
+     * @deprecated
      */
     protected function configureLink($selectorClass)
     {
@@ -316,6 +357,7 @@ class MagnificpopupController extends ActionController
      *
      * @param array $lConf
      * @return array
+     * @deprecated
      */
     protected function renderLinktypeFile($lConf)
     {

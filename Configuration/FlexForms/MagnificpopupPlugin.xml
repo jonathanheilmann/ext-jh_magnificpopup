@@ -16,12 +16,12 @@
 							<label>LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pi_flexform.sheetOptions.contenttype</label>
 							<onChange>reload</onChange>
 							<config>
-								<type>select</type>
+								<type>radio</type>
 								<items type="array">
-									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pi_flexform.sheetOptions.select</numIndex>
-										<numIndex index="1"></numIndex>
-									</numIndex>
+									<!--<numIndex index="0" type="array">-->
+										<!--<numIndex index="0">LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pi_flexform.sheetOptions.select</numIndex>-->
+										<!--<numIndex index="1"></numIndex>-->
+									<!--</numIndex>-->
 									<numIndex index="1" type="array">
 										<numIndex index="0">LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pi_flexform.sheetOptions.contenttype.iframe</numIndex>
 										<numIndex index="1">iframe</numIndex>
@@ -35,6 +35,7 @@
 										<numIndex index="1">reference</numIndex>
 									</numIndex>
 								</items>
+								<default>iframe</default>
 							</config>
 						</TCEforms>
 					</settings.contenttype>
@@ -44,7 +45,7 @@
 							<label>LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pi_flexform.sheetOptions.linktype</label>
 							<onChange>reload</onChange>
 							<config>
-								<type>select</type>
+								<type>radio</type>
 								<items type="array">
 									<numIndex index="0" type="array">
 										<numIndex index="0">LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pi_flexform.sheetOptions.linktype.text</numIndex>
@@ -55,6 +56,7 @@
 										<numIndex index="1">file</numIndex>
 									</numIndex>
 								</items>
+								<default>text</default>
 							</config>
 						</TCEforms>
 					</settings.linktype>
@@ -212,11 +214,12 @@
 					</settings.mfpOption.href>
 
 					<settings.content.procedure_inline>
+						<!--todo: mark as deprecated-->
 						<TCEforms>
 							<label>LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pi_flexform.sheetOptions.content.procedure</label>
 							<displayCond>FIELD:settings.contenttype:=:inline</displayCond>
 							<config>
-								<type>select</type>
+								<type>radio</type>
 								<items type="array">
 									<numIndex index="1" type="array">
 										<numIndex index="0">LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pi_flexform.sheetOptions.content.procedure.ajax</numIndex>
@@ -227,6 +230,7 @@
 										<numIndex index="1">inline</numIndex>
 									</numIndex>
 								</items>
+								<default>inline</default>
 							</config>
 						</TCEforms>
 					</settings.content.procedure_inline>
@@ -267,7 +271,7 @@
 							<label>LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pi_flexform.sheetOptions.content.procedure</label>
 							<displayCond>FIELD:settings.contenttype:=:reference</displayCond>
 							<config>
-								<type>select</type>
+								<type>radio</type>
 								<items type="array">
 									<numIndex index="1" type="array">
 										<numIndex index="0">LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pi_flexform.sheetOptions.content.procedure.ajax</numIndex>
@@ -278,6 +282,7 @@
 										<numIndex index="1">inline</numIndex>
 									</numIndex>
 								</items>
+								<default>inline</default>
 							</config>
 						</TCEforms>
 					</settings.content.procedure_reference>

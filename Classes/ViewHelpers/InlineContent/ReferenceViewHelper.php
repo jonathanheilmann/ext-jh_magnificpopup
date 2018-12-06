@@ -66,8 +66,8 @@ class ReferenceViewHelper extends AbstractInlineContentViewHelper
                     $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid, \PDO::PARAM_INT))
                 )
                 ->execute();
-            if ($statement->fetchColumn()) {
-                $contentPids[] = $statement->fetchColumn();
+            if ($pid = $statement->fetchColumn()) {
+                $contentPids[] = $pid;
             }
 
         }

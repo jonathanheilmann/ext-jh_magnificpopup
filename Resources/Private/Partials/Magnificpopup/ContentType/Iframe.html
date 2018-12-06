@@ -1,0 +1,16 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true" xmlns:jh="http://typo3.org/ns/JonathanHeilmann/JhMagnificpopup/ViewHelpers">
+
+<f:render partial="Magnificpopup/Iframe" arguments="{uid: data.uid, settings: settings}"/>
+
+<f:link.typolink parameter="{settings.mfpOption.href}" class="mfp-iframe-{data.uid}">
+<f:if condition="{settings.linktype} == 'file'">
+    <f:then>
+        <f:render partial="Magnificpopup/Media/Figure" arguments="{settings: settings}"/>
+    </f:then>
+    <f:else>
+        {settings.mfpOption.text}
+    </f:else>
+</f:if>
+</f:link.typolink>
+
+</html>

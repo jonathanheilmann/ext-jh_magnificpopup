@@ -4,33 +4,14 @@
 
 <f:section name="main">
 
-    <f:flashMessages />
-
-    <f:if condition="{type}">
-        <f:render partial="Magnificpopup/{type->jh:format.ucfirst()}" arguments="{uid: uid, settings: settings}"/>
-    </f:if>
-
-    <f:if condition="{settings.linktype} == 'file'">
+    <f:if condition="{compatibilityMode}">
         <f:then>
-            <f:render partial="Magnificpopup/ContentTemplates/File/{contentTemplateExtension->jh:format.underscoredToUpperCamelCase()}" arguments="{_all}"/>
+            <f:render partial="Magnificpopup/ShowCompatibilityMode" arguments="{_all}" />
         </f:then>
         <f:else>
-            {tsLink->f:format.raw()}
+            <f:render partial="Magnificpopup/ContentType/{settings.contenttype->jh:format.ucfirst()}" arguments="{_all}"/>
         </f:else>
     </f:if>
-
-    <f:switch expression="{settings.contenttype}">
-        <f:case value="reference">
-            <div id="mfp-inline-{data.uid}" class="white-popup-block mfp-hide">
-                <jh:inlineContent.reference contentUids="{settings.content.reference}" />
-            </div>
-        </f:case>
-        <f:case value="inline">
-            <div id="mfp-inline-{data.uid}" class="white-popup-block mfp-hide">
-                <jh:inlineContent.inline data="{data}" />
-            </div>
-        </f:case>
-    </f:switch>
 
 </f:section>
 

@@ -1,0 +1,17 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true" xmlns:jh="http://typo3.org/ns/JonathanHeilmann/JhMagnificpopup/ViewHelpers">
+
+<!--todo: add bootstrap's css classes to extension-->
+<figure class="figure" style="width: 100%;">
+    <f:image image="{settings.mfpOption.file}"
+             maxHeight="{settings.mfpOption.file_height}"
+             maxWidth="{settings.mfpOption.file_width}"
+             class="figure-img img-fluid{f:if(condition:'{settings.mfpOption.file_orient} == 2', then:' float-left')}{f:if(condition:'{settings.mfpOption.file_orient} == 1', then:' float-right')}" />
+    <f:if condition="{settings.mfpOption.file.description}">
+        <figcaption class="figure-caption{f:if(condition:'{settings.mfpOption.file_orient} == 2', then:' text-left')}{f:if(condition:'{settings.mfpOption.file_orient} == 0', then:' text-center')}{f:if(condition:'{settings.mfpOption.file_orient} == 1', then:' text-right')}"
+                    style="clear: both;">
+            {settings.mfpOption.file.description}
+        </figcaption>
+    </f:if>
+</figure>
+
+</html>
