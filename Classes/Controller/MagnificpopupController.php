@@ -76,7 +76,7 @@ class MagnificpopupController extends ActionController
     public function showAction()
     {
         // Assign multiple values
-        $viewAssign = ['compatibilityMode' => isset($this->settings['compatibilityMode']) ?: false];
+        $viewAssign = [];
         $this->cObj = $this->configurationManager->getContentObject();
         $this->data = $this->cObj->data;
 
@@ -93,7 +93,7 @@ class MagnificpopupController extends ActionController
 
         $viewAssign['data'] = $this->data;
 
-        if ($viewAssign['compatibilityMode'] === false) {
+        if (!$this->settings['compatibilityMode']) {
             $this->getSettingsFromFlexform($this->settings['contenttype']);
             $viewAssign['settings'] = $this->settings;
 
