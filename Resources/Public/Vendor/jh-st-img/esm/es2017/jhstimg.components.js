@@ -1,0 +1,2 @@
+// jhstimg: Host Data, ES Module/es2017 Target
+export const JhStImg = ["jh-st-img","ieq1dc7g",1,[["_sources",16],["alt",1,0,1,2],["el",64],["imgClass",1,0,"img-class",2],["sources",1,0,1,1],["src",1,0,1,2]],0,[["document:scroll","documentScrollHandler",0,1],["window:resize","windowResizeHandler",0,1],["window:orientationchange","windowRrientationchangeHandler"]]];

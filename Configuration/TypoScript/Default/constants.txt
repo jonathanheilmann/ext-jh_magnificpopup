@@ -17,7 +17,7 @@ plugin.tx_jhmagnificpopup.includeMagnificpopupJs = EXT:jh_magnificpopup/Resource
 plugin.tx_jhmagnificpopup.includeFilterIsImageFileJs = EXT:jh_magnificpopup/Resources/Public/js/jquery.filter-isImageFile.min.js
 # cat=plugin.tx_jhmagnificpopup/magnificpopup_general/030; type=string; label= Magnific Popup css:Path to Magnific Popup css (empty to include no css)
 plugin.tx_jhmagnificpopup.includeMagnificpopupCss = EXT:jh_magnificpopup/Resources/Public/css/magnific-popup.css
-# cat=plugin.tx_jhmagnificpopup/magnificpopup_general/070; type=boolean; label=Enable alpha features of extension
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_general/100; type=boolean; label=Enable alpha features of extension
 plugin.tx_jhmagnificpopup.enableAlphaFeatures = 0
 
 

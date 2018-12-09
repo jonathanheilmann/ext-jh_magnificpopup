@@ -1,0 +1,30 @@
+import '../../stencil.core';
+import { JhStImgSource } from './jh-st-img-types';
+export declare class JhStImg {
+    el: HTMLElement;
+    alt: string;
+    imgClass: string;
+    src: string;
+    sources: any;
+    _sources: JhStImgSource[];
+    io: IntersectionObserver;
+    _hasIntersectionObserver: boolean;
+    _hasPictureElementSupport: boolean;
+    _isFallbackImageLoaded: boolean;
+    _isHandleImageFallback: boolean;
+    _isUnsupportedPictureElementImageLoaded: boolean;
+    srcWatchHandler(): void;
+    sourcesWatchHandler(newSources: any): void;
+    documentScrollHandler(): void;
+    windowResizeHandler(): void;
+    windowRrientationchangeHandler(): void;
+    componentWillLoad(): void;
+    componentDidLoad(): void;
+    componentDidUnload(): void;
+    addIntersectionObserver(): void;
+    handleUnsupportedPictureElement(): void;
+    fallback(): void;
+    updateSources(sources: any, forceUpdate?: boolean): void;
+    removeIntersectionObserver(): void;
+    render(): JSX.Element;
+}

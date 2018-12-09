@@ -1,0 +1,78 @@
+{
+  "components": [
+    {
+      "tag": "jh-st-img",
+      "dependencies": [],
+      "componentClass": "JhStImg",
+      "componentPath": "components/jh-st-img/js-st-img.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/jh-st-img/jh-st-img.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "alt",
+          "type": "String",
+          "attr": "alt"
+        },
+        {
+          "name": "imgClass",
+          "type": "String",
+          "attr": "img-class"
+        },
+        {
+          "name": "sources",
+          "type": "Any",
+          "attr": "sources",
+          "watch": [
+            "sourcesWatchHandler"
+          ]
+        },
+        {
+          "name": "src",
+          "type": "String",
+          "attr": "src",
+          "watch": [
+            "srcWatchHandler"
+          ]
+        }
+      ],
+      "states": [
+        {
+          "name": "_sources"
+        }
+      ],
+      "listeners": [
+        {
+          "event": "document:scroll",
+          "method": "documentScrollHandler",
+          "capture": false
+        },
+        {
+          "event": "window:orientationchange",
+          "method": "windowRrientationchangeHandler",
+          "passive": false,
+          "capture": false
+        },
+        {
+          "event": "window:resize",
+          "method": "windowResizeHandler",
+          "capture": false
+        }
+      ],
+      "hostElement": {
+        "name": "el"
+      }
+    }
+  ],
+  "collections": [],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "0.15.2",
+    "typescriptVersion": "2.9.2"
+  },
+  "bundles": []
+}

@@ -8,6 +8,8 @@ page.includeJSFooterlibs {
 
 plugin.tx_jhmagnificpopup.settings {
     compatibilityMode = {$plugin.tx_jhmagnificpopup.compatibilityMode}
+    commonCss = {$plugin.tx_jhmagnificpopup.commonCss}
+    jhStImg = {$plugin.tx_jhmagnificpopup.jhStImg}
     linkImagecaption = {$plugin.tx_jhmagnificpopup.linkImagecaption}
     type {
         // Set default settings for Magnific Popup type iframe

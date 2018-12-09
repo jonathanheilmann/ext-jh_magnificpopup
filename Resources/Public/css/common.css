@@ -1,0 +1,56 @@
+.float-left {
+    float: left !important;
+}
+
+.float-right {
+    float: right !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.tx-jhmagnificpopup-pi1 figure,
+.tx-jhmagnificpopup-pi1 figure * {
+    box-sizing: border-box;
+}
+
+.figure {
+    display: inline-block;
+}
+
+figure {
+    display: block;
+    margin: 0 0 1rem 0;
+    line-height: 1.5;
+}
+
+.figure-img {
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+figure img,
+figure picture {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+figcaption {
+    display: block;
+}

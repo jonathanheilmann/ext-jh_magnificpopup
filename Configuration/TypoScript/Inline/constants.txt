@@ -1,6 +1,10 @@
 # cat=plugin.tx_jhmagnificpopup/magnificpopup_general/005; type=boolean; label=Enable compatibility mode: Stay compatible to templates/partials from extension version 1.x
 plugin.tx_jhmagnificpopup.compatibilityMode = 0
-# cat=plugin.tx_jhmagnificpopup/magnificpopup_general/061; type=boolean; label=Link image caption to Magnific Popup lightbox: Only available in compatibility mode
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_general/040; type=string; label= common css:Path to common css (empty to include no css)
+plugin.tx_jhmagnificpopup.commonCss = EXT:jh_magnificpopup/Resources/Public/css/common.css
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_general/050; type=string; label= jh-st-img:Path to jh-st-img
+plugin.tx_jhmagnificpopup.jhStImg = EXT:jh_magnificpopup/Resources/Public/Vendor/jh-st-img/jhstimg.js
+# cat=plugin.tx_jhmagnificpopup/magnificpopup_general/090; type=boolean; label=Link image caption to Magnific Popup lightbox: Only available in compatibility mode
 plugin.tx_jhmagnificpopup.linkImagecaption = 0
 
 #customsubcategory=mfp_type_iframe=LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:constants.subcat.magnificpopup.type.iframe

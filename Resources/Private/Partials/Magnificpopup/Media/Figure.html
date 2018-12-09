@@ -1,11 +1,18 @@
 <html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true" xmlns:jh="http://typo3.org/ns/JonathanHeilmann/JhMagnificpopup/ViewHelpers">
 
-<!--todo: add bootstrap's css classes to extension-->
+<f:if condition="{settings.commonCss}">
+    <jh:pageRenderer.addCssFile file="{settings.commonCss}" />
+</f:if>
+<f:if condition="{settings.jhStImg}">
+    <jh:pageRenderer.addJsFile compress="false" excludeFromConcatenation="true" file="{settings.jhStImg}"></jh:pageRenderer.addJsFile>
+</f:if>
+
 <figure class="figure" style="width: 100%;">
-    <f:image image="{settings.mfpOption.file}"
-             maxHeight="{settings.mfpOption.file_height}"
-             maxWidth="{settings.mfpOption.file_width}"
-             class="figure-img img-fluid{f:if(condition:'{settings.mfpOption.file_orient} == 2', then:' float-left')}{f:if(condition:'{settings.mfpOption.file_orient} == 1', then:' float-right')}" />
+    <jh-st-img src="{f:uri.image(image: settings.mfpOption.file, maxHeight: settings.mfpOption.file_height, maxWidth: settings.mfpOption.file_width)}"
+               alt="{settings.mfpOption.file.alternative}"
+               title="{settings.mfpOption.file.title}"
+               img-class="figure-img img-fluid{f:if(condition:'{settings.mfpOption.file_orient} == 2', then:' float-left')}{f:if(condition:'{settings.mfpOption.file_orient} == 1', then:' float-right')}">
+    </jh-st-img>
     <f:if condition="{settings.mfpOption.file.description}">
         <figcaption class="figure-caption{f:if(condition:'{settings.mfpOption.file_orient} == 2', then:' text-left')}{f:if(condition:'{settings.mfpOption.file_orient} == 0', then:' text-center')}{f:if(condition:'{settings.mfpOption.file_orient} == 1', then:' text-right')}"
                     style="clear: both;">

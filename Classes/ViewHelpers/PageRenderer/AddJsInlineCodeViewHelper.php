@@ -1,11 +1,6 @@
 <?php
 namespace JonathanHeilmann\JhMagnificpopup\ViewHelpers\PageRenderer;
 
-use TYPO3\CMS\Core\Page\PageRenderer;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
-use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
-
 /*
  * This file is part of the JonathanHeilmann\JhMagnificpopup extension under GPLv2 or later.
  *
@@ -17,20 +12,8 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
  * Class AddJsInlineCodeViewHelper
  * @package JonathanHeilmann\JhMagnificpopup\ViewHelpers\PageRenderer
  */
-class AddJsInlineCodeViewHelper extends AbstractViewHelper
+class AddJsInlineCodeViewHelper extends AbstractPageRenderViewHelper
 {
-
-    /** @var ObjectManager */
-    protected $objectManager;
-
-    /** @var PageRenderer */
-    protected $pageRenderer;
-
-    public function initialize()
-    {
-        $this->objectManager = GeneralUtility::makeInstance(ObjectManager::class);
-        $this->pageRenderer = $this->objectManager->get(PageRenderer::class);
-    }
 
     public function initializeArguments()
     {
