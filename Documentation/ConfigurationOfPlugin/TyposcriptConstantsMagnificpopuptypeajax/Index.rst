@@ -4,6 +4,8 @@
 TypoScript Constants – magnificpopup.type.ajax
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Type ajax is deprecated and will be removed in EXT:jh_magnificpopup version 3.0.0.
+
 This constants-array is used for Display type “Content-Reference” and
 “Inline-Content” with Method “ajax”. Some important constants may be
 overwritten inside the plugin-setup by flexform-settings.

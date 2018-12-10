@@ -16,6 +16,12 @@ ChangeLog
          Changes
 
  - :Version:
+         2.0.0
+
+   :Changes:
+        \* [TASK]          #62   Support TYPO3 9 LTS
+
+ - :Version:
          1.1.0
 
    :Changes:

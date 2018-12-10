@@ -4,7 +4,9 @@
 Ajax Hook
 ^^^^^^^^^
 
-(Available since version 0.3.0)
+Available since version 0.3.0
+
+Ajax hooks are deprecated and will be removed in EXT:jh_magnificpopup version 3.0.0.
 
 Use this hook if you want to add your own type to be opend as ajax lightbox.
 

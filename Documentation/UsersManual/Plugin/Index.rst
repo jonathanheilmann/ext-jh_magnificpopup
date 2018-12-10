@@ -31,14 +31,14 @@ Select "Display type" (Link, Inline-Content or Content-Reference) and "Link type
 
    :Description:
          | Available if Link type is "Text":
-         | The text that is displayed to the user
+         | The text displayed to the user
 
  - :Field:
          Link image
 
    :Description:
          | Available if Link type is "Image":
-         | The image that is displayed to the user
+         | The image displayed to the user
 
  - :Field:
          Link target
@@ -46,7 +46,7 @@ Select "Display type" (Link, Inline-Content or Content-Reference) and "Link type
    :Description:
          The Link target ( `http://www.you-domain.tld <http://www.you-
          domain.tld/>`_ ). This could be a website, a youtube-movie or
-         everything else.
+         anything else.
 
 
 .. ###### END~OF~TABLE ######
@@ -69,20 +69,20 @@ Select "Display type" (Link, Inline-Content or Content-Reference) and "Link type
 
    :Description:
          | Available if Link type is "Text":
-         | The text that is displayed to the user
+         | The text displayed to the user
 
  - :Field:
          Link image
 
    :Description:
          | Available if Link type is "Image":
-         | The image that is displayed to the user
+         | The image displayed to the user
 
  - :Field:
          Method
 
    :Description:
-         Select the way the content is loaded.Inline renders the content when
+         Select the way the content is loaded. Inline renders the content when
          opening the page with the link, ajax loads the content when the user
          opens the link.
 
@@ -113,14 +113,14 @@ Select "Display type" (Link, Inline-Content or Content-Reference) and "Link type
 
    :Description:
          | Available if Link type is "Text":
-         | The text that is displayed to the user
+         | The text displayed to the user
 
  - :Field:
          Link image
 
    :Description:
          | Available if Link type is "Image":
-         | The image that is displayed to the user
+         | The image displayed to the user
 
  - :Field:
          Method

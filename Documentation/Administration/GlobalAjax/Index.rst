@@ -6,6 +6,8 @@ Global Ajax
 
 Available since version 0.3.0:
 
+Global ajax is deprecated and will be removed in EXT:jh_magnificpopup version 3.0.0.
+
 With the global ajax option enabled (plugin.tx_jhmagnificpopup.type.ajax.enableglobal) and eID for method ajax enabled (plugin.tx_jhmagnificpopup.useEidForAjaxMethod), it's possible to open every content-link in a Magnific Popup lightbox.
 
 To enable the lightbox for a content-link add class "mfp-ajax-link".

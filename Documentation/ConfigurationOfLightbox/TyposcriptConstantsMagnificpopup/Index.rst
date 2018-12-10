@@ -115,10 +115,9 @@ TypoScript Constants – magnificpopup
 .. container:: table-row
 
    Property
-         support
+         image
 
    Data type
-         arpe
          array
 
    Description
