@@ -214,7 +214,6 @@
 					</settings.mfpOption.href>
 
 					<settings.content.procedure_inline>
-						<!--todo: mark as deprecated-->
 						<TCEforms>
 							<label>LLL:EXT:jh_magnificpopup/Resources/Private/Language/locallang.xlf:pi_flexform.sheetOptions.content.procedure</label>
 							<displayCond>FIELD:settings.contenttype:=:inline</displayCond>
