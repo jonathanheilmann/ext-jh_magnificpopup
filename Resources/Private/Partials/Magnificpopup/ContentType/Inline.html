@@ -1,8 +1,27 @@
 <html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true" xmlns:jh="http://typo3.org/ns/JonathanHeilmann/JhMagnificpopup/ViewHelpers">
 
-<f:render partial="Magnificpopup/Inline" arguments="{uid: data.uid, settings: settings}"/>
+<f:if condition="{settings.content.procedure_inline} == 'ajax'">
+    <f:then>
+        <f:render partial="Magnificpopup/Ajax" arguments="{uid: data.uid, settings: settings}"/>
 
-<f:link.page class="mfp-inline-{data.uid}" additionalAttributes="{data-mfp-src:'#mfp-inline-{data.uid}'}">
+        <f:link.page class="mfp-ajax-{data.uid}" pageType="109" additionalParams="{jh_magnificpopup: {type: 'inline', irre_parrentid: data.uid}}">
+            <f:render section="linkContent" arguments="{settings: settings}" />
+        </f:link.page>
+    </f:then>
+    <f:else>
+        <f:render partial="Magnificpopup/Inline" arguments="{uid: data.uid, settings: settings}"/>
+
+        <f:link.page class="mfp-inline-{data.uid}" additionalAttributes="{data-mfp-src:'#mfp-inline-{data.uid}'}">
+            <f:render section="linkContent" arguments="{settings: settings}" />
+        </f:link.page>
+
+        <div id="mfp-inline-{data.uid}" class="white-popup-block mfp-hide">
+            <jh:inlineContent.inline data="{data}" />
+        </div>
+    </f:else>
+</f:if>
+
+<f:section name="linkContent">
     <f:if condition="{settings.linktype} == 'file'">
         <f:then>
             <f:render partial="Magnificpopup/Media/Figure" arguments="{settings: settings}"/>
@@ -11,10 +30,6 @@
             {settings.mfpOption.text}
         </f:else>
     </f:if>
-</f:link.page>
-
-<div id="mfp-inline-{data.uid}" class="white-popup-block mfp-hide">
-    <jh:inlineContent.inline data="{data}" />
-</div>
+</f:section>
 
 </html>

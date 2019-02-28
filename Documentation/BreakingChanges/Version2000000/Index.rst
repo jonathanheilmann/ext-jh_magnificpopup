@@ -26,8 +26,3 @@ eID
 Usage of eID (ajax hooks) is marked as deprecated and will be removed in EXT:jh_magnificpopup version 3.0.0 as usage is
 not as simple and popular as expected.
 If you still require support, please contact me.
-
-type ajax
-"""""""""
-Connected to deprecation of eID, type ajax is marked as deprecated, too. In default mode, the plugin falls back to type
-inline, within compatibility mode, type ajax is available and the extension uses the deprecated classes.
